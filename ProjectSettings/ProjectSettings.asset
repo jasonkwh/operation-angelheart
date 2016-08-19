@@ -10,7 +10,7 @@ PlayerSettings:
   targetDevice: 0
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: jasonkwh
   productName: operation-angelheart
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -93,7 +93,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.Company.ProductName
+  bundleIdentifier: com.jasonkwh.angelheart
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -108,7 +108,7 @@ PlayerSettings:
   stripEngineCode: 1
   iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 0
-  iPhoneBuildNumber: 1
+  iPhoneBuildNumber: 3
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
