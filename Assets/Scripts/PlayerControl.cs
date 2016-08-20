@@ -11,10 +11,11 @@ public class PlayerControl : MonoBehaviour {
 	private float gestureDist = 0.0f;
 	private Vector2 fingerStartPos = Vector2.zero;
 	public float speed;
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+		print (PlayerPrefs.GetInt ("SCORE")); //console debug score println
+
 		//touch control
 		if (Input.touchCount > 0) {
 			foreach (Touch touch in Input.touches) {
