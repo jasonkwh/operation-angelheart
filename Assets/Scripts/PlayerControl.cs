@@ -11,6 +11,9 @@ public class PlayerControl : MonoBehaviour {
 	private float gestureDist = 0.0f;
 	private Vector2 fingerStartPos = Vector2.zero;
 	public float speed;
+	public GameObject trails;
+	public GameObject pots;
+	public float trailsWaitTime;
 
 	// Update is called once per frame
 	void Update () {
@@ -18,6 +21,7 @@ public class PlayerControl : MonoBehaviour {
 
 		//touch control
 		if (Input.touchCount > 0) {
+			StartCoroutine (GenerateTrails (trailsWaitTime));
 			foreach (Touch touch in Input.touches) {
 				switch (touch.phase) {
 				case TouchPhase.Began:
@@ -89,6 +93,8 @@ public class PlayerControl : MonoBehaviour {
 
 		//keyboard control
 		else if (Input.touchCount == 0) {
+			StopCoroutine (GenerateTrails (trailsWaitTime));
+
 			if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
 				moveUp();
 			}
@@ -119,5 +125,10 @@ public class PlayerControl : MonoBehaviour {
 
 	void moveLeft() {
 		transform.position += Vector3.left * Time.deltaTime * speed;
+	}
+
+	IEnumerator GenerateTrails(float waitDelays) {
+		yield return new WaitForSeconds (waitDelays);
+		Instantiate (trails, new Vector3(pots.transform.position.x, 0.016f, pots.transform.position.z), pots.transform.rotation);
 	}
 }
