@@ -21,9 +21,6 @@ public class Player : MonoBehaviour {
 	private float gestureDist = 0.0f;
 	private Vector2 fingerStartPos = Vector2.zero;
 
-	//smoke
-	public GameObject smoke;
-
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();

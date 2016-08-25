@@ -622,9 +622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a842f15bb01f6e4eab4bd8381479fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 8
   speedUpDown: 1.5
-  smoke: {fileID: 0}
 --- !u!1001 &1228183737
 Prefab:
   m_ObjectHideFlags: 0
@@ -775,7 +774,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   speedUpDown: 0
-  smoke: {fileID: 0}
 --- !u!1 &2005193041
 GameObject:
   m_ObjectHideFlags: 0
