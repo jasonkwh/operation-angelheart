@@ -1,8 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerControl : MonoBehaviour {
+public class Player : MonoBehaviour {
 
+    private Animator anim;
+    private Animation ani;
+    private CharacterController controller;
+    public float speed;
+	public float speedUpDown;
+    //public float turnSpeed = 60.0f;
+    //private Vector3 moveDirection = Vector3.zero;
+    //public float gravity = 20.0f;
+
+	//variables for touch
 	private bool directionUp = false;
 	private bool directionRight = false;
 	private bool directionDown = false;
@@ -10,15 +20,19 @@ public class PlayerControl : MonoBehaviour {
 	private float minSwipeDist  = 10.0f;
 	private float gestureDist = 0.0f;
 	private Vector2 fingerStartPos = Vector2.zero;
-	public float speed;
-	//public GameObject trails;
-	//public GameObject pots;
-	//public float trailsWaitTime;
+
+	//smoke
 	public GameObject smoke;
 
+    void Start () {
+        anim = gameObject.GetComponentInChildren<Animator>();
+        controller = GetComponent<CharacterController>();
+        ani["potWalk"].speed = 2.0f;
+    }
+	
 	// Update is called once per frame
 	void Update () {
-		print (PlayerPrefs.GetInt ("SCORE")); //console debug score println
+		Debug.Log("FPS: " + 1/Time.deltaTime);
 
 		//touch control
 		if (Input.touchCount > 0) {
@@ -32,11 +46,11 @@ public class PlayerControl : MonoBehaviour {
 					directionLeft = false;
 					fingerStartPos = touch.position;
 					break;
-				
+
 				case TouchPhase.Moved:
 					gestureDist = (touch.position - fingerStartPos).magnitude;
 
-				//if (isSwipe && gestureTime < maxSwipeTime && gestureDist > minSwipeDist) {
+					//if (isSwipe && gestureTime < maxSwipeTime && gestureDist > minSwipeDist) {
 					Vector2 direction = touch.position - fingerStartPos;
 					Vector2 swipeType = Vector2.zero;
 
@@ -67,7 +81,7 @@ public class PlayerControl : MonoBehaviour {
 							directionDown = true;
 						}
 					}
-				//}
+					//}
 					break;
 
 				case TouchPhase.Stationary:
@@ -95,6 +109,7 @@ public class PlayerControl : MonoBehaviour {
 		//keyboard control
 		else if (Input.touchCount == 0) {
 			//StopCoroutine (GenerateTrails (trailsWaitTime));
+			anim.SetInteger("AnimPar", 0); //stable
 
 			if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
 				moveUp();
@@ -110,30 +125,47 @@ public class PlayerControl : MonoBehaviour {
 				moveRight();
 			}
 		}
+
+        /*if (Input.GetKey("up"))
+        {
+            anim.SetInteger("AnimPar", 1); //moving
+        }
+        else
+        {
+            anim.SetInteger("AnimPar", 0); //stable
+        }
+        if (controller.isGrounded)
+        {
+            moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
+        }
+
+        float turn = Input.GetAxis("Horizontal");
+        transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
+        controller.Move(moveDirection * Time.deltaTime);
+        moveDirection.y -= gravity * Time.deltaTime;*/
 	}
 
 	void moveUp() {
-		transform.position += Vector3.forward * Time.deltaTime * speed;
-		smoke.transform.Rotate (0,0,0);
+		anim.SetInteger("AnimPar", 1); //moving
+		controller.transform.position += (Vector3.forward * Time.deltaTime * speed) * speedUpDown;
+		//smoke.transform.Rotate (0,0,0);
 	}
 
 	void moveDown() {
-		transform.position += Vector3.back * Time.deltaTime * speed;
-		smoke.transform.Rotate (180,0,0);
+		anim.SetInteger("AnimPar", 1); //moving
+		controller.transform.position += (Vector3.back * Time.deltaTime * speed) * speedUpDown;
+		//smoke.transform.Rotate (180,0,0);
 	}
 
 	void moveRight() {
-		transform.position += Vector3.right * Time.deltaTime * speed;
-		smoke.transform.Rotate (0,90,0);
+		anim.SetInteger("AnimPar", 1); //moving
+		controller.transform.position += Vector3.right * Time.deltaTime * speed;
+		//smoke.transform.Rotate (0,90,0);
 	}
 
 	void moveLeft() {
-		transform.position += Vector3.left * Time.deltaTime * speed;
-		smoke.transform.Rotate (Vector3.left * Time.deltaTime);
+		anim.SetInteger("AnimPar", 1); //moving
+		controller.transform.position += Vector3.left * Time.deltaTime * speed;
+		//smoke.transform.Rotate (Vector3.left * Time.deltaTime);
 	}
-
-	/*IEnumerator GenerateTrails(float waitDelays) {
-		yield return new WaitForSeconds (waitDelays);
-		Instantiate (trails, new Vector3(pots.transform.position.x, 0.016f, pots.transform.position.z), pots.transform.rotation);
-	}*/
 }
