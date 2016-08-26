@@ -26,6 +26,7 @@ public class InstantSpider : MonoBehaviour {
 
 	//Limits
 	public int limits;
+	private int currentSpiderNum = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -37,7 +38,7 @@ public class InstantSpider : MonoBehaviour {
 	void FixedUpdate () {
 		time += Time.deltaTime;
 
-		if (time >= randomTime) {
+		if ((time >= randomTime) && (currentSpiderNum < limits)) {
 			spawnSpiders ();
 			setRandomTime ();
 		}
@@ -55,6 +56,7 @@ public class InstantSpider : MonoBehaviour {
 		randomPositionX = setRandomPosition (minPositionX, maxPositionX);
 		randomPositionZ = setRandomPosition (minPositionZ, maxPositionZ);
 		Instantiate (spiderPrefab, new Vector3(randomPositionX,fixedPositionY,randomPositionZ), spiderPrefab.transform.rotation);
+		currentSpiderNum++;
 	}
 
 	void setRandomTime() {

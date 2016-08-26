@@ -660,12 +660,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a842f15bb01f6e4eab4bd8381479fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 12
   speedUpDown: 1.5
   ate: 0
   smoke: {fileID: 665481}
   water: {fileID: 1783294023}
-  waterLevelSpeed: 0.5
+  waterLevelSpeed: 0.8
 --- !u!114 &1073869095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2935b2d93f8d426f9dd20f986b5e01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spiderPrefab: {fileID: 1000011263866944, guid: 16053bef2bf7a4843878d5cd649a5462,
+  spiderPrefab: {fileID: 1000010029885292, guid: 16053bef2bf7a4843878d5cd649a5462,
     type: 2}
   minTime: 2
   maxTime: 7
@@ -686,7 +686,7 @@ MonoBehaviour:
   maxRangePositionZ: 10.8
   minRangePositionZ: 18.85
   rangePositionX: 27
-  limits: 0
+  limits: 30
 --- !u!54 &1073869096
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -982,27 +982,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!1 &1869164007 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100012, guid: 502161e39c3050d4f9f7bd0efd605dae, type: 3}
-  m_PrefabInternal: {fileID: 1228183737}
---- !u!114 &1869164009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1869164007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a842f15bb01f6e4eab4bd8381479fcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  speedUpDown: 0
-  ate: 0
-  smoke: {fileID: 0}
-  water: {fileID: 0}
-  waterLevelSpeed: 0
 --- !u!1001 &1988634072
 Prefab:
   m_ObjectHideFlags: 0
