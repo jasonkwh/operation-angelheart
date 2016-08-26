@@ -1,8 +1,12 @@
 Potv2 animations
 Idle: 0 - 50 
 Walk cycle: 94 - 354
+knocked over: 526 - 667
+Picking up: 409 - 469
+
 
 Duck animations
 Idle: 4 - 263
 Walk cycle: 177 - 263
 Roar: 338 - 597
+Run: (724} 737 - 786
