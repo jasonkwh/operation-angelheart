@@ -29,18 +29,7 @@ public class InstantSpider : MonoBehaviour {
 	void Start () {
 		setRandomTime ();
 		time = minTime;
-		minPositionX = pot.transform.position.x - rangePositionX;
-		maxPositionX = pot.transform.position.x + rangePositionX;
-		randomPositionX = setRandomPosition (minPositionX, maxPositionZ);
-		minPositionZ = pot.transform.position.z - minRangePositionZ;
-		maxPositionZ = pot.transform.position.z + maxRangePositionZ;
-		randomPositionZ = setRandomPosition (minPositionZ, maxPositionZ);
 	}
-
-	/*void Update() {
-		//print (pot.transform.position.x);
-		//print (pot.transform.position.z);
-	}*/
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -49,15 +38,20 @@ public class InstantSpider : MonoBehaviour {
 		if (time >= randomTime) {
 			spawnSpiders ();
 			setRandomTime ();
-			randomPositionX = setRandomPosition (minPositionX, maxPositionX);
-			randomPositionZ = setRandomPosition (minPositionZ, maxPositionZ);
 		}
-
+		//print (pot.transform.position.x);
+		//print (pot.transform.position.z);
 		//Debug.Log (time);
 	}
 
 	void spawnSpiders() {
 		time = 0;
+		minPositionX = pot.transform.position.x - rangePositionX;
+		maxPositionX = pot.transform.position.x + rangePositionX;
+		minPositionZ = pot.transform.position.z - minRangePositionZ;
+		maxPositionZ = pot.transform.position.z + maxRangePositionZ;
+		randomPositionX = setRandomPosition (minPositionX, maxPositionX);
+		randomPositionZ = setRandomPosition (minPositionZ, maxPositionZ);
 		Instantiate (spiderPrefab, new Vector3(randomPositionX,fixedPositionY,randomPositionZ), spiderPrefab.transform.rotation);
 	}
 
@@ -67,7 +61,8 @@ public class InstantSpider : MonoBehaviour {
 
 	float setRandomPosition(float min, float max) {
 		float randomNum = 0f;
-		randomNum = Random.Range (minPositionZ, maxPositionZ);
+		randomNum = Random.Range (min, max);
+		print (randomNum);
 		return randomNum;
 	}
 }
