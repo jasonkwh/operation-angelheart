@@ -11,8 +11,12 @@ public class Player : MonoBehaviour {
     //public float turnSpeed = 60.0f;
     //private Vector3 moveDirection = Vector3.zero;
     //public float gravity = 20.0f;
+
+	//variables for player ate any food...
 	public bool ate = false;
 	public GameObject smoke;
+	public GameObject water;
+	public float waterLevelSpeed;
 
 	//variables for touch
 	private bool directionUp = false;
@@ -35,6 +39,9 @@ public class Player : MonoBehaviour {
 		//Debug.Log("FPS: " + 1/Time.deltaTime);
 
 		smoke.SetActive (ate);
+		if ((ate == true) && (water.transform.position.y <= 1.98)) {
+			water.transform.position += Vector3.up * Time.deltaTime * waterLevelSpeed;
+		}
 
 		//touch control
 		if (Input.touchCount > 0) {
