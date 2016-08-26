@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log("FPS: " + 1/Time.deltaTime);
+		//Debug.Log("FPS: " + 1/Time.deltaTime);
 
 		//touch control
 		if (Input.touchCount > 0) {
