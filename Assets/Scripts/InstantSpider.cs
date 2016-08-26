@@ -24,6 +24,8 @@ public class InstantSpider : MonoBehaviour {
 	private float maxPositionX;
 	private float randomPositionX;
 
+	//Limits
+	public int limits;
 
 	// Use this for initialization
 	void Start () {

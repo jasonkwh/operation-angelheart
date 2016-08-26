@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     //public float turnSpeed = 60.0f;
     //private Vector3 moveDirection = Vector3.zero;
     //public float gravity = 20.0f;
+	public bool ate = false;
+	public GameObject smoke;
 
 	//variables for touch
 	private bool directionUp = false;
@@ -29,7 +31,10 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Frame rate Per Second
 		//Debug.Log("FPS: " + 1/Time.deltaTime);
+
+		smoke.SetActive (ate);
 
 		//touch control
 		if (Input.touchCount > 0) {
