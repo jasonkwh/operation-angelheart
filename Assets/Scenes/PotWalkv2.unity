@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  speedUpDown: 1.5
+  speedUpDown: 1
   ate: 0
   smoke: {fileID: 665481}
   water: {fileID: 1783294023}
