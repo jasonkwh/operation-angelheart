@@ -108,3 +108,6 @@ MonoBehaviour:
   gap: 0.6
   stay: 1.2
   end: 2.4
+  stay2: 0.4
+  moveSpeed: 15
+  maxRandomTime: 0.5

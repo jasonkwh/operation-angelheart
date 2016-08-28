@@ -42,9 +42,6 @@ public class InstantSpider : MonoBehaviour {
 			spawnSpiders ();
 			setRandomTime ();
 		}
-		//print (pot.transform.position.x);
-		//print (pot.transform.position.z);
-		//Debug.Log (time);
 	}
 
 	void spawnSpiders() {
@@ -66,7 +63,6 @@ public class InstantSpider : MonoBehaviour {
 	float setRandomPosition(float min, float max) {
 		float randomNum = 0f;
 		randomNum = Random.Range (min, max);
-		print (randomNum);
 		return randomNum;
 	}
 }

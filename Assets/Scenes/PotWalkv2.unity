@@ -686,7 +686,7 @@ MonoBehaviour:
   maxRangePositionZ: 10.8
   minRangePositionZ: 18.85
   rangePositionX: 27
-  limits: 30
+  limits: 1
 --- !u!54 &1073869096
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -745,6 +745,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 770772194e5f86345ac1d0a1cb255928, type: 2}
+    - target: {fileID: 100014, guid: 502161e39c3050d4f9f7bd0efd605dae, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 502161e39c3050d4f9f7bd0efd605dae, type: 3}
   m_IsPrefabParent: 0
