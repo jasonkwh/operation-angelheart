@@ -60,7 +60,6 @@ public class AiSpider : MonoBehaviour {
 			if (time < (backupTime + randomTime)) {
 				if (stopRanCheck == false) {
 					randomCheck = ranCheck ();
-					print (randomCheck);
 					stopRanCheck = true;
 				}
 				moveXorZ (randomCheck);
@@ -69,7 +68,6 @@ public class AiSpider : MonoBehaviour {
 				stopRanCheck = false;
 			}
 		}
-		//print (time);
 	}
 
 	void moveXorZ(bool check) {
@@ -93,7 +91,7 @@ public class AiSpider : MonoBehaviour {
 
 	bool ranCheck() {
 		float fRand = Random.Range (0.0f, 1.0f);
-		print (fRand);
+
 		if (fRand < 0.5f) {
 			return true;
 		} else {

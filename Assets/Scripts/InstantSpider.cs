@@ -10,6 +10,8 @@ public class InstantSpider : MonoBehaviour {
 	public float maxTime;
 	private float randomTime;
 	private float time;
+	private float backupTime;
+	private bool backup = false;
 
 	//variables for position
 	public GameObject pot;
@@ -31,14 +33,19 @@ public class InstantSpider : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		setRandomTime ();
-		time = minTime;
+		//time = minTime;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		time += Time.deltaTime;
 
-		if ((time >= randomTime) && (currentSpiderNum < limits)) {
+		if ((pot.GetComponent<Player> ().ate == true) && (backup == false)) {
+			backupTime = time;
+			backup = true;
+		}
+
+		if ((time >= (randomTime + backupTime)) && (currentSpiderNum < limits) && (pot.GetComponent<Player>().ate == true)) {
 			spawnSpiders ();
 			setRandomTime ();
 		}
@@ -54,6 +61,7 @@ public class InstantSpider : MonoBehaviour {
 		randomPositionZ = setRandomPosition (minPositionZ, maxPositionZ);
 		Instantiate (spiderPrefab, new Vector3(randomPositionX,fixedPositionY,randomPositionZ), spiderPrefab.transform.rotation);
 		currentSpiderNum++;
+		backup = false;
 	}
 
 	void setRandomTime() {
