@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  speedUpDown: 1
+  speedUpDown: 1.5
   ate: 0
   smoke: {fileID: 665481}
   water: {fileID: 1783294023}
@@ -837,6 +837,7 @@ GameObject:
   - 92: {fileID: 1835633917}
   - 81: {fileID: 1835633916}
   - 82: {fileID: 1835633920}
+  - 114: {fileID: 1835633921}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -986,6 +987,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1835633921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1835633914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218001df9f0f08c44bdc15b86cfab74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shader: {fileID: 4800000, guid: c1ffdcaa7728ced4fa68c999e5e7f2de, type: 3}
+  Brightness: 17
+  Contrast: 3
+  ContrastCoeff: {x: 0.5, y: 0.66, z: 0.5}
+  Gamma: 1
 --- !u!1001 &1988634072
 Prefab:
   m_ObjectHideFlags: 0

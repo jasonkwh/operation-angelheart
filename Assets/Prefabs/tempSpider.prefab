@@ -110,4 +110,5 @@ MonoBehaviour:
   end: 2.4
   stay2: 0.4
   moveSpeed: 12
+  speedUpDown: 1.5
   maxRandomTime: 0.5

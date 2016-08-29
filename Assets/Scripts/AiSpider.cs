@@ -19,6 +19,7 @@ public class AiSpider : MonoBehaviour {
 	private Transform potTransform;
 	//public float rotateSpeed;
 	public float moveSpeed;
+	public float speedUpDown;
 	private bool randomCheck = false;
 	private float randomTime;
 	private float backupTime;
@@ -78,7 +79,7 @@ public class AiSpider : MonoBehaviour {
 			moveXorZ (true);
 		}
 		if ((check == true) && (Mathf.Abs (potTransform.position.z - transform.position.z) > 0)) {
-			transform.position = Vector3.MoveTowards (transform.position, new Vector3 (transform.position.x, transform.position.y, potTransform.position.z), moveSpeed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards (transform.position, new Vector3 (transform.position.x, transform.position.y, potTransform.position.z), moveSpeed * Time.deltaTime * speedUpDown);
 		} else if ((check == true) && (Mathf.Abs (potTransform.position.z - transform.position.z) == 0)) {
 			moveXorZ (false);
 		}
