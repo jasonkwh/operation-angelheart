@@ -5,6 +5,11 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace EnergyBarToolkit {
 
@@ -17,22 +22,89 @@ public class EnergyBarFollowObject : MonoBehaviour {
     #region Public Fields
 
     public GameObject followObject;
-    public Camera renderCamera;
     public Vector3 offset;
+    [FormerlySerializedAs("barRotation")]
+    public Vector3 rotation;
+
+    public ObjectFinder worldCamera = new ObjectFinder(typeof(Camera), "/Main Camera", "MainCamera", ObjectFinder.Method.ByTag);
+
+    public bool lookAtCamera = true;
+
+    public bool updateLookupReference;
+
+    #endregion
+
+    #region Private Fields
+
+    [SerializeField]
+    [HideInInspector]
+    private Camera renderCamera;
+
+    private Camera cameraReference;
+
+    private Canvas canvas;
+
+    #endregion
+
+    #region Public Methods
+
+    public bool IsPossiblyVisible() {
+        if (followObject != null && cameraReference != null) {
+            Vector3 heading = followObject.transform.position - cameraReference.transform.position;
+            float dot = Vector3.Dot(heading, cameraReference.transform.forward);
+
+            return dot >= 0;
+        }
+
+        Debug.LogError("Cannot determine visibility of this bar.", this);
+        return false;
+    }
 
     #endregion
 
     #region Unity Methods
 
-    void Start() {
-        if (followObject != null) {
-            UpdateFollowObject();
+    void OnEnable() {
+#if UNITY_EDITOR
+        if (renderCamera != null) {
+            worldCamera.chosenMethod = ObjectFinder.Method.ByReference;
+            worldCamera.reference = renderCamera.gameObject;
+            renderCamera = null;
+            EditorUtility.SetDirty(this);
         }
+#endif
+    }
+
+    void Start() {
     }
 
     void Update() {
         if (followObject != null) {
+            if (!Application.isPlaying || canvas == null) {
+                canvas = GetComponentInParent<Canvas>();
+                if (canvas == null) {
+                    Debug.LogError("This object should be placed under a canvas", this);
+                }
+            }
+
+            if (!Application.isPlaying || cameraReference == null || updateLookupReference) {
+                cameraReference = worldCamera.Lookup<Camera>(this);
+            }
             UpdateFollowObject();
+
+            bool visible = IsPossiblyVisible();
+            var energyBarBase = GetComponent<EnergyBarBase>();
+
+            energyBarBase.opacity = visible ? 1 : 0;
+
+            if (cameraReference != null && canvas != null) {
+                if (canvas.renderMode == RenderMode.WorldSpace && lookAtCamera) {
+                    energyBarBase.transform.rotation =
+                        Quaternion.LookRotation(energyBarBase.transform.position - cameraReference.transform.position);
+                } else {
+                    energyBarBase.transform.rotation = Quaternion.Euler(rotation);
+                }
+            }
         }
     }
 
@@ -41,7 +113,6 @@ public class EnergyBarFollowObject : MonoBehaviour {
     #region Private Methods
 
     private void UpdateFollowObject() {
-        var canvas = GetComponentInParent<Canvas>();
         switch (canvas.renderMode) {
             case RenderMode.ScreenSpaceOverlay:
                 UpdateFollowObjectScreenSpaceOverlay();
@@ -58,19 +129,28 @@ public class EnergyBarFollowObject : MonoBehaviour {
     }
 
     private void UpdateFollowObjectScreenSpaceOverlay() {
-        if (renderCamera == null) {
-            Debug.LogError("Render Camera must be set for the follow script to work.", this);
-        }
-
-        var w2 = Screen.width / 2;
-        var h2 = Screen.height / 2;
-
-        var worldPoint = renderCamera.WorldToScreenPoint(followObject.transform.position);
-        MadTransform.SetLocalPosition(transform, worldPoint + offset - new Vector3(w2, h2));
+        UpdateScreenSpace();
     }
 
     private void UpdateFollowObjectScreenSpaceCamera() {
-        MadTransform.SetPosition(transform, followObject.transform.position + offset);
+        UpdateScreenSpace();
+    }
+
+    private void UpdateScreenSpace() {
+        if (cameraReference == null) {
+            Debug.LogError("Render Camera must be set for the follow script to work.", this);
+            return;
+        }
+        var rect = canvas.pixelRect;
+
+        var w2 = rect.width / 2;
+        var h2 = rect.height / 2;
+
+        var screenPoint = cameraReference.WorldToScreenPoint(followObject.transform.position);
+        var pos = screenPoint + offset - new Vector3(w2, h2);
+        pos = new Vector3(pos.x / canvas.scaleFactor, pos.y / canvas.scaleFactor);
+
+        MadTransform.SetLocalPosition(transform, pos);
     }
 
     private void UpdateFollowObjectWorldSpace() {

@@ -227,12 +227,16 @@ public class FilledRenderer3D : EnergyBar3DBase {
             spriteBurnBar.visible = visible;
             spriteBurnBar.tint = BurnColor;
             spriteBurnBar.fillValue = ValueFBurn;
+            spriteBurnBar.radialFillOffset = radialOffset;
+            spriteBurnBar.radialFillLength = radialLength;
         }
         
         if (spriteBar != null) {
             spriteBar.visible = visible;
             spriteBar.tint = BarColor;
             spriteBar.fillValue = ValueF2;
+            spriteBar.radialFillOffset = radialOffset;
+            spriteBar.radialFillLength = radialLength;
         }
     }
 
@@ -317,8 +321,8 @@ public class FilledRenderer3D : EnergyBar3DBase {
             ch = HashAdd(ch, effectFollowObject);
         }
         
-        ch = HashAdd(ch, radialOffset);
-        ch = HashAdd(ch, radialLength);
+        //ch = HashAdd(ch, radialOffset);
+        //ch = HashAdd(ch, radialLength);
         
         if (ch != lastRebuildHash || dirty) {
             lastRebuildHash = ch;

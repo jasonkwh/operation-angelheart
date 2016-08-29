@@ -120,16 +120,19 @@ public class EnergyBarUGUIInspectorBase : EnergyBarInspectorBase {
     public void FieldSprite(Rect rect, SerializedProperty p, string label, MadGUI.Validator validator) {
         var sprite = p.FindPropertyRelative("sprite");
         var color = p.FindPropertyRelative("color");
+        var material = p.FindPropertyRelative("material");
 
         //GUILayout.BeginArea(rect);
         //GUILayout.Label("Test");
 //        //EditorGUILayout.BeginHorizontal();
         //MadGUI.PropertyField(sprite, label, validator);
-        Rect r1, r2;
-        HorizSplit(rect, 0.7f, out r1, out r2);
+        Rect r1, r2, r3;
+        HorizSplit(rect, 0.7f, out r1, out r3);
+        HorizSplit(r1, 0.5f, out r1, out r2);
 
         EditorGUI.PropertyField(r1, sprite, new GUIContent(""));
-        EditorGUI.PropertyField(r2, color, new GUIContent(""));
+        EditorGUI.PropertyField(r2, material, new GUIContent(""));
+        EditorGUI.PropertyField(r3, color, new GUIContent(""));
 
 //        EditorGUILayout.PropertyField(color, new GUIContent(""), GUILayout.Width(90));
 //        //MadGUI.PropertyField(color, "");

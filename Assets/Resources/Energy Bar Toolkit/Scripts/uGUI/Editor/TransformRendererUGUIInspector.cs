@@ -92,6 +92,9 @@ public class TransformRendererUGUIInspector : EnergyBarUGUIInspectorBase {
             EditorGUILayout.Space();
 
             FieldSprite(spriteObject, "Object Sprite", MadGUI.ObjectIsSet);
+            using (MadGUI.Indent()) {
+                MadGUI.PropertyField(spriteObject.FindPropertyRelative("material"), "Material");
+            }
             MadGUI.PropertyFieldVector2(spriteObjectPivot, "Object Pivot");
 
             EditorGUILayout.Space();

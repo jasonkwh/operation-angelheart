@@ -5,11 +5,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using EnergyBarToolkit;
 using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 
 namespace EnergyBarToolkit {
 
@@ -28,6 +24,19 @@ public class RepeatedRendererUGUI : EnergyBarUGUIBase {
 
     public GrowType growType;
     public GrowDirection growDirection;
+
+    // blink effect
+    public bool effectBlink = false;
+    public float effectBlinkValue = 0.2f;
+    public float effectBlinkRatePerSecond = 1f;
+    public Color effectBlinkColor = new Color(1, 1, 1, 0);
+    public BlinkOperator effectBlinkOperator = BlinkOperator.LessOrEqual;
+
+    /// <summary>
+    /// Set this to true if you want your bar blinking regardless of blinking effect configuration.
+    /// Bar will be blinking until this value is set to false.
+    /// </summary>
+    public bool forceBlinking { get; set; }
 
     #endregion
 
@@ -52,6 +61,11 @@ public class RepeatedRendererUGUI : EnergyBarUGUIBase {
 
     [SerializeField]
     private Vector2 scaleRatio = Vector2.one;
+
+    private bool Blink { get; set; }
+
+    // return current bar color based on color settings and effect
+    private float _effectBlinkAccum;
 
     #endregion
 
@@ -93,6 +107,54 @@ public class RepeatedRendererUGUI : EnergyBarUGUIBase {
         return new Vector2(w, h);
     }
 
+    /// <summary>
+    /// Gets the generated icon image. Note that if you want to modify the image, you have to do it
+    /// after this component Update() function. To do this, please adjust script execution order:
+    /// http://docs.unity3d.com/Manual/class-ScriptExecution.html
+    /// </summary>
+    /// <param name="index">Icon index</param>
+    /// <returns>Icon image.</returns>
+    public Image2 GetIconImage(int index) {
+        return iconImages[index];
+    }
+
+    /// <summary>
+    /// Gets the generated slot image. Note that if you want to modify the image, you have to do it
+    /// after this component Update() function. To do this, please adjust script execution order:
+    /// http://docs.unity3d.com/Manual/class-ScriptExecution.html
+    /// </summary>
+    /// <param name="index">Slot index</param>
+    /// <returns>Slot image.</returns>
+    public Image2 GetSlotImage(int index) {
+        return slotImages[index];
+    }
+
+    /// <summary>
+    /// Gets total icon count.
+    /// </summary>
+    /// <returns>Total icon count.</returns>
+    public int GetIconCount() {
+        return repeatCount;
+    }
+
+    /// <summary>
+    /// Gets the number of icons painted at full visibility (full value).
+    /// </summary>
+    /// <returns>Full visiblity icon count.</returns>
+    public int GetFullyVisibleIconCount() {
+        float displayIconCountF = ValueF2 * repeatCount;
+        return (int)Mathf.Floor(displayIconCountF);     // icons painted at full visibility
+    }
+
+    /// <summary>
+    /// Gets the number of icons painted including the last one that can be not fully visible.
+    /// </summary>
+    /// <returns>Get the number of painted icons.</returns>
+    public int GetVisibleIconCount() {
+        float displayIconCountF = ValueF2 * repeatCount;
+        return (int)Mathf.Ceil(displayIconCountF);
+    }
+
     #endregion
 
     #region Unity Methods
@@ -102,6 +164,7 @@ public class RepeatedRendererUGUI : EnergyBarUGUIBase {
 
         UpdateRebuild();
         UpdateBar();
+        UpdateBlinkEffect();
         UpdateVisible();
         UpdateSize();
     }
@@ -235,6 +298,43 @@ public class RepeatedRendererUGUI : EnergyBarUGUIBase {
                 var slotImage = slotImages[i];
                 slotImage.enabled = false;
             }
+        } else {
+            // set icons visibility based on blinking effect
+            if (Blink) {
+                for (int i = 0; i < iconImages.Count; ++i) {
+                    var iconImage = iconImages[i];
+                    iconImage.enabled = false;
+                }
+            }
+        }
+    }
+
+    private void UpdateBlinkEffect() {
+        if (forceBlinking) {
+            Blink = EnergyBarCommons.Blink(effectBlinkRatePerSecond, ref _effectBlinkAccum);
+        } else if (CanBlink()) {
+            Blink = EnergyBarCommons.Blink(effectBlinkRatePerSecond, ref _effectBlinkAccum);
+        } else {
+            Blink = false;
+        }
+    }
+
+    private bool CanBlink() {
+        if (!effectBlink) {
+            return false;
+        }
+
+        switch (effectBlinkOperator) {
+            case BlinkOperator.LessThan:
+                return ValueF2 < effectBlinkValue;
+            case BlinkOperator.LessOrEqual:
+                return ValueF2 <= effectBlinkValue;
+            case BlinkOperator.GreaterThan:
+                return ValueF2 > effectBlinkValue;
+            case BlinkOperator.GreaterOrEqual:
+                return ValueF2 >= effectBlinkValue;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -254,34 +354,17 @@ public class RepeatedRendererUGUI : EnergyBarUGUIBase {
             return true;
         }
 
+        if (iconImages.Count > 0 && iconImages[0] == null) {
+            // this can happen when user executes a undo operation
+            return true;
+        }
+
         int ch = MadHashCode.FirstPrime;
         ch = MadHashCode.Add(ch, spriteIcon);
         ch = MadHashCode.Add(ch, spriteSlot);
         ch = MadHashCode.Add(ch, repeatCount);
         ch = MadHashCode.Add(ch, repeatPositionDelta);
         ch = MadHashCode.Add(ch, rectTransform.pivot);
-        
-//        ch = MadHashCode.Add(ch, effectBurn);
-//        ch = MadHashCode.Add(ch, effectBurnSprite);
-
-        //ch = HashAdd(ch, panel);
-        //ch = HashAdd(ch, textureMode);
-        //ch = HashAddArray(ch, texturesBackground);
-        //ch = HashAddTexture(ch, textureBar);
-        //ch = HashAddArray(ch, texturesForeground);
-        //ch = HashAdd(ch, atlas);
-        //ch = HashAddArray(ch, atlasTexturesBackground);
-        //ch = HashAdd(ch, atlasTextureBarGUID);
-        //ch = HashAddArray(ch, atlasTexturesForeground);
-        //ch = HashAdd(ch, guiDepth);
-        //ch = HashAdd(ch, growDirection);
-        //ch = HashAdd(ch, effectBurn);
-        //ch = HashAddTexture(ch, effectBurnTextureBar);
-        //ch = HashAdd(ch, atlasEffectBurnTextureBarGUID);
-        //ch = HashAdd(ch, labelEnabled);
-        //ch = HashAdd(ch, labelFont);
-        //ch = HashAdd(ch, effectFollow);
-        //ch = HashAdd(ch, premultipliedAlpha);
 
         if (ch != lastRebuildHash || dirty) {
             lastRebuildHash = ch;
@@ -314,6 +397,7 @@ public class RepeatedRendererUGUI : EnergyBarUGUIBase {
                 var slot = CreateChild<Image2>(string.Format("slot_{0:D2}", i + 1));
                 slot.sprite = spriteSlot.sprite;
                 slot.color = spriteSlot.color;
+                slot.material = spriteSlot.material;
 
                 slot.transform.localPosition = repeatPositionDelta * i;
                 //slot.transform.localPosition += LocalIconOffset
@@ -328,6 +412,7 @@ public class RepeatedRendererUGUI : EnergyBarUGUIBase {
                 var icon = CreateChild<Image2>(string.Format("icon_{0:D2}", i + 1));
                 icon.sprite = spriteIcon.sprite;
                 icon.color = spriteIcon.color;
+                icon.material = spriteIcon.material;
 
                 icon.transform.localPosition = repeatPositionDelta * i;
 
@@ -410,6 +495,13 @@ public class RepeatedRendererUGUI : EnergyBarUGUIBase {
         Grow,
         Fade,
         Fill
+    }
+
+    public enum BlinkOperator {
+        LessThan,
+        LessOrEqual,
+        GreaterThan,
+        GreaterOrEqual,
     }
 
     #endregion

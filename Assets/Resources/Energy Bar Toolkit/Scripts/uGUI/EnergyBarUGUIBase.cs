@@ -119,12 +119,17 @@ public abstract class EnergyBarUGUIBase : EnergyBarBase {
 
             var image = CreateChild<Image>(prefix + (i + 1));
             image.sprite = sprite;
+            image.material = spriteTex.material;
             image.SetNativeSize();
-            image.type = Image.Type.Simple;
+            image.type = GetImageType();
             image.color = spriteTex.color;
 
             store.Add(new SpriteBind(image, i));
         }
+    }
+
+    protected virtual Image.Type GetImageType() {
+        return Image.Type.Simple;
     }
 
     protected T CreateChild<T>(string childName) where T : Component {
@@ -173,6 +178,14 @@ public abstract class EnergyBarUGUIBase : EnergyBarBase {
     protected void RemoveCreatedChildren() {
         for (int i = 0; i < createdChildren.Count; ++i) {
             MadGameObject.SafeDestroy(createdChildren[i]);
+        }
+
+        // scan for generated children that were not removed
+        // this is needed when user performs an undo operation
+        var existingChildren = MadTransform.FindChildren<Transform>(transform, c => c.name.StartsWith("generated_"), 0);
+        for (int i = 0; i < existingChildren.Count; i++) {
+            var child = existingChildren[i];
+            MadGameObject.SafeDestroy(child.gameObject);
         }
 
         createdChildren.Clear();
@@ -238,6 +251,7 @@ public abstract class EnergyBarUGUIBase : EnergyBarBase {
     [Serializable]
     public class SpriteTex : AbstractTex {
         public Sprite sprite;
+        public Material material;
 
         public SpriteTex() {
         }
@@ -250,6 +264,7 @@ public abstract class EnergyBarUGUIBase : EnergyBarBase {
             int ch = MadHashCode.FirstPrime;
 
             ch = MadHashCode.Add(ch, sprite != null ? sprite.GetInstanceID() : 0);
+            ch = MadHashCode.Add(ch, material != null ? material.GetInstanceID() : 0);
             ch = MadHashCode.Add(ch, color);
 
             return ch;

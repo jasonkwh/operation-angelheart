@@ -163,6 +163,7 @@ public class TransformRendererUGUI : EnergyBarUGUIBase {
     private void UpdateColor() {
         if (imageObject != null) {
             imageObject.color = ComputeColor(spriteObject.color);
+            imageObject.material = spriteObject.material;
         }
     }
 

@@ -150,6 +150,7 @@ public class SequenceRendererUGUI : EnergyBarUGUIBase {
         barImage.uvOffset = GetOffset(frameIndex);
         barImage.sprite = gridSprite.sprite;
         barImage.color = gridSprite.color;
+        barImage.material = gridSprite.material;
 
         barImage.SetAllDirty();
     }
@@ -191,6 +192,7 @@ public class SequenceRendererUGUI : EnergyBarUGUIBase {
         var sprite = sequenceSprites[frameIndex];
         barImage.sprite = sprite.sprite;
         barImage.color = sprite.color;
+        barImage.material = sprite.material;
 
         barImage.uvOffset = Vector2.zero;
         barImage.uvTiling = Vector2.one;

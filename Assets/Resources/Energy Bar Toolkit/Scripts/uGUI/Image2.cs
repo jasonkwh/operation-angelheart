@@ -3,15 +3,10 @@
 * http://www.madpixelmachine.com/
 */
 
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Sprites;
 using UnityEngine.UI;
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace EnergyBarToolkit {
 
@@ -52,6 +47,7 @@ public class Image2 : MaskableGraphic {
         }
     }
 
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
     protected override void OnFillVBO(List<UIVertex> vbo) {
         if (growDirection != EnergyBarBase.GrowDirection.RadialCW &&
             growDirection != EnergyBarBase.GrowDirection.RadialCCW) {
@@ -61,8 +57,25 @@ public class Image2 : MaskableGraphic {
         }
         
     }
+#else
+    protected override void OnPopulateMesh(Mesh mesh)
+    {
+        if (growDirection != EnergyBarBase.GrowDirection.RadialCW &&
+            growDirection != EnergyBarBase.GrowDirection.RadialCCW) {
+            FillRegular(mesh);
+        } else {
+            FillQuad(mesh);
+        }
+    }
+#endif
 
-    private void FillRegular(List<UIVertex> vbo) {
+    private void FillRegular(
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
+        List<UIVertex> vbo
+#else
+Mesh mesh
+#endif
+        ) {
         if (sprite == null) {
             return;
         }
@@ -164,6 +177,7 @@ public class Image2 : MaskableGraphic {
         corner2.x += left;
         corner2.y += bottom;
 
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
         vbo.Clear();
 
         UIVertex vert = UIVertex.simpleVert;
@@ -187,6 +201,21 @@ public class Image2 : MaskableGraphic {
         vert.uv0 = new Vector2(corner2uv.x, corner1uv.y);
         vert.color = color;
         vbo.Add(vert);
+#else
+        using (var vertexHelper = new VertexHelper()) {
+            vertexHelper.AddVert(new Vector2(corner1.x, corner1.y), color, new Vector2(corner1uv.x, corner1uv.y));
+
+            vertexHelper.AddVert(new Vector2(corner1.x, corner2.y), color, new Vector2(corner1uv.x, corner2uv.y));
+
+            vertexHelper.AddVert(new Vector2(corner2.x, corner2.y), color, new Vector2(corner2uv.x, corner2uv.y));
+
+            vertexHelper.AddVert(new Vector2(corner2.x, corner1.y), color, new Vector2(corner2uv.x, corner1uv.y));
+
+            vertexHelper.AddTriangle(0, 1, 2);
+            vertexHelper.AddTriangle(2, 3, 0);
+            vertexHelper.FillMesh(mesh);
+        }
+#endif
     }
 
     private Vector4 FixUV(Vector4 outerUv) {
@@ -211,7 +240,13 @@ public class Image2 : MaskableGraphic {
         return outerUv;
     }
 
-    private void FillQuad(List<UIVertex> vbo) {
+    private void FillQuad(
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
+        List<UIVertex> vbo
+#else
+        Mesh mesh
+#endif
+        ) {
         bool invert = growDirection == EnergyBarBase.GrowDirection.RadialCCW;
 
         var topLeftQuad = new Quad(invert);
@@ -287,42 +322,83 @@ public class Image2 : MaskableGraphic {
         MadList<Vector2> points = new MadList<Vector2>(4);
         MadList<Vector2> uvs = new MadList<Vector2>(4);
 
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
         vbo.Clear();
+#else
+        using (var vertexHelper = new VertexHelper()) {
+#endif
 
         Vector4 outerUv = DataUtility.GetOuterUV(sprite);
         outerUv = FixUV(outerUv);
 
         topRightQuad.Points(sx2, sy, sx, sy2, points);
         PreparePointsAndUvs(points, uvs, outerUv);
+
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
         AddToVbo(vbo, points, uvs);
+#else
+        AddToMesh(vertexHelper, points, uvs);
+#endif
 
         topRightQuad2.Points(sx2, sy, sx, sy2, points);
         PreparePointsAndUvs(points, uvs, outerUv);
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
         AddToVbo(vbo, points, uvs);
+#else
+        AddToMesh(vertexHelper, points, uvs);
+#endif
 
         bottomRightQuad.Points(sx2, sy2, sx, 0, points);
         PreparePointsAndUvs(points, uvs, outerUv);
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
         AddToVbo(vbo, points, uvs);
+#else
+        AddToMesh(vertexHelper, points, uvs);
+#endif
 
         bottomRightQuad2.Points(sx2, sy2, sx, 0, points);
         PreparePointsAndUvs(points, uvs, outerUv);
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
         AddToVbo(vbo, points, uvs);
+#else
+        AddToMesh(vertexHelper, points, uvs);
+#endif
 
 
         bottomLeftQuad.Points(0, sy2, sx2, 0, points);
         PreparePointsAndUvs(points, uvs, outerUv);
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
         AddToVbo(vbo, points, uvs);
+#else
+        AddToMesh(vertexHelper, points, uvs);
+#endif
 
         bottomLeftQuad2.Points(0, sy2, sx2, 0, points);
         PreparePointsAndUvs(points, uvs, outerUv);
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
         AddToVbo(vbo, points, uvs);
+#else
+        AddToMesh(vertexHelper, points, uvs);
+#endif
 
         topLeftQuad.Points(0, sy, sx2, sy2, points);
         PreparePointsAndUvs(points, uvs, outerUv);
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
         AddToVbo(vbo, points, uvs);
+#else
+        AddToMesh(vertexHelper, points, uvs);
+#endif
         topLeftQuad2.Points(0, sy, sx2, sy2, points);
         PreparePointsAndUvs(points, uvs, outerUv);
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
         AddToVbo(vbo, points, uvs);
+#else
+        AddToMesh(vertexHelper, points, uvs);
+
+        vertexHelper.FillMesh(mesh);
+
+        } // using VertexHelper
+#endif
     }
 
     private void PreparePointsAndUvs(MadList<Vector2> points, MadList<Vector2> uvs, Vector4 outerUv) {
@@ -361,6 +437,7 @@ public class Image2 : MaskableGraphic {
         }
     }
 
+#if UNITY_4_6 || UNITY_4_7 || UNITY_5_0 || UNITY_5_1
     private void AddToVbo(List<UIVertex> vbo, MadList<Vector2> points, MadList<Vector2> uvs) {
         UIVertex vert = UIVertex.simpleVert;
         for (int i = 0; i < points.Count; ++i) {
@@ -373,6 +450,24 @@ public class Image2 : MaskableGraphic {
             vbo.Add(vert);
         }
     }
+#else
+    private void AddToMesh(VertexHelper vertexHelper, MadList<Vector2> points, MadList<Vector2> uvs) {
+        for (int i = 0; i < points.Count; ++i) {
+            var point = points[i];
+            var uv = uvs[i];
+
+            vertexHelper.AddVert(point, color, new Vector2(uv.x, uv.y));
+
+        }
+
+        if (points.Count >= 4) {
+            int offset = vertexHelper.currentVertCount - 4;
+
+            vertexHelper.AddTriangle(0 + offset, 1 + offset, 2 + offset);
+            vertexHelper.AddTriangle(2 + offset, 3 + offset, 0 + offset);
+        }
+    }
+#endif
 
     public override void SetNativeSize() {
         if (sprite == null) {
@@ -417,6 +512,11 @@ public class Image2 : MaskableGraphic {
     }
 
     private Vector4 GetCachedPadding() {
+        // skip cache if this is Unity 5 or above or has pro license
+        if (Application.HasProLicense() || !Application.unityVersion.StartsWith("4.")) {
+            return DataUtility.GetPadding(sprite);
+        }
+
         Vector4 padding;
         if (sprite != cachedSprite) {
             padding = GetPadding(sprite);
@@ -434,7 +534,7 @@ public class Image2 : MaskableGraphic {
         }
 
 #if !EBT_FORCE_UNITY_FREE
-        if (Application.HasProLicense() || Application.unityVersion.StartsWith("5.")) {
+        if (Application.HasProLicense() || !Application.unityVersion.StartsWith("4.")) {
             return DataUtility.GetPadding(sprite);
         }
 #endif

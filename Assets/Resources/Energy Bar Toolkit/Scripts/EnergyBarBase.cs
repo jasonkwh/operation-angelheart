@@ -53,7 +53,18 @@ public abstract class EnergyBarBase : MonoBehaviour {
     private bool effectBurnWorking = false;
 
     // reference to actual bar component    
-    protected EnergyBar energyBar;
+    protected EnergyBar energyBar {
+        get {
+            if (_energyBar == null) {
+                _energyBar = GetComponent<EnergyBar>();
+                MadDebug.Assert(_energyBar != null, "Cannot access energy bar?!");
+            }
+
+            return _energyBar;
+        }
+    }
+
+    private EnergyBar _energyBar;
 
     protected float ValueFBurn;
     protected float ValueF2;
@@ -139,10 +150,18 @@ public abstract class EnergyBarBase : MonoBehaviour {
     // ===========================================================
     // Methods
     // ===========================================================
-    
+
+    /// <summary>
+    /// Resets animations state, so bar value can be changed without any animation.
+    /// It's useful for objects pooling when you want to reuse bars. Should be executed
+    /// after setting the value, but before displaying.
+    /// </summary>
+    public virtual void ResetAnimations() {
+        ValueF2 = ValueF;
+        ValueFBurn = ValueF;
+    }
+
     protected virtual void OnEnable() {
-        energyBar = GetComponent<EnergyBar>();
-        MadDebug.Assert(energyBar != null, "Cannot access energy bar?!");
         ValueF2 = ValueF;
     }
     
@@ -171,17 +190,21 @@ public abstract class EnergyBarBase : MonoBehaviour {
             case BurnDirection.Both:
                 if (ValueF > ValueF2) {
                     ValueFBurn = ValueF;
-                } else {
+                } else if (ValueF < ValueF2) {
                     EnergyBarCommons.SmoothDisplayValue(
                         ref ValueFBurn, ValueF, effectSmoothChangeSpeed);
-                    ValueFBurn = Mathf.Max(ValueFBurn, ValueF);
+                } else {
+                    ValueFBurn = Mathf.Max(ValueFBurn, ValueF2);
                 }
                 
                 break;
             case BurnDirection.OnlyWhenDecreasing:
-                EnergyBarCommons.SmoothDisplayValue(
-                       ref ValueFBurn, ValueF, effectSmoothChangeSpeed);
-                ValueFBurn = Mathf.Max(ValueFBurn, ValueF2);
+                if (ValueF < ValueF2) {
+                    EnergyBarCommons.SmoothDisplayValue(
+                        ref ValueFBurn, ValueF, effectSmoothChangeSpeed);
+                } else {
+                    ValueFBurn = Mathf.Max(ValueFBurn, ValueF2);
+                }
 
                 break;
             case BurnDirection.OnlyWhenIncreasing:

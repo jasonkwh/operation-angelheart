@@ -32,16 +32,13 @@ public class RepeatRenderer3DInspector : EnergyBar3DInspectorBase {
     private SerializedProperty tintSlot;
     
     private SerializedProperty repeatCount;
+
     private SerializedProperty repeatPositionDelta;
+    private SerializedProperty repeatRotationDelta;
     
     private SerializedProperty growType;
     private SerializedProperty fillDirection;
     
-//    private SerializedProperty effectBlink;
-//    private SerializedProperty effectBlinkValue;
-//    private SerializedProperty effectBlinkRatePerSecond;
-//    private SerializedProperty effectBlinkColor;
-
     // ===========================================================
     // Constructors (Including Static Constructors)
     // ===========================================================
@@ -72,6 +69,7 @@ public class RepeatRenderer3DInspector : EnergyBar3DInspectorBase {
         
         repeatCount = serializedObject.FindProperty("repeatCount");
         repeatPositionDelta = serializedObject.FindProperty("repeatPositionDelta");
+        repeatRotationDelta = serializedObject.FindProperty("repeatRotationDelta");
         
         growType = serializedObject.FindProperty("growType");
         fillDirection = serializedObject.FindProperty("fillDirection");
@@ -112,6 +110,7 @@ public class RepeatRenderer3DInspector : EnergyBar3DInspectorBase {
         Section("Appearance", () => {
             MadGUI.PropertyField(repeatCount, "Repeat Count");
             MadGUI.PropertyFieldVector2(repeatPositionDelta, "Icon Distance");
+            MadGUI.PropertyField(repeatRotationDelta, "Icon Rotation");
 
             MadGUI.PropertyField(growType, "Grow Type");
             MadGUI.ConditionallyEnabled(growType.enumValueIndex == (int) RepeatedRenderer3D.GrowType.Fill, () => {

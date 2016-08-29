@@ -3,6 +3,7 @@
 * http://www.madpixelmachine.com
 */
 
+using System.Text;
 using UnityEngine;
 using UnityEditor;
 using System.Collections;
@@ -364,6 +365,27 @@ public class EditorBase : Editor {
 
     private bool CanMoveDown(SerializedProperty property, int i) {
         return i < property.arraySize - 1;
+    }
+
+    protected string SplitByCamelCase(string str) {
+        var newName = new StringBuilder();
+
+        for (int j = 0; j < str.Length; ++j) {
+            bool first = j == 0;
+            char p = first ? ' ' : str[j - 1];
+            char c = str[j];
+            if (
+                (!first && char.IsUpper(c) && !char.IsUpper(p)) // upper case check
+                ||
+                (!first && char.IsNumber(c) && !char.IsNumber(p)) // number check
+                ) {
+                newName.Append(" ");
+            }
+
+            newName.Append(c);
+        }
+
+        return newName.ToString();
     }
     
     #region ActionQueue

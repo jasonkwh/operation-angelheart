@@ -18,6 +18,10 @@ public class UGUIBarsBuilder {
     private const string FilledFg = "0508dd4e3733e2847bc8d31ac5041009";
     private static readonly Color FilledColor = new Color(88/255f, 167/255f, 199/255f);
 
+    private const string SlicedBar = "725ddd0bf87fed64ca29b9fb21bf8748";
+    private const string SlicedBg = "e304ef34c196f934794813473327e05f";
+    private const float SlicedMinSize = 110;
+
     private const string RepeatedSlot = "ce4d97c03a644fb419b04f2fbabdcf37";
     private const string RepeatedIcon = "2fe3848be60b3da48b228f43b00ab971";
 
@@ -46,6 +50,22 @@ public class UGUIBarsBuilder {
         var path = AssetDatabase.GUIDToAssetPath(guid);
         var sprite = AssetDatabase.LoadAssetAtPath(path, typeof(Sprite));
         return sprite as Sprite;
+    }
+
+    public static void CreateSliced() {
+        Transform parent;
+        var canvas = FindCanvas(out parent);
+        if (canvas == null) {
+            return;
+        }
+
+        var bar = CreateUnder<SlicedRendererUGUI>(parent, "Sliced Bar");
+        bar.spritesBackground.Add(new EnergyBarUGUIBase.SpriteTex(LoadSprite(SlicedBg)));
+        bar.spriteBar = LoadSprite(SlicedBar);
+        bar.spriteBarMinSize = SlicedMinSize;
+        bar.SetNativeSize();
+
+        Selection.activeGameObject = bar.gameObject;
     }
 
     public static void CreateRepeated() {

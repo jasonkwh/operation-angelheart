@@ -15,6 +15,7 @@ namespace EnergyBarToolkit {
 public class FillerRendererUGUIInspector : EnergyBarUGUIInspectorBase {
 
     private SerializedProperty spriteBar;
+    private SerializedProperty spriteBarMaterial;
 
     private SerializedProperty spriteBarColorType;
     private SerializedProperty spriteBarColor;
@@ -26,6 +27,8 @@ public class FillerRendererUGUIInspector : EnergyBarUGUIInspectorBase {
 
     private SerializedProperty barImageScale;
     private SerializedProperty barImageOffset;
+
+    private SerializedProperty barImageRepeater;    // Cipsoft change
 
     // TODO: This can be moved to base class
     private SerializedProperty effectBurn;
@@ -65,6 +68,7 @@ public class FillerRendererUGUIInspector : EnergyBarUGUIInspectorBase {
         base.OnEnable();
 
         spriteBar = serializedObject.FindProperty("spriteBar");
+        spriteBarMaterial = serializedObject.FindProperty("spriteBarMaterial");
 
         spriteBarColorType = serializedObject.FindProperty("spriteBarColorType");
         spriteBarColor = serializedObject.FindProperty("spriteBarColor");
@@ -76,6 +80,8 @@ public class FillerRendererUGUIInspector : EnergyBarUGUIInspectorBase {
 
         barImageScale = serializedObject.FindProperty("barImageScale");
         barImageOffset = serializedObject.FindProperty("barImageOffset");
+
+        barImageRepeater = serializedObject.FindProperty("barImageRepeater");   // Cipsoft change
 
         effectBurn = serializedObject.FindProperty("effectBurn");
         effectBurnSprite = serializedObject.FindProperty("effectBurnSprite");
@@ -148,6 +154,8 @@ public class FillerRendererUGUIInspector : EnergyBarUGUIInspectorBase {
             if (EditorGUILayout.BeginFadeGroup(burnEffectAnimBool.faded)) {
                 MadGUI.Indent(() => {
                     FieldSprite(effectBurnSprite, "Bar Texture");
+                    MadGUI.PropertyField(effectBurnSprite.FindPropertyRelative("material"), "Material");
+
                     MadGUI.PropertyFieldEnumPopup(effectBurnDirection, "Direction");
                     if (effectBurnDirection.enumValueIndex != (int) EnergyBarBase.BurnDirection.OnlyWhenDecreasing &&
                         !effectSmoothChange.boolValue) {
@@ -269,6 +277,7 @@ public class FillerRendererUGUIInspector : EnergyBarUGUIInspectorBase {
             EditorGUILayout.Space();
 
             MadGUI.PropertyField(spriteBar, "Bar", MadGUI.ObjectIsSet);
+            MadGUI.PropertyField(spriteBarMaterial, "Material");
 
 #if !UNITY_5
             EnsureReadable(spriteBar);
@@ -324,6 +333,8 @@ public class FillerRendererUGUIInspector : EnergyBarUGUIInspectorBase {
 
             MadGUI.PropertyField(barImageScale, "Bar Scale");
             MadGUI.PropertyField(barImageOffset, "Bar Offset");
+
+            MadGUI.PropertyField(barImageRepeater, "Bar Image Repeat");   // Cipsoft change
 
             EditorGUILayout.Space();
 

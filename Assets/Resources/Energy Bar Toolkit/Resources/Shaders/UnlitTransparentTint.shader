@@ -7,11 +7,11 @@ Shader "Energy Bar Toolkit/Unlit/Transparent Tint" {
     }
 
     SubShader {
-        Tags { "Queue"="Overlay" }
+        Tags { "Queue"="Transparent" }
         Blend SrcAlpha OneMinusSrcAlpha
         Lighting Off
         Fog { Mode Off }
-        ZWrite Off
+        ZWrite On
         Cull Off
         ColorMaterial AmbientAndDiffuse
 

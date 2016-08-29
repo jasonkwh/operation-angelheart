@@ -84,6 +84,11 @@ public class SequenceRendererUGUIInspector : EnergyBarUGUIInspectorBase {
             switch (renderer.renderMethod) {
                 case SequenceRendererUGUI.RenderMethod.Grid:
                     FieldSprite(gridSprite, "Sprite", MadGUI.ObjectIsSet);
+
+                    using (MadGUI.Indent()) {
+                        MadGUI.PropertyField(gridSprite.FindPropertyRelative("material"), "Material");
+                    }
+
                     using (MadGUI.Indent()) {
                         MadGUI.PropertyField(gridWidth, "Grid Width");
                         MadGUI.PropertyField(gridHeight, "Grid Height");

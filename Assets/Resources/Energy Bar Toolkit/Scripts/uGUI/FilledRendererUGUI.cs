@@ -18,6 +18,7 @@ public class FilledRendererUGUI : EnergyBarUGUIBase {
     #region Fields
 
     public Sprite spriteBar;
+    public Material spriteBarMaterial;
 
     public ColorType spriteBarColorType;
     public Color spriteBarColor = Color.white;
@@ -30,6 +31,8 @@ public class FilledRendererUGUI : EnergyBarUGUIBase {
 
     public Vector3 barImageScale = new Vector3(1, 1, 1);
     public Vector3 barImageOffset = new Vector3(0, 0, 0);
+
+    public Vector2 barImageRepeater = new Vector2(1, 1);  // Cipsoft change
 
     // blink effect
     public bool effectBlink = false;
@@ -262,7 +265,7 @@ public class FilledRendererUGUI : EnergyBarUGUIBase {
             return;
         }
 
-        if (ValueFBurn == ValueF2) {
+        if (Mathf.Approximately(ValueFBurn, ValueF2)) {
             imageBurn.enabled = false;
         } else {
             imageBurn.enabled = true;
@@ -390,6 +393,11 @@ public class FilledRendererUGUI : EnergyBarUGUIBase {
 
         imageBar.radialFillOffset = radialOffset;
         imageBar.radialFillLength = radialLength;
+
+        if (imageBurn) {
+            imageBurn.radialFillOffset = radialOffset;
+            imageBurn.radialFillLength = radialLength;
+        }
     }
 
     private Color ComputeBarColor() {
@@ -431,6 +439,7 @@ public class FilledRendererUGUI : EnergyBarUGUIBase {
     private bool RebuildNeeded() {
         int ch = MadHashCode.FirstPrime;
         ch = MadHashCode.Add(ch, spriteBar != null ? spriteBar.GetInstanceID() : 0);
+        ch = MadHashCode.Add(ch, spriteBarMaterial != null ? spriteBarMaterial.GetInstanceID() : 0);
         ch = MadHashCode.AddList(ch, spritesBackground);
         ch = MadHashCode.AddList(ch, spritesForeground);
         ch = MadHashCode.Add(ch, (int) spriteBarColorType);
@@ -441,6 +450,8 @@ public class FilledRendererUGUI : EnergyBarUGUIBase {
         ch = MadHashCode.Add(ch, rectTransform.pivot);
         ch = MadHashCode.Add(ch, effectTiled);
         ch = MadHashCode.Add(ch, effectTiledSprite);
+
+        ch = MadHashCode.Add(ch, barImageRepeater);   // Cipsoft change
 
         //ch = HashAdd(ch, panel);
         //ch = HashAdd(ch, textureMode);
@@ -470,7 +481,7 @@ public class FilledRendererUGUI : EnergyBarUGUIBase {
         }
     }
 
-    private void Rebuild() {
+    public void Rebuild() {
         RemoveCreatedChildren();
 
         BuildBackgroundImages();
@@ -492,17 +503,27 @@ public class FilledRendererUGUI : EnergyBarUGUIBase {
 
     private void BuildBurnBar() {
         imageBurn = CreateChild<Image2>("burn_bar");
-        imageBurn.sprite = imageBurn.sprite ?? spriteBar;
+
+        if (effectBurnSprite.sprite) {
+            imageBurn.sprite = effectBurnSprite.sprite;
+        } else {
+            imageBurn.sprite = spriteBar;
+        }
+
+        imageBurn.material = effectBurnSprite.material;
         imageBurn.SetNativeSize();
         imageBurn.growDirection = growDirection;
+        imageBurn.uvTiling = barImageRepeater;    // Cipsoft change
     }
 
     private void BuildBar() {
         imageBar = CreateChild<Image2>("bar");
         imageBar.sprite = spriteBar;
+        imageBar.material = spriteBarMaterial;
         imageBar.SetNativeSize();
         imageBar.growDirection = growDirection;
         imageBar.readable = true;
+        imageBar.uvTiling = barImageRepeater;   // Cipsoft change
     }
 
     private void BuildEffectTilled() {

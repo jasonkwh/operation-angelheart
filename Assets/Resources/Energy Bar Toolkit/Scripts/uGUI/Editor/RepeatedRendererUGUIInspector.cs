@@ -1,4 +1,5 @@
-﻿using UnityEditor.AnimatedValues;
+﻿using System;
+using UnityEditor.AnimatedValues;
 using UnityEngine;
 using UnityEditor;
 using System.Collections;
@@ -19,6 +20,14 @@ public class RepeatedRendererUGUIInspector : EnergyBarUGUIInspectorBase {
     private SerializedProperty growType;
     private SerializedProperty growDirection;
 
+    private SerializedProperty effectBlink;
+    private SerializedProperty effectBlinkValue;
+    private SerializedProperty effectBlinkRatePerSecond;
+    private SerializedProperty effectBlinkColor;
+    private SerializedProperty effectBlinkOperator;
+
+    private readonly AnimBool blinkEffectAnimBool = new AnimBool();
+
     #endregion
 
     #region Methods
@@ -34,6 +43,14 @@ public class RepeatedRendererUGUIInspector : EnergyBarUGUIInspectorBase {
 
         growType = serializedObject.FindProperty("growType");
         growDirection = serializedObject.FindProperty("growDirection");
+
+        effectBlink = serializedObject.FindProperty("effectBlink");
+        effectBlinkValue = serializedObject.FindProperty("effectBlinkValue");
+        effectBlinkRatePerSecond = serializedObject.FindProperty("effectBlinkRatePerSecond");
+        effectBlinkColor = serializedObject.FindProperty("effectBlinkColor");
+        effectBlinkOperator = serializedObject.FindProperty("effectBlinkOperator");
+
+        blinkEffectAnimBool.value = effectBlink.boolValue;
     }
 
     public override void OnInspectorGUI() {
@@ -56,7 +73,17 @@ public class RepeatedRendererUGUIInspector : EnergyBarUGUIInspectorBase {
             EnsureReadable(spriteIcon.FindPropertyRelative("sprite"));
 #endif
 
+            using (MadGUI.Indent()) {
+                MadGUI.PropertyField(spriteIcon.FindPropertyRelative("material"), "Material");
+            }
+
+            EditorGUILayout.Space();
+
             FieldSprite(spriteSlot, "Slot");
+
+            using (MadGUI.Indent()) {
+                MadGUI.PropertyField(spriteSlot.FindPropertyRelative("material"), "Material");
+            }
         }
     }
 
@@ -73,7 +100,16 @@ public class RepeatedRendererUGUIInspector : EnergyBarUGUIInspectorBase {
 
             MadGUI.PropertyFieldEnumPopup(growType, "Grow Type");
             using (MadGUI.EnabledIf(growType.enumValueIndex == (int) RepeatedRendererUGUI.GrowType.Fill)) {
-                MadGUI.PropertyFieldEnumPopup(growDirection, "Fill Direction");
+                var index = growDirection.enumValueIndex;
+                EditorGUI.BeginChangeCheck();
+                index = MadGUI.DynamicPopup(index, "Fill Direction",
+                    Enum.GetNames(typeof (EnergyBarBase.GrowDirection)).Length - 1,
+                    i => {
+                        return SplitByCamelCase(Enum.GetNames(typeof (EnergyBarBase.GrowDirection))[i]);
+                    });
+                if (EditorGUI.EndChangeCheck()) {
+                    growDirection.enumValueIndex = index;
+                }
             }
 
             FieldLabel2();
@@ -84,7 +120,21 @@ public class RepeatedRendererUGUIInspector : EnergyBarUGUIInspectorBase {
         GUILayout.Label("Effects", "HeaderLabel");
         using (MadGUI.Indent()) {
             FieldSmoothEffect();
+
+            blinkEffectAnimBool.target = effectBlink.boolValue;
+            MadGUI.PropertyField(effectBlink, "Blink");
+            if (EditorGUILayout.BeginFadeGroup(blinkEffectAnimBool.faded)) {
+                MadGUI.Indent(() => {
+                    MadGUI.PropertyFieldEnumPopup(effectBlinkOperator, "Operator");
+                    MadGUI.PropertyField(effectBlinkValue, "Value");
+                    MadGUI.PropertyField(effectBlinkRatePerSecond, "Rate (per second)");
+                    MadGUI.PropertyField(effectBlinkColor, "Color");
+                });
+                EditorGUILayout.Space();
+            }
+            EditorGUILayout.EndFadeGroup();
         }
+        
     }
 
     #endregion

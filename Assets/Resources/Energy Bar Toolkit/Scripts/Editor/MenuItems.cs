@@ -62,20 +62,26 @@ public class MenuItems : ScriptableObject {
         UGUIBarsBuilder.CreateFilled();
     }
 
-    [MenuItem("GameObject/UI/Energy Bar Toolkit/Repeated Bar", false, 1)]
-    [MenuItem("Tools/Energy Bar Toolkit/uGUI/Create Repeated Bar", false, 1)]
+    [MenuItem("GameObject/UI/Energy Bar Toolkit/Sliced Bar", false, 1)]
+    [MenuItem("Tools/Energy Bar Toolkit/uGUI/Create Sliced Bar", false, 1)]
+    static void CreateSlicedUGUI() {
+        UGUIBarsBuilder.CreateSliced();
+    }
+
+    [MenuItem("GameObject/UI/Energy Bar Toolkit/Repeated Bar", false, 2)]
+    [MenuItem("Tools/Energy Bar Toolkit/uGUI/Create Repeated Bar", false, 2)]
     static void CreateRepeatedUGUI() {
         UGUIBarsBuilder.CreateRepeated();
     }
 
-    [MenuItem("GameObject/UI/Energy Bar Toolkit/Sequence Bar", false, 2)]
-    [MenuItem("Tools/Energy Bar Toolkit/uGUI/Create Sequence Bar", false, 2)]
+    [MenuItem("GameObject/UI/Energy Bar Toolkit/Sequence Bar", false, 3)]
+    [MenuItem("Tools/Energy Bar Toolkit/uGUI/Create Sequence Bar", false, 3)]
     static void CreateSequenceUGUI() {
         UGUIBarsBuilder.CreateSequence();
     }
 
-    [MenuItem("GameObject/UI/Energy Bar Toolkit/Transform Bar", false, 3)]
-    [MenuItem("Tools/Energy Bar Toolkit/uGUI/Crate Transform Bar", false, 3)]
+    [MenuItem("GameObject/UI/Energy Bar Toolkit/Transform Bar", false, 4)]
+    [MenuItem("Tools/Energy Bar Toolkit/uGUI/Create Transform Bar", false, 4)]
     static void CreateTransformUGUI() {
         UGUIBarsBuilder.CreateTransform();
     }
@@ -87,6 +93,11 @@ public class MenuItems : ScriptableObject {
         } else {
             EditorUtility.DisplayDialog("Select uGUI Bar First", "You have to select uGUI bar first!", "OK");
         }
+    }
+
+    [MenuItem("Tools/Energy Bar Toolkit/uGUI/Add Components/Spawner", false, 51)]
+    static void AttachSpawner() {
+        Selection.activeGameObject.AddComponent<EnergyBarSpawnerUGUI>();
     }
 
     [MenuItem("Tools/Energy Bar Toolkit/Online Resources/Online Manual", false, 101)]

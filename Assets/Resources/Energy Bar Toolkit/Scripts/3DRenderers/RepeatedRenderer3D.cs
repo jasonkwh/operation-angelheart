@@ -34,7 +34,9 @@ public class RepeatedRenderer3D : EnergyBar3DBase {
     public Color tintSlot = Color.white;
     
     public int repeatCount = 5;
+
     public Vector2 repeatPositionDelta = new Vector2(32, 0);
+    public float repeatRotationDelta = 0;
     
     public GrowType growType;
     public MadSprite.FillType fillDirection;
@@ -267,6 +269,7 @@ public class RepeatedRenderer3D : EnergyBar3DBase {
         hash.Add(atlasTextureSlotGUID);
         hash.Add(repeatCount);
         hash.Add(repeatPositionDelta);
+        hash.Add(repeatRotationDelta);
         hash.Add(guiDepth);
         hash.Add(growType);
         hash.Add(fillDirection);
@@ -312,16 +315,23 @@ public class RepeatedRenderer3D : EnergyBar3DBase {
     }
     
     int BuildTextures(int depth) {
+        Vector2 position = Vector2.zero;
+        float rotation = 0;
+
         for (int i = 0; i < repeatCount; ++i) {
-        
             // creating slot
             if (TextureValid(textureSlot, atlasTextureSlotGUID)) {
                 string name = string.Format("slot_{0:D2}", i + 1);
                 var sprite = CreateHidden<MadSprite>(name);
                 SetTexture(sprite, textureSlot, atlasTextureSlotGUID);
-                sprite.transform.localPosition = repeatPositionDelta * i;
-                sprite.transform.localPosition += (Vector3) LocalIconOffset(sprite.size);
-                
+
+                sprite.transform.localPosition = position;
+                sprite.transform.localEulerAngles = new Vector3(0, 0, rotation);
+
+                var offset = LocalIconOffset(sprite.size);
+                offset = RotateVector(offset, rotation);
+                sprite.transform.localPosition += (Vector3) offset;
+
                 sprite.guiDepth = depth++;
                 
                 slotSprites.Add(sprite);
@@ -332,15 +342,35 @@ public class RepeatedRenderer3D : EnergyBar3DBase {
                 string name = string.Format("icon_{0:D2}", i + 1);
                 var sprite = CreateHidden<MadSprite>(name);
                 SetTexture(sprite, textureIcon, atlasTextureIconGUID);
-                sprite.transform.localPosition = repeatPositionDelta * i;
-                sprite.transform.localPosition += (Vector3) LocalIconOffset(sprite.size);
+
+                sprite.transform.localPosition = position;
+                sprite.transform.localEulerAngles = new Vector3(0, 0, rotation);
+
+                var offset = LocalIconOffset(sprite.size);
+                offset = RotateVector(offset, rotation);
+                sprite.transform.localPosition += (Vector3) offset;
+
                 sprite.guiDepth = depth++;
                 
                 iconSprites.Add(sprite);
             }
+
+            rotation += repeatRotationDelta;
+            var posDelta = RotateVector(repeatPositionDelta, rotation);
+            position += posDelta;
         }
         
         return depth;
+    }
+
+    Vector2 RotateVector(Vector2 v, float degrees) {
+        float rotationRad = Mathf.Deg2Rad * degrees;
+        float cs = Mathf.Cos(rotationRad);
+        float sn = Mathf.Sin(rotationRad);
+
+        return new Vector2(
+            v.x * cs - v.y * sn,
+            v.x * sn + v.y * cs);
     }
     
     Vector2 LocalIconOffset(Vector2 iconSize) {

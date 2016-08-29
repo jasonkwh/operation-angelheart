@@ -42,7 +42,7 @@ public class EBTPackerPolicy : IPackerPolicy {
             int paddingPower = ComputePaddingPower(texture);
             
 
-#if UNITY_4_6
+#if UNITY_4_6 || UNITY_4_7
             TextureImportInstructions ins = new TextureImportInstructions();
             ti.ReadTextureImportInstructions(ins, target);
 #else // Unity 5
@@ -61,7 +61,7 @@ public class EBTPackerPolicy : IPackerPolicy {
                 Entry entry = new Entry();
                 entry.sprite = sprite;
 
-#if UNITY_4_6
+#if UNITY_4_6 || UNITY_4_7
                 entry.settings.format = ins.desiredFormat;
                 entry.settings.usageMode = TextureUsageMode.Default;
                 entry.settings.colorSpace = ins.colorSpace;
