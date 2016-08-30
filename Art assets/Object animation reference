@@ -5,10 +5,13 @@ Dead: 374 - 553
 Picking up: 578 - 638
 Knocked over: 695 - 853
 
-
-
 Duck animations
 Idle: 4 - 263
 Walk cycle: 177 - 263
 Roar: 338 - 597
 Run: (724} 737 - 786
+
+Samurai cat animations
+Idle: 0 - 100
+Run: 124 - 145
+Attack: 183 - 224
