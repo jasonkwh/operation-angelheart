@@ -3,7 +3,6 @@ using System.Collections;
 
 public class AiSpider : MonoBehaviour {
 
-	//public float acceleration;
 	private float time;
 	public float accelerateBasic;
 	public float accelerateRate;
@@ -17,7 +16,6 @@ public class AiSpider : MonoBehaviour {
 
 	//for AI use
 	private Transform potTransform;
-	//public float rotateSpeed;
 	public float moveSpeed;
 	public float speedUpDown;
 	private bool randomCheck = false;
@@ -49,11 +47,6 @@ public class AiSpider : MonoBehaviour {
 				accelerateBasic += accelerateRate + 0.8f;
 			}
 		} else if (time > (end + stay2)) {
-			//Look at me please!
-			//transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(potTransform.position - transform.position), (rotateSpeed * Time.deltaTime));
-
-			//Come babe,
-			//transform.position += transform.forward * moveSpeed * Time.deltaTime;
 			if (stopRanTime == false) {
 				ranTime ();
 			}
