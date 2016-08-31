@@ -10,8 +10,10 @@ Idle: 4 - 263
 Walk cycle: 177 - 263
 Roar: 338 - 597
 Run: (724} 737 - 786
+Fly: 917 - 1005
 
 Samurai cat animations
 Idle: 0 - 100
 Run: 124 - 145
 Attack: 183 - 224
+Pounch: 247 - 306
