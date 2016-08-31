@@ -1,9 +1,9 @@
 Potv2 animations
 Idle: 0 - 50 
 Walk cycle: 94 - 354
-Dead: 374 - 553
-Picking up: 578 - 638
-Knocked over: 695 - 853
+Dead: 374 - 462
+Picking up: 502 - 551
+Knocked over: 598 - 702
 
 Duck animations
 Idle: 4 - 263
