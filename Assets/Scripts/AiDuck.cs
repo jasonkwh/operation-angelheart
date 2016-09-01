@@ -17,6 +17,11 @@ public class AiDuck : MonoBehaviour {
 	public float minRandomTime;
 	private float randomTime = 0;
 	private Transform potTransform;
+	private float dist;
+	public float maxDist;
+
+	//for bouncing...
+	public float bounceRange;
 
 	void Start() {
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -24,20 +29,27 @@ public class AiDuck : MonoBehaviour {
 
 	void FixedUpdate () {
 		time += Time.deltaTime;
-		duckRotate ();
+		dist = Vector3.Distance (potTransform.position, transform.position);
 
-		if (stopRanTime == false) {
-			backupTime = time;
-			randomTime = ranTime (minRandomTime, maxRandomTime);
-			stayTime = ranTime (minStayTime, maxStayTime);
-			stopRanTime = true;
+		if (dist < maxDist) {
+			duckRotate ();
+
+			if (stopRanTime == false) {
+				backupTime = time;
+				randomTime = ranTime (minRandomTime, maxRandomTime);
+				stayTime = ranTime (minStayTime, maxStayTime);
+				stopRanTime = true;
+			}
+
+			if (time < (backupTime + randomTime)) {
+				speedAcceleration ();
+			} else if (time > (backupTime + randomTime + stayTime)) {
+				moveSpeed = 1.0f;
+				stopRanTime = false;
+			}
 		}
-
-		if (time < (backupTime + randomTime)) {
-			speedAcceleration ();
-		} else if (time > (backupTime + randomTime + stayTime)) {
-			moveSpeed = 1.0f;
-			stopRanTime = false;
+		if (dist < bounceRange) {
+			potTransform.position += transform.forward * moveSpeed * Time.deltaTime;
 		}
 	}
 

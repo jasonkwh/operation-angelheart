@@ -177,4 +177,10 @@ public class Player : MonoBehaviour {
 		controller.transform.position += Vector3.left * Time.deltaTime * speed;
 		//smoke.transform.Rotate (Vector3.left * Time.deltaTime);
 	}
+
+	/*void OnCollisionEnter (Collision col) {
+		if (col.gameObject.tag == "enemy") {
+			GetComponent<Rigidbody> ().AddForce(new Vector3(0, 50, 0), ForceMode.Impulse);
+		}
+	}*/
 }
