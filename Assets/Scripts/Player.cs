@@ -27,13 +27,41 @@ public class Player : MonoBehaviour {
 	private float gestureDist = 0.0f;
 	private Vector2 fingerStartPos = Vector2.zero;
 
+	//for bouncing
+	private float time;
+	private float backupTime;
+	private bool stopBackup;
+	public float stayTime;
+	public bool pushing;
+	private float jumpSpeed = 0f;
+	public float maxJumpSpeed;
+	public float jumpMultiplier;
+
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
         ani["potWalk"].speed = 2.0f;
     }
-	
-	// Update is called once per frame
+
+	//bouncing
+	void FixedUpdate() {
+		time += Time.deltaTime;
+
+		if (pushing == true) {
+			//stopBackup = false;
+			if (stopBackup == false) {
+				backupTime = time;
+				stopBackup = true;
+			}
+				
+			if (time < (backupTime + (stayTime / 2))) {
+				jumpUp ();
+			} else {
+				transform.position = new Vector3 (transform.position.x, 0, transform.position.z); //back to original position
+			}
+		}
+	}
+
 	void Update () {
 		//Frame rate Per Second
 		//Debug.Log("FPS: " + 1/Time.deltaTime);
@@ -178,9 +206,35 @@ public class Player : MonoBehaviour {
 		//smoke.transform.Rotate (Vector3.left * Time.deltaTime);
 	}
 
-	/*void OnCollisionEnter (Collision col) {
-		if (col.gameObject.tag == "enemy") {
-			GetComponent<Rigidbody> ().AddForce(new Vector3(0, 50, 0), ForceMode.Impulse);
+	void jumpUp() {
+		//Come babe,
+		/*if ((time - backupTime) < (stayTime / 2)) {
+			//jumpSpeed = ((9.8f * (time - backupTime)) - (-maxJumpSpeed));
+			jumpSpeed = Mathf.Sqrt ((2 * 9.8f) + Mathf.Pow(maxJumpSpeed, 2));
+		}*/
+
+		/*jumpSpeed = maxJumpSpeed;
+		jumpTime = (stayTime / 2) / 5;
+		origJumpTime = jumpTime;
+
+		if (jumpTime < (stayTime / 2)) {
+			jumpSpeed = maxJumpSpeed * jumpTime;
+			jumpTime = jumpTime + origJumpTime;
+		}*/
+
+		jumpSpeed = maxJumpSpeed;
+		if (jumpSpeed > 0) {
+			jumpSpeed = maxJumpSpeed - (jumpSpeed * (time - backupTime) * jumpMultiplier);
 		}
+
+		transform.Translate(Vector3.up * jumpSpeed * Time.deltaTime);
+	}
+
+	/*void jumpDown() {
+		jumpSpeed = maxJumpSpeed;
+		if (jumpSpeed > 0) {
+			jumpSpeed = (jumpSpeed * (time - (backupTime + (stayTime / 2))));
+		}
+		transform.Translate(Vector3.down * jumpSpeed * Time.deltaTime);
 	}*/
 }
