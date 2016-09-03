@@ -37,6 +37,12 @@ public class Player : MonoBehaviour {
 	public float maxJumpSpeed;
 	public float jumpMultiplier;
 
+	//for generating terrain
+	public bool generatedX1 = false;
+	public bool generatedX1key;
+	public bool generatedX2 = false;
+	public bool generatedX2key;
+
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
@@ -64,6 +70,8 @@ public class Player : MonoBehaviour {
 	void Update () {
 		//Frame rate Per Second
 		//Debug.Log("FPS: " + 1/Time.deltaTime);
+		generatedX1key = false;
+		generatedX2key = false;
 
 		if (pushing == false) {
 			smoke.SetActive (ate);
@@ -198,12 +206,14 @@ public class Player : MonoBehaviour {
 	void moveRight() {
 		anim.SetInteger("AnimPar", 1); //moving
 		controller.transform.position += Vector3.right * Time.deltaTime * speed;
+		generatedX1key = true;
 		//smoke.transform.Rotate (0,90,0);
 	}
 
 	void moveLeft() {
 		anim.SetInteger("AnimPar", 1); //moving
 		controller.transform.position += Vector3.left * Time.deltaTime * speed;
+		generatedX2key = true;
 		//smoke.transform.Rotate (Vector3.left * Time.deltaTime);
 	}
 
