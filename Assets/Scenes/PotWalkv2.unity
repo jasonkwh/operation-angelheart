@@ -141,6 +141,10 @@ MonoBehaviour:
   pushing: 0
   maxJumpSpeed: 13
   jumpMultiplier: 4
+  generatedX1: 0
+  generatedX1key: 0
+  generatedX2: 0
+  generatedX2key: 0
 --- !u!135 &76022542
 SphereCollider:
   m_ObjectHideFlags: 0
