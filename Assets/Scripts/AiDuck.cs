@@ -22,9 +22,11 @@ public class AiDuck : MonoBehaviour {
 
 	//for bouncing...
 	public float bounceRange;
+	private float bounceTime;
 
 	void Start() {
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
+		bounceTime = potTransform.GetComponent<Player> ().stayTime;
 	}
 
 	void FixedUpdate () {
@@ -34,28 +36,32 @@ public class AiDuck : MonoBehaviour {
 		if (dist < maxDist) {
 			duckRotate ();
 
-			if (stopRanTime == false) {
-				backupTime = time;
-				randomTime = ranTime (minRandomTime, maxRandomTime);
-				stayTime = ranTime (minStayTime, maxStayTime);
-				stopRanTime = true;
-			}
+			if (potTransform.GetComponent<Player> ().pushing == false) {
+				if (stopRanTime == false) {
+					backupTime = time;
+					randomTime = ranTime (minRandomTime, maxRandomTime);
+					stayTime = ranTime (minStayTime, maxStayTime);
+					stopRanTime = true;
+				}
 
-			if (time < (backupTime + randomTime)) {
-				speedAcceleration ();
-			} else if (time > (backupTime + randomTime + stayTime)) {
-				moveSpeed = 1.0f;
-				stopRanTime = false;
+				if (time < (backupTime + randomTime)) {
+					speedAcceleration ();
+				} else if (time > (backupTime + randomTime + stayTime)) {
+					moveSpeed = 1.0f;
+					stopRanTime = false;
+				}
+			} else {
+				if (time > (backupTime + bounceTime)) {
+					potTransform.GetComponent<Player> ().pushing = false;
+				}
 			}
 		}
+
 		if (dist < bounceRange) {
-			potTransform.position += transform.forward * moveSpeed * Time.deltaTime;
+			//potTransform.position += transform.forward * moveSpeed * Time.deltaTime;
 			potTransform.GetComponent<Player> ().pushing = true;
-			/*backupTime = time;
-			if (time > backupTime + 3.0f) {
-				speedAcceleration (false);
-			}*/
-			//potTransform.GetComponent<Rigidbody> ().velocity = new Vector3 (transform.forward * moveSpeed * Time.deltaTime, 10, 0);
+			potTransform.GetComponent<Player> ().stopBackup = false;
+			backupTime = time;
 		}
 	}
 
