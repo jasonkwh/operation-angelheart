@@ -36,13 +36,16 @@ public class Player : MonoBehaviour {
 	private float jumpSpeed = 0f;
 	public float maxJumpSpeed;
 	public float jumpMultiplier;
+	public float pX;
+	public float pZ;
+	public float jumpSpaceMulti;
 
 	//for generating terrain
 	public bool generatedX1 = false;
 	//public bool generatedX1key;
 	public bool generatedX2 = false;
 	//public bool generatedX2key;
-	public bool generatedZ1 = false;
+	//public bool generatedZ1 = false;
 
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
@@ -62,10 +65,16 @@ public class Player : MonoBehaviour {
 				
 			if (time < (backupTime + (stayTime / 2))) {
 				jumpUp ();
+				potJumpTranslate (pX, pZ);
 			} else {
 				transform.position = new Vector3 (transform.position.x, 0, transform.position.z); //back to original position
+				pushing = false;
 			}
 		}
+	}
+
+	void potJumpTranslate(float positionX, float positionZ) {
+		transform.Translate (positionX * jumpSpaceMulti * Time.deltaTime, 0, positionZ * jumpSpaceMulti * Time.deltaTime);
 	}
 
 	void Update () {

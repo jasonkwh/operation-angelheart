@@ -50,15 +50,13 @@ public class AiDuck : MonoBehaviour {
 					moveSpeed = 1.0f;
 					stopRanTime = false;
 				}
-			} else {
-				if (time > (backupTime + bounceTime)) {
-					potTransform.GetComponent<Player> ().pushing = false;
-				}
 			}
 		}
 
 		if (dist < bounceRange) {
 			//potTransform.position += transform.forward * moveSpeed * Time.deltaTime;
+			potTransform.GetComponent<Player> ().pX = potTransform.position.x - transform.position.x;
+			potTransform.GetComponent<Player> ().pZ = potTransform.position.z - transform.position.z;
 			potTransform.GetComponent<Player> ().pushing = true;
 			potTransform.GetComponent<Player> ().stopBackup = false;
 			backupTime = time;

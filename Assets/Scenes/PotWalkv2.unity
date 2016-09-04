@@ -137,13 +137,15 @@ MonoBehaviour:
   water: {fileID: 184125289}
   waterLevelSpeed: 0.8
   stopBackup: 0
-  stayTime: 1
+  stayTime: 0.9
   pushing: 0
   maxJumpSpeed: 13
   jumpMultiplier: 4
+  pX: 0
+  pZ: 0
+  jumpSpaceMulti: 1
   generatedX1: 0
   generatedX2: 0
-  generatedZ1: 0
 --- !u!135 &76022542
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -843,7 +845,7 @@ Prefab:
       objectReference: {fileID: 9100000, guid: 950b6555687444e86ac7c5710355bb57, type: 2}
     - target: {fileID: 100008, guid: eecd117623f604d46aa6f17148f14320, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: eecd117623f604d46aa6f17148f14320, type: 3}
       propertyPath: m_LocalScale.x

@@ -129,3 +129,4 @@ MonoBehaviour:
   moveSpeed: 10
   speedUpDown: 1.5
   maxRandomTime: 0.5
+  bounceRange: 6

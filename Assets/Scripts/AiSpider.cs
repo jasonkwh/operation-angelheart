@@ -28,7 +28,8 @@ public class AiSpider : MonoBehaviour {
 	private bool stopRanCheck = false;
 
 	//for bouncing...
-	//public float bounceRange;
+	public float bounceRange;
+	private float bounceTime;
 
 	void Start() {
 		accelerateBackup = accelerateBasic;
@@ -54,7 +55,7 @@ public class AiSpider : MonoBehaviour {
 				accelerateBasic += accelerateRate + 0.8f;
 			}
 		} else if (time > (end + stay2)) {
-			if (dist < maxDist) {
+			if ((dist < maxDist) && (potTransform.GetComponent<Player> ().pushing == false))  {
 				if (stopRanTime == false) {
 					ranTime ();
 				}
@@ -69,11 +70,16 @@ public class AiSpider : MonoBehaviour {
 					stopRanCheck = false;
 				}
 			}
-		}
 
-		/*if (dist < bounceRange) {
-			potTransform.position += transform.forward * moveSpeed * Time.deltaTime;
-		}*/
+			if (dist < bounceRange) {
+				//potTransform.position += transform.forward * moveSpeed * Time.deltaTime;
+				potTransform.GetComponent<Player> ().pX = potTransform.position.x - transform.position.x;
+				potTransform.GetComponent<Player> ().pZ = potTransform.position.z - transform.position.z;
+				potTransform.GetComponent<Player> ().pushing = true;
+				potTransform.GetComponent<Player> ().stopBackup = false;
+				backupTime = time;
+			}
+		}
 	}
 
 	void moveXorZ(bool check) {
