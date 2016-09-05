@@ -41,7 +41,7 @@ public class InstantTerrainNew : MonoBehaviour {
 
 		//vertical
 		/*generated2 = GameObject.FindGameObjectsWithTag ("TerrainZ");
-		if ((pot.transform.position.z > transform.position.z) && (pot.GetComponent<Player>().generatedZ1 == false) && (generated2.Length <= 1)) {
+		if (pot.transform.position.z > transform.position.z) {
 			Instantiate (terrain01_z, new Vector3 (pot.transform.position.x, -0.12f, transform.position.z + transform.localScale.z), transform.rotation);
 			pot.GetComponent<Player> ().generatedZ1 = true;
 		}
