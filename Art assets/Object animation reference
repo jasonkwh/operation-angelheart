@@ -12,8 +12,14 @@ Roar: 338 - 597
 Run: (724} 737 - 786
 Fly: 917 - 1005
 
-Samurai cat animations
+Cat animations
 Idle: 0 - 100
 Run: 124 - 145
 Attack: 183 - 224
 Pounch: 247 - 306
+
+Spider animations
+Idle: 0 - 72
+Attack1: 112 - 155
+Attack2: 195 - 222
+Walk: 312 - 328
