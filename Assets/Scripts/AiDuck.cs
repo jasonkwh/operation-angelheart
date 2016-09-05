@@ -3,6 +3,7 @@ using System.Collections;
 
 public class AiDuck : MonoBehaviour {
 
+	public bool isSamurai;
 	private float time;
 	private float backupTime;
 	private bool stopRanTime = false;
@@ -40,7 +41,11 @@ public class AiDuck : MonoBehaviour {
 				if (stopRanTime == false) {
 					backupTime = time;
 					randomTime = ranTime (minRandomTime, maxRandomTime);
-					stayTime = ranTime (minStayTime, maxStayTime);
+					if (isSamurai == true) {
+						stayTime = 0;
+					} else {
+						stayTime = ranTime (minStayTime, maxStayTime);
+					}
 					stopRanTime = true;
 				}
 

@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a62a0325345448195b8a330078728a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSamurai: 1
   minStayTime: 1
   maxStayTime: 2.5
   maxSpeed: 14
@@ -212,7 +213,7 @@ MonoBehaviour:
   rotateSpeed: 1.5
   maxRandomTime: 5
   minRandomTime: 2
-  maxDist: 30
+  maxDist: 40
   bounceRange: 8
 --- !u!1 &102698798
 GameObject:
@@ -715,6 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a62a0325345448195b8a330078728a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSamurai: 0
   minStayTime: 1
   maxStayTime: 2.5
   maxSpeed: 14

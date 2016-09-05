@@ -125,7 +125,7 @@ MonoBehaviour:
   stay: 1.2
   end: 2.4
   stay2: 0.4
-  maxDist: 30
+  maxDist: 40
   moveSpeed: 10
   speedUpDown: 1.5
   maxRandomTime: 0.5
