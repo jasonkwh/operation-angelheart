@@ -23,3 +23,8 @@ Idle: 0 - 72
 Attack1: 112 - 155
 Attack2: 195 - 222
 Walk: 312 - 328
+
+Ant animations 
+Idle: 0 - 68
+Attack: 131 - 200
+Walk: 249 - 269 [270]
