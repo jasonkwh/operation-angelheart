@@ -13,6 +13,7 @@ public class DestroySphere : MonoBehaviour {
 
 	void Start() {
 		playScript = pot.GetComponent<Player> ();
+		Physics.IgnoreLayerCollision (8,9); //ignore collision of enemies
 	}
 
 	void OnCollisionEnter (Collision col) {
