@@ -11,6 +11,9 @@ Walk cycle: 177 - 263
 Roar: 338 - 597
 Run: (724} 737 - 786
 Fly: 917 - 1005
+Landing: 1005 - 1056
+Sitting: 1106 - 1264
+Standing up: 1264 - 1346 
 
 Cat animations
 Idle: 0 - 100
