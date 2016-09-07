@@ -31,6 +31,10 @@ public class AiSpider : MonoBehaviour {
 	public float bounceRange;
 	private float bounceTime;
 
+	//to display spider net
+	public GameObject net;
+	private bool netDestroy = false;
+
 	void Start() {
 		accelerateBackup = accelerateBasic;
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -79,6 +83,12 @@ public class AiSpider : MonoBehaviour {
 				potTransform.GetComponent<Player> ().stopBackup = false;
 				backupTime = time;
 			}
+		}
+
+		//destroy spider net
+		if ((time > end) && (netDestroy == false)) {
+			Destroy (net);
+			netDestroy = true;
 		}
 	}
 
