@@ -28,7 +28,12 @@ public class InstantSpider : MonoBehaviour {
 
 	//Limits
 	public int limits;
-	private int currentSpiderNum = 0;
+	public int currentSpiderNum = 0;
+
+	//to destroy spiders...
+	public float destroyRangeX;
+	public float destroyRangeMaxZ;
+	public float destroyRangeMinZ;
 
 	// Use this for initialization
 	void Start () {

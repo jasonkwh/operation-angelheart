@@ -35,9 +35,14 @@ public class AiSpider : MonoBehaviour {
 	public GameObject net;
 	private bool netDestroy = false;
 
+	//to destroy spiders
+	private InstantSpider potInstant;
+
 	void Start() {
 		accelerateBackup = accelerateBasic;
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
+		potInstant = GameObject.FindGameObjectWithTag ("Player").GetComponent<InstantSpider> ();
+		Physics.IgnoreLayerCollision (9,9); //ignore collision of enemies
 	}
 
 	void FixedUpdate() {
@@ -102,6 +107,12 @@ public class AiSpider : MonoBehaviour {
 			transform.position = Vector3.MoveTowards (transform.position, new Vector3 (transform.position.x, transform.position.y, potTransform.position.z), moveSpeed * Time.deltaTime * speedUpDown);
 		} else if ((check == true) && (Mathf.Abs (potTransform.position.z - transform.position.z) == 0)) {
 			moveXorZ (false);
+		}
+
+		//destroy spider
+		if ((transform.position.z > (potTransform.position.z + potInstant.destroyRangeMaxZ)) || (transform.position.z < (potTransform.position.z - potInstant.destroyRangeMinZ)) || (transform.position.x > (potTransform.position.x + potInstant.destroyRangeX)) || (transform.position.x < (potTransform.position.x - potInstant.destroyRangeX))) {
+			potInstant.currentSpiderNum--;
+			Destroy (this.gameObject);
 		}
 	}
 

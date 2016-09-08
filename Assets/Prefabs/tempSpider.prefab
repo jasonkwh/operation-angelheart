@@ -933,6 +933,9 @@ MonoBehaviour:
   maxRandomTime: 0.5
   bounceRange: 6
   net: {fileID: 1000013814315858}
+  destroyRangeX: 33
+  destroyRangeMaxZ: 0
+  destroyRangeMinZ: 0
 --- !u!137 &137000012338359014
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
