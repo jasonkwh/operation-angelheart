@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd8af9f7376349968409f5e729ce0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delays: 0.5
-  points: {fileID: 1000011094502334}
+  smoke: {fileID: 0}
+  pot: {fileID: 0}
 --- !u!132 &132000014209876738
 GUIText:
   m_ObjectHideFlags: 1

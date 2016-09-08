@@ -14,7 +14,7 @@ public class AiSpider : MonoBehaviour {
 	private float accelerateBackup;
 	private bool backupUsed = false;
 	private float dist;
-	public float maxDist;
+	//public float maxDist;
 
 	//for AI use
 	private Transform potTransform;
@@ -64,7 +64,8 @@ public class AiSpider : MonoBehaviour {
 				accelerateBasic += accelerateRate + 0.8f;
 			}
 		} else if (time > (end + stay2)) {
-			if ((dist < maxDist) && (potTransform.GetComponent<Player> ().pushing == false))  {
+			//if ((dist < maxDist) && (potTransform.GetComponent<Player> ().pushing == false))  {
+			if (potTransform.GetComponent<Player> ().pushing == false)  {
 				if (stopRanTime == false) {
 					ranTime ();
 				}
