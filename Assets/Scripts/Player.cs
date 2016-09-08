@@ -41,9 +41,9 @@ public class Player : MonoBehaviour {
 	public float jumpSpaceMulti;
 
 	//for generating terrain
-	public bool generatedX1 = false;
+	//public bool generatedX1 = false;
 	//public bool generatedX1key;
-	public bool generatedX2 = false;
+	//public bool generatedX2 = false;
 	//public bool generatedX2key;
 	//public bool generatedZ1 = false;
 
