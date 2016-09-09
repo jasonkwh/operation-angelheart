@@ -5,7 +5,7 @@ public class InstantTerrain : MonoBehaviour {
 
 	//public GameObject pot;
 	public GameObject terrain01;
-	private bool generated = false;
+	//private bool generated = false;
 
 	void Start() {
 		Instantiate (terrain01, new Vector3(transform.position.x,-0.12f,transform.position.z), terrain01.transform.rotation);

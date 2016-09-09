@@ -6,8 +6,8 @@ public class InstantTerrainNew : MonoBehaviour {
 	private GameObject pot;
 
 	//variables for x axis
-	public GameObject terrain01;
-	private GameObject[] generated;
+	//public GameObject terrain01;
+	//private GameObject[] generated;
 
 	//variables for z axis
 	//public GameObject terrain01_z;

@@ -39,6 +39,7 @@ public class Player : MonoBehaviour {
 	public float pX;
 	public float pZ;
 	public float jumpSpaceMulti;
+	private string fps;
 
 	//for generating terrain
 	//public bool generatedX1 = false;
@@ -47,9 +48,15 @@ public class Player : MonoBehaviour {
 	//public bool generatedX2key;
 	//public bool generatedZ1 = false;
 
+	//gain energy
+	private EnergyBar eBar;
+	public bool energyGain = false;
+	public float energyGainSpeed;
+
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
+		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
         ani["potWalk"].speed = 2.0f;
     }
 
@@ -77,11 +84,27 @@ public class Player : MonoBehaviour {
 		transform.Translate (positionX * jumpSpaceMulti * Time.deltaTime, 0, positionZ * jumpSpaceMulti * Time.deltaTime);
 	}
 
-	void Update () {
+	void OnGUI() {
 		//Frame rate Per Second
 		//Debug.Log("FPS: " + 1/Time.deltaTime);
+		fps = "FPS: " + (1 / Time.deltaTime);
+		GUI.contentColor = Color.black;
+		GUI.Label(new Rect(10, 10, 400, 20), fps);
+	}
+
+	void Update () {
 		//generatedX1key = false;
 		//generatedX2key = false;
+
+		//gain some health
+		if(energyGain == true) {
+			if(eBar.valueCurrent < 100) {
+				eBar.valueCurrent = eBar.valueCurrent + (int)(energyGainSpeed * Time.deltaTime);
+			} else {
+				eBar.valueCurrent = 100;
+				energyGain = false;
+			}
+		}
 
 		if (pushing == false) {
 			smoke.SetActive (ate);

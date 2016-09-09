@@ -4,4 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/HighlightingSystemDemo/Scenes/Welcome.unity
+  - enabled: 0
+    path: Assets/HighlightingSystemDemo/Scenes/Colors.unity
+  - enabled: 0
+    path: Assets/HighlightingSystemDemo/Scenes/Transparency.unity
+  - enabled: 0
+    path: Assets/HighlightingSystemDemo/Scenes/Occlusion.unity
+  - enabled: 0
+    path: Assets/HighlightingSystemDemo/Scenes/OccluderModes.unity
+  - enabled: 0
+    path: Assets/HighlightingSystemDemo/Scenes/Scripting.unity
+  - enabled: 0
+    path: Assets/HighlightingSystemDemo/Scenes/Compound.unity
+  - enabled: 0
+    path: Assets/HighlightingSystemDemo/Scenes/Mobile.unity

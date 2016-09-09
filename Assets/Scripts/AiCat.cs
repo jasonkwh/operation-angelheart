@@ -20,7 +20,7 @@ public class AiCat : MonoBehaviour {
 	private bool jumping = false;
 	private float dist;
 	public int jumpHeight;
-	public float maxJumpDist;
+	//public float maxJumpDist;
 	private Rigidbody objectRig;
 
 	void Start () {

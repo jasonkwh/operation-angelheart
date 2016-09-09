@@ -25,9 +25,14 @@ public class AiDuck : MonoBehaviour {
 	public float bounceRange;
 	private float bounceTime;
 
+	//for energy system 
+	private EnergyBar eBar;
+	public int damage;
+
 	void Start() {
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
 		bounceTime = potTransform.GetComponent<Player> ().stayTime;
+		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
 	}
 
 	void FixedUpdate () {
@@ -64,6 +69,7 @@ public class AiDuck : MonoBehaviour {
 			potTransform.GetComponent<Player> ().pZ = potTransform.position.z - transform.position.z;
 			potTransform.GetComponent<Player> ().pushing = true;
 			potTransform.GetComponent<Player> ().stopBackup = false;
+			eBar.valueCurrent = eBar.valueCurrent - damage; //set energy bar value
 			backupTime = time;
 		}
 	}

@@ -14,7 +14,6 @@ public class TerrainControl : MonoBehaviour {
 
     private float detailScale;
     private float heightScale;
-	private string fps;
     
     void Start() {
         detailScale = generator.detailScale;
@@ -22,8 +21,8 @@ public class TerrainControl : MonoBehaviour {
     }
 
     void OnGUI() {
-		fps = "FPS: " + (1 / Time.deltaTime);
-		GUI.Label(new Rect(10, 10, 400, 20), fps);
+		//fps = "FPS: " + (1 / Time.deltaTime);
+		//GUI.Label(new Rect(10, 10, 400, 20), fps);
 
         flyCamera.autoFly = GUI.Toggle(new Rect(10, 30, 100, 20), flyCamera.autoFly, "Auto Fly");
         flyCamera.followTerrain = GUI.Toggle(new Rect(10, 50, 100, 20), flyCamera.followTerrain, "Follow Terrain");

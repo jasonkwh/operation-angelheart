@@ -927,15 +927,12 @@ MonoBehaviour:
   stay: 1.2
   end: 2.55
   stay2: 0.4
-  maxDist: 40
   moveSpeed: 10
   speedUpDown: 1.5
   maxRandomTime: 0.5
   bounceRange: 6
   net: {fileID: 1000013814315858}
-  destroyRangeX: 33
-  destroyRangeMaxZ: 0
-  destroyRangeMinZ: 0
+  damage: 5
 --- !u!137 &137000012338359014
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

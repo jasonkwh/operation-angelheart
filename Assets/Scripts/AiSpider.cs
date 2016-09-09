@@ -29,7 +29,6 @@ public class AiSpider : MonoBehaviour {
 
 	//for bouncing...
 	public float bounceRange;
-	private float bounceTime;
 
 	//to display spider net
 	public GameObject net;
@@ -38,10 +37,15 @@ public class AiSpider : MonoBehaviour {
 	//to destroy spiders
 	private InstantSpider potInstant;
 
+	//for energy system 
+	private EnergyBar eBar;
+	public int damage;
+
 	void Start() {
 		accelerateBackup = accelerateBasic;
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
 		potInstant = GameObject.FindGameObjectWithTag ("Player").GetComponent<InstantSpider> ();
+		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
 		Physics.IgnoreLayerCollision (9,9); //ignore collision of enemies
 	}
 
@@ -85,8 +89,9 @@ public class AiSpider : MonoBehaviour {
 				//potTransform.position += transform.forward * moveSpeed * Time.deltaTime;
 				potTransform.GetComponent<Player> ().pX = potTransform.position.x - transform.position.x;
 				potTransform.GetComponent<Player> ().pZ = potTransform.position.z - transform.position.z;
-				potTransform.GetComponent<Player> ().pushing = true;
+				potTransform.GetComponent<Player> ().pushing = true; //enable bounce animation
 				potTransform.GetComponent<Player> ().stopBackup = false;
+				eBar.valueCurrent = eBar.valueCurrent - damage; //set energy bar value
 				backupTime = time;
 			}
 		}
