@@ -11,10 +11,10 @@ public class InstantTerrain : MonoBehaviour {
 		Instantiate (terrain01, new Vector3(transform.position.x,-0.12f,transform.position.z), terrain01.transform.rotation);
 	}
 
-	void Update () {
+	/*void Update () {
 		if ((transform.position.x > terrain01.transform.position.x) && (GetComponent<Player>().generatedX1 == false)) {
 			Instantiate (terrain01, new Vector3((terrain01.transform.position.x + terrain01.transform.localScale.x),-0.12f,transform.position.z), terrain01.transform.rotation);
 			GetComponent<Player>().generatedX1 = true;
 		}
-	}
+	}*/
 }
