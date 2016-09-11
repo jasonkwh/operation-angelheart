@@ -58,8 +58,11 @@ ModelImporter:
     400048: //RootNode
     400050: Spine
     4300000: Sphere
-    7400000: Default Take
+    7400000: Attack1
     7400002: ArmatureAction
+    7400004: Moving
+    7400006: Idle
+    7400008: Attack2
     9500000: //RootNode
     13700000: Sphere
   materials:
@@ -82,7 +85,327 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Moving
+      takeName: ArmatureAction
+      firstFrame: 312
+      lastFrame: 328
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Spine
+        weight: 1
+      - path: Armature/Spine/Back0Stem_L
+        weight: 1
+      - path: Armature/Spine/Back0Stem_L/Back0Tip_L
+        weight: 1
+      - path: Armature/Spine/Back0Stem_R
+        weight: 1
+      - path: Armature/Spine/Back0Stem_R/Back0Tip_R
+        weight: 1
+      - path: Armature/Spine/Back1Stem_L
+        weight: 1
+      - path: Armature/Spine/Back1Stem_L/Back1Tip_L
+        weight: 1
+      - path: Armature/Spine/Back1Stem_R
+        weight: 1
+      - path: Armature/Spine/Back1Stem_R/Back1Tip_R
+        weight: 1
+      - path: Armature/Spine/Fang_L
+        weight: 1
+      - path: Armature/Spine/Fang_R
+        weight: 1
+      - path: Armature/Spine/Front0Stm_L
+        weight: 1
+      - path: Armature/Spine/Front0Stm_L/Front0Tip_L
+        weight: 1
+      - path: Armature/Spine/Front0Stm_R
+        weight: 1
+      - path: Armature/Spine/Front0Stm_R/Front0Tip_R
+        weight: 1
+      - path: Armature/Spine/Front1Stem_L
+        weight: 1
+      - path: Armature/Spine/Front1Stem_L/Front1Tip_L
+        weight: 1
+      - path: Armature/Spine/Front1Stem_R
+        weight: 1
+      - path: Armature/Spine/Front1Stem_R/Front1Tip_R
+        weight: 1
+      - path: Armature/Spine/Front2Stem_L
+        weight: 1
+      - path: Armature/Spine/Front2Stem_L/Front2Tip_L
+        weight: 1
+      - path: Armature/Spine/Front2Stem_R
+        weight: 1
+      - path: Armature/Spine/Front2Stem_R/Front2Tip_R
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: ArmatureAction
+      firstFrame: 0
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Spine
+        weight: 1
+      - path: Armature/Spine/Back0Stem_L
+        weight: 1
+      - path: Armature/Spine/Back0Stem_L/Back0Tip_L
+        weight: 1
+      - path: Armature/Spine/Back0Stem_R
+        weight: 1
+      - path: Armature/Spine/Back0Stem_R/Back0Tip_R
+        weight: 1
+      - path: Armature/Spine/Back1Stem_L
+        weight: 1
+      - path: Armature/Spine/Back1Stem_L/Back1Tip_L
+        weight: 1
+      - path: Armature/Spine/Back1Stem_R
+        weight: 1
+      - path: Armature/Spine/Back1Stem_R/Back1Tip_R
+        weight: 1
+      - path: Armature/Spine/Fang_L
+        weight: 1
+      - path: Armature/Spine/Fang_R
+        weight: 1
+      - path: Armature/Spine/Front0Stm_L
+        weight: 1
+      - path: Armature/Spine/Front0Stm_L/Front0Tip_L
+        weight: 1
+      - path: Armature/Spine/Front0Stm_R
+        weight: 1
+      - path: Armature/Spine/Front0Stm_R/Front0Tip_R
+        weight: 1
+      - path: Armature/Spine/Front1Stem_L
+        weight: 1
+      - path: Armature/Spine/Front1Stem_L/Front1Tip_L
+        weight: 1
+      - path: Armature/Spine/Front1Stem_R
+        weight: 1
+      - path: Armature/Spine/Front1Stem_R/Front1Tip_R
+        weight: 1
+      - path: Armature/Spine/Front2Stem_L
+        weight: 1
+      - path: Armature/Spine/Front2Stem_L/Front2Tip_L
+        weight: 1
+      - path: Armature/Spine/Front2Stem_R
+        weight: 1
+      - path: Armature/Spine/Front2Stem_R/Front2Tip_R
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack1
+      takeName: Default Take
+      firstFrame: 112
+      lastFrame: 155
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Spine
+        weight: 1
+      - path: Armature/Spine/Back0Stem_L
+        weight: 1
+      - path: Armature/Spine/Back0Stem_L/Back0Tip_L
+        weight: 1
+      - path: Armature/Spine/Back0Stem_R
+        weight: 1
+      - path: Armature/Spine/Back0Stem_R/Back0Tip_R
+        weight: 1
+      - path: Armature/Spine/Back1Stem_L
+        weight: 1
+      - path: Armature/Spine/Back1Stem_L/Back1Tip_L
+        weight: 1
+      - path: Armature/Spine/Back1Stem_R
+        weight: 1
+      - path: Armature/Spine/Back1Stem_R/Back1Tip_R
+        weight: 1
+      - path: Armature/Spine/Fang_L
+        weight: 1
+      - path: Armature/Spine/Fang_R
+        weight: 1
+      - path: Armature/Spine/Front0Stm_L
+        weight: 1
+      - path: Armature/Spine/Front0Stm_L/Front0Tip_L
+        weight: 1
+      - path: Armature/Spine/Front0Stm_R
+        weight: 1
+      - path: Armature/Spine/Front0Stm_R/Front0Tip_R
+        weight: 1
+      - path: Armature/Spine/Front1Stem_L
+        weight: 1
+      - path: Armature/Spine/Front1Stem_L/Front1Tip_L
+        weight: 1
+      - path: Armature/Spine/Front1Stem_R
+        weight: 1
+      - path: Armature/Spine/Front1Stem_R/Front1Tip_R
+        weight: 1
+      - path: Armature/Spine/Front2Stem_L
+        weight: 1
+      - path: Armature/Spine/Front2Stem_L/Front2Tip_L
+        weight: 1
+      - path: Armature/Spine/Front2Stem_R
+        weight: 1
+      - path: Armature/Spine/Front2Stem_R/Front2Tip_R
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack2
+      takeName: Default Take
+      firstFrame: 195
+      lastFrame: 222
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Spine
+        weight: 1
+      - path: Armature/Spine/Back0Stem_L
+        weight: 1
+      - path: Armature/Spine/Back0Stem_L/Back0Tip_L
+        weight: 1
+      - path: Armature/Spine/Back0Stem_R
+        weight: 1
+      - path: Armature/Spine/Back0Stem_R/Back0Tip_R
+        weight: 1
+      - path: Armature/Spine/Back1Stem_L
+        weight: 1
+      - path: Armature/Spine/Back1Stem_L/Back1Tip_L
+        weight: 1
+      - path: Armature/Spine/Back1Stem_R
+        weight: 1
+      - path: Armature/Spine/Back1Stem_R/Back1Tip_R
+        weight: 1
+      - path: Armature/Spine/Fang_L
+        weight: 1
+      - path: Armature/Spine/Fang_R
+        weight: 1
+      - path: Armature/Spine/Front0Stm_L
+        weight: 1
+      - path: Armature/Spine/Front0Stm_L/Front0Tip_L
+        weight: 1
+      - path: Armature/Spine/Front0Stm_R
+        weight: 1
+      - path: Armature/Spine/Front0Stm_R/Front0Tip_R
+        weight: 1
+      - path: Armature/Spine/Front1Stem_L
+        weight: 1
+      - path: Armature/Spine/Front1Stem_L/Front1Tip_L
+        weight: 1
+      - path: Armature/Spine/Front1Stem_R
+        weight: 1
+      - path: Armature/Spine/Front1Stem_R/Front1Tip_R
+        weight: 1
+      - path: Armature/Spine/Front2Stem_L
+        weight: 1
+      - path: Armature/Spine/Front2Stem_L/Front2Tip_L
+        weight: 1
+      - path: Armature/Spine/Front2Stem_R
+        weight: 1
+      - path: Armature/Spine/Front2Stem_R/Front2Tip_R
+        weight: 1
+      - path: Sphere
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
