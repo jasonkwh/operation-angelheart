@@ -527,6 +527,16 @@ Prefab:
       propertyPath: energyGainSpeed
       value: 175
       objectReference: {fileID: 0}
+    - target: {fileID: 135000014294920282, guid: 3b5981c1ef578420d8429425a2fdf3a5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54000012530897916, guid: 3b5981c1ef578420d8429425a2fdf3a5,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b5981c1ef578420d8429425a2fdf3a5, type: 2}
   m_IsPrefabParent: 0
@@ -549,7 +559,7 @@ MonoBehaviour:
   offsetFactor: 0
   offsetUnits: 0
   _downsampleFactor: 4
-  _iterations: 2
+  _iterations: 4
   _blurMinSpread: 0.4
   _blurSpread: 0.5
   _blurIntensity: 0.35
@@ -1405,7 +1415,7 @@ MonoBehaviour:
   cachedSprite: {fileID: 0}
   cachedPadding: {x: 0, y: 0, z: 0, w: 0}
   growDirection: 0
-  _fillValue: 0.26
+  _fillValue: 1
   radialFillOffset: 0
   radialFillLength: 1
   uvOffset: {x: 0, y: 0}
@@ -2031,7 +2041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2bfc393ba3e9ba4886cecff90d9a611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valueCurrent: 26
+  _valueCurrent: 100
   valueMin: 0
   valueMax: 100
   animationEnabled: 0
