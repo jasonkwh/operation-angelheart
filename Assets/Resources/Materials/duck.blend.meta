@@ -56,6 +56,11 @@ ModelImporter:
     7400002: Walk
     7400004: roar
     7400006: run
+    7400008: walk
+    7400010: fly
+    7400012: landing
+    7400014: sit
+    7400016: stand
     9500000: //RootNode
     13700000: Duckv1
   materials:
@@ -231,7 +236,7 @@ ModelImporter:
       name: run
       takeName: ArmatureAction_001
       firstFrame: 737
-      lastFrame: 785
+      lastFrame: 786
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -239,6 +244,376 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Back
+        weight: 1
+      - path: Armature/Back/NeckStem
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/Frill
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/LowerLip
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/UpperLip
+        weight: 1
+      - path: Armature/Back/Tail
+        weight: 1
+      - path: Armature/Back/thigh_L
+        weight: 1
+      - path: Armature/Back/thigh_L/Leg_L
+        weight: 1
+      - path: Armature/Back/thigh_L/Leg_L/Ankle_L
+        weight: 1
+      - path: Armature/Back/thigh_R
+        weight: 1
+      - path: Armature/Back/thigh_R/Leg_R
+        weight: 1
+      - path: Armature/Back/thigh_R/Leg_R/Ankle_R
+        weight: 1
+      - path: Armature/Back/Wing_L
+        weight: 1
+      - path: Armature/Back/Wing_L/WingTip_L
+        weight: 1
+      - path: Armature/Back/Wing_R
+        weight: 1
+      - path: Armature/Back/Wing_R/WingTip_R
+        weight: 1
+      - path: Armature/Foot_L
+        weight: 1
+      - path: Armature/Foot_R
+        weight: 1
+      - path: Duckv1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 3
+    - serializedVersion: 16
+      name: walk
+      takeName: ArmatureAction_001
+      firstFrame: 177
+      lastFrame: 263
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Back
+        weight: 1
+      - path: Armature/Back/NeckStem
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/Frill
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/LowerLip
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/UpperLip
+        weight: 1
+      - path: Armature/Back/Tail
+        weight: 1
+      - path: Armature/Back/thigh_L
+        weight: 1
+      - path: Armature/Back/thigh_L/Leg_L
+        weight: 1
+      - path: Armature/Back/thigh_L/Leg_L/Ankle_L
+        weight: 1
+      - path: Armature/Back/thigh_R
+        weight: 1
+      - path: Armature/Back/thigh_R/Leg_R
+        weight: 1
+      - path: Armature/Back/thigh_R/Leg_R/Ankle_R
+        weight: 1
+      - path: Armature/Back/Wing_L
+        weight: 1
+      - path: Armature/Back/Wing_L/WingTip_L
+        weight: 1
+      - path: Armature/Back/Wing_R
+        weight: 1
+      - path: Armature/Back/Wing_R/WingTip_R
+        weight: 1
+      - path: Armature/Foot_L
+        weight: 1
+      - path: Armature/Foot_R
+        weight: 1
+      - path: Duckv1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 3
+    - serializedVersion: 16
+      name: fly
+      takeName: ArmatureAction_001
+      firstFrame: 917
+      lastFrame: 1005
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Back
+        weight: 1
+      - path: Armature/Back/NeckStem
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/Frill
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/LowerLip
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/UpperLip
+        weight: 1
+      - path: Armature/Back/Tail
+        weight: 1
+      - path: Armature/Back/thigh_L
+        weight: 1
+      - path: Armature/Back/thigh_L/Leg_L
+        weight: 1
+      - path: Armature/Back/thigh_L/Leg_L/Ankle_L
+        weight: 1
+      - path: Armature/Back/thigh_R
+        weight: 1
+      - path: Armature/Back/thigh_R/Leg_R
+        weight: 1
+      - path: Armature/Back/thigh_R/Leg_R/Ankle_R
+        weight: 1
+      - path: Armature/Back/Wing_L
+        weight: 1
+      - path: Armature/Back/Wing_L/WingTip_L
+        weight: 1
+      - path: Armature/Back/Wing_R
+        weight: 1
+      - path: Armature/Back/Wing_R/WingTip_R
+        weight: 1
+      - path: Armature/Foot_L
+        weight: 1
+      - path: Armature/Foot_R
+        weight: 1
+      - path: Duckv1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 3
+    - serializedVersion: 16
+      name: landing
+      takeName: ArmatureAction_001
+      firstFrame: 1005
+      lastFrame: 1056
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Back
+        weight: 1
+      - path: Armature/Back/NeckStem
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/Frill
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/LowerLip
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/UpperLip
+        weight: 1
+      - path: Armature/Back/Tail
+        weight: 1
+      - path: Armature/Back/thigh_L
+        weight: 1
+      - path: Armature/Back/thigh_L/Leg_L
+        weight: 1
+      - path: Armature/Back/thigh_L/Leg_L/Ankle_L
+        weight: 1
+      - path: Armature/Back/thigh_R
+        weight: 1
+      - path: Armature/Back/thigh_R/Leg_R
+        weight: 1
+      - path: Armature/Back/thigh_R/Leg_R/Ankle_R
+        weight: 1
+      - path: Armature/Back/Wing_L
+        weight: 1
+      - path: Armature/Back/Wing_L/WingTip_L
+        weight: 1
+      - path: Armature/Back/Wing_R
+        weight: 1
+      - path: Armature/Back/Wing_R/WingTip_R
+        weight: 1
+      - path: Armature/Foot_L
+        weight: 1
+      - path: Armature/Foot_R
+        weight: 1
+      - path: Duckv1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 3
+    - serializedVersion: 16
+      name: sit
+      takeName: ArmatureAction_001
+      firstFrame: 1106
+      lastFrame: 1264
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Back
+        weight: 1
+      - path: Armature/Back/NeckStem
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/Frill
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/LowerLip
+        weight: 1
+      - path: Armature/Back/NeckStem/NeckMid/Head/UpperLip
+        weight: 1
+      - path: Armature/Back/Tail
+        weight: 1
+      - path: Armature/Back/thigh_L
+        weight: 1
+      - path: Armature/Back/thigh_L/Leg_L
+        weight: 1
+      - path: Armature/Back/thigh_L/Leg_L/Ankle_L
+        weight: 1
+      - path: Armature/Back/thigh_R
+        weight: 1
+      - path: Armature/Back/thigh_R/Leg_R
+        weight: 1
+      - path: Armature/Back/thigh_R/Leg_R/Ankle_R
+        weight: 1
+      - path: Armature/Back/Wing_L
+        weight: 1
+      - path: Armature/Back/Wing_L/WingTip_L
+        weight: 1
+      - path: Armature/Back/Wing_R
+        weight: 1
+      - path: Armature/Back/Wing_R/WingTip_R
+        weight: 1
+      - path: Armature/Foot_L
+        weight: 1
+      - path: Armature/Foot_R
+        weight: 1
+      - path: Duckv1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 3
+    - serializedVersion: 16
+      name: stand
+      takeName: ArmatureAction_001
+      firstFrame: 1264
+      lastFrame: 1345
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

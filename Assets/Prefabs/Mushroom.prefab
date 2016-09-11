@@ -9,22 +9,22 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000013169524538}
+  m_RootGameObject: {fileID: 1000013648731364}
   m_IsPrefabParent: 1
---- !u!1 &1000013169524538
+--- !u!1 &1000013648731364
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000013499883154}
-  - 33: {fileID: 33000010823723236}
-  - 23: {fileID: 23000012098666594}
-  - 95: {fileID: 95000011255634284}
-  - 54: {fileID: 54000011055465420}
-  - 135: {fileID: 135000010439188298}
-  - 114: {fileID: 114000012616906864}
+  - 4: {fileID: 4000011301818850}
+  - 33: {fileID: 33000014144581658}
+  - 23: {fileID: 23000011701098500}
+  - 95: {fileID: 95000010170512078}
+  - 54: {fileID: 54000013931174986}
+  - 135: {fileID: 135000011494556198}
+  - 114: {fileID: 114000010814181482}
   m_Layer: 8
   m_Name: Mushroom
   m_TagString: Untagged
@@ -32,12 +32,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000013499883154
+--- !u!4 &4000011301818850
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013169524538}
+  m_GameObject: {fileID: 1000013648731364}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 31.64, y: -1.36, z: 79.5}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
@@ -45,12 +45,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &23000012098666594
+--- !u!23 &23000011701098500
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013169524538}
+  m_GameObject: {fileID: 1000013648731364}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -74,19 +74,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &33000010823723236
+--- !u!33 &33000014144581658
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013169524538}
+  m_GameObject: {fileID: 1000013648731364}
   m_Mesh: {fileID: 4300000, guid: c662d83b8927c47a3929eee046de86cb, type: 3}
---- !u!54 &54000011055465420
+--- !u!54 &54000013931174986
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013169524538}
+  m_GameObject: {fileID: 1000013648731364}
   serializedVersion: 2
   m_Mass: 0.0000001
   m_Drag: 0
@@ -96,13 +96,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!95 &95000011255634284
+--- !u!95 &95000010170512078
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013169524538}
+  m_GameObject: {fileID: 1000013648731364}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c662d83b8927c47a3929eee046de86cb, type: 3}
   m_Controller: {fileID: 0}
@@ -113,12 +113,12 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000012616906864
+--- !u!114 &114000010814181482
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013169524538}
+  m_GameObject: {fileID: 1000013648731364}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fd8af9f7376349968409f5e729ce0ce, type: 3}
@@ -126,12 +126,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoke: {fileID: 0}
   pot: {fileID: 0}
---- !u!135 &135000010439188298
+--- !u!135 &135000011494556198
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013169524538}
+  m_GameObject: {fileID: 1000013648731364}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
