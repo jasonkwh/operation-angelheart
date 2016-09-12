@@ -57,7 +57,7 @@ public class Player : MonoBehaviour {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
-        ani["potWalk"].speed = 2.0f;
+        //ani["potWalk"].speed = 2.0f;
     }
 
 	//bouncing

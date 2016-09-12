@@ -32,6 +32,9 @@ ModelImporter:
     4300000: potv1Bk
     7400000: Default Take
     7400002: PotWalk
+    7400004: Dead
+    7400006: PickUp
+    7400008: Knocked
     9500000: //RootNode
     13700000: potv1Bk
   materials:
@@ -111,7 +114,7 @@ ModelImporter:
       name: PotWalk
       takeName: PotWalk
       firstFrame: 94
-      lastFrame: 406
+      lastFrame: 354
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -119,6 +122,162 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Core
+        weight: 1
+      - path: Core/Bone
+        weight: 1
+      - path: Core/FLT
+        weight: 1
+      - path: Core/FLT/FLB
+        weight: 1
+      - path: Core/FRT
+        weight: 1
+      - path: Core/FRT/FRB
+        weight: 1
+      - path: Core/RLT
+        weight: 1
+      - path: Core/RLT/RLB
+        weight: 1
+      - path: Core/RRT
+        weight: 1
+      - path: Core/RRT/RRB
+        weight: 1
+      - path: potv1Bk
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dead
+      takeName: Default Take
+      firstFrame: 374
+      lastFrame: 462
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Core
+        weight: 1
+      - path: Core/Bone
+        weight: 1
+      - path: Core/FLT
+        weight: 1
+      - path: Core/FLT/FLB
+        weight: 1
+      - path: Core/FRT
+        weight: 1
+      - path: Core/FRT/FRB
+        weight: 1
+      - path: Core/RLT
+        weight: 1
+      - path: Core/RLT/RLB
+        weight: 1
+      - path: Core/RRT
+        weight: 1
+      - path: Core/RRT/RRB
+        weight: 1
+      - path: potv1Bk
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PickUp
+      takeName: Default Take
+      firstFrame: 502
+      lastFrame: 551
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Core
+        weight: 1
+      - path: Core/Bone
+        weight: 1
+      - path: Core/FLT
+        weight: 1
+      - path: Core/FLT/FLB
+        weight: 1
+      - path: Core/FRT
+        weight: 1
+      - path: Core/FRT/FRB
+        weight: 1
+      - path: Core/RLT
+        weight: 1
+      - path: Core/RLT/RLB
+        weight: 1
+      - path: Core/RRT
+        weight: 1
+      - path: Core/RRT/RRB
+        weight: 1
+      - path: potv1Bk
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Knocked
+      takeName: Default Take
+      firstFrame: 598
+      lastFrame: 701
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
