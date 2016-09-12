@@ -71,6 +71,7 @@ public class Player : MonoBehaviour {
 			}
 				
 			if (time < (backupTime + (stayTime / 2))) {
+				//anim.SetInteger("AnimPar", 3); //knock
 				jumpUp ();
 				potJumpTranslate (pX, pZ);
 			} else {
@@ -92,10 +93,7 @@ public class Player : MonoBehaviour {
 		GUI.Label(new Rect(10, 10, 400, 20), fps);
 	}
 
-	void Update () {
-		//generatedX1key = false;
-		//generatedX2key = false;
-
+	void gainHealth() {
 		//gain some health
 		if(energyGain == true) {
 			if(eBar.valueCurrent < 100) {
@@ -105,6 +103,22 @@ public class Player : MonoBehaviour {
 				energyGain = false;
 			}
 		}
+	}
+
+	void dead() {
+		if(eBar.valueCurrent <= 0) {
+			Destroy(water);
+			anim.SetInteger("AnimPar", 4); //dead
+		}
+	}
+
+	void Update () {
+		//generatedX1key = false;
+		//generatedX2key = false;
+
+		//things of player health...
+		gainHealth();
+		dead();
 
 		if (pushing == false) {
 			smoke.SetActive (ate);
@@ -142,20 +156,20 @@ public class Player : MonoBehaviour {
 
 						if (swipeType.x != 0.0f) {
 							if (swipeType.x > 0.0f) {
-								moveRight ();
+								movePot(Vector3.right * Time.deltaTime * speed);
 								directionRight = true;
 							} else {
-								moveLeft ();
+								movePot(Vector3.left * Time.deltaTime * speed);
 								directionLeft = true;
 							}
 						}
 
 						if (swipeType.y != 0.0f) {
 							if (swipeType.y > 0.0f) {
-								moveUp ();
+								movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
 								directionUp = true;
 							} else {
-								moveDown ();
+								movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
 								directionDown = true;
 							}
 						}
@@ -165,13 +179,13 @@ public class Player : MonoBehaviour {
 					case TouchPhase.Stationary:
 						if (gestureDist > minSwipeDist)
 						if (directionUp == true)
-							moveUp ();
+							movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
 						if (directionRight == true)
-							moveRight ();
+							movePot(Vector3.right * Time.deltaTime * speed);
 						if (directionLeft == true)
-							moveLeft ();
+							movePot(Vector3.left * Time.deltaTime * speed);
 						if (directionDown == true)
-							moveDown ();
+							movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
 						break;
 
 					case TouchPhase.Canceled:
@@ -187,20 +201,22 @@ public class Player : MonoBehaviour {
 			//keyboard control
 			else if (Input.touchCount == 0) {
 				//StopCoroutine (GenerateTrails (trailsWaitTime));
-				anim.SetInteger("AnimPar", 0); //stable
+				if(eBar.valueCurrent > 0) {
+					anim.SetInteger("AnimPar", 0); //stable
+				}
 
 				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
-					moveUp();
+					movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
 				}
 				if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
-					moveDown();
+					movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
 				}
 				if (Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.LeftArrow)) {
-					moveLeft();
+					movePot(Vector3.left * Time.deltaTime * speed);
 				}
 				if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow))
 				{
-					moveRight();
+					movePot(Vector3.right * Time.deltaTime * speed);
 				}
 			}
 
@@ -224,30 +240,12 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void moveUp() {
-		anim.SetInteger("AnimPar", 1); //moving
-		controller.transform.position += (Vector3.forward * Time.deltaTime * speed) * speedUpDown;
-		//smoke.transform.Rotate (0,0,0);
-	}
-
-	void moveDown() {
-		anim.SetInteger("AnimPar", 1); //moving
-		controller.transform.position += (Vector3.back * Time.deltaTime * speed) * speedUpDown;
-		//smoke.transform.Rotate (180,0,0);
-	}
-
-	void moveRight() {
-		anim.SetInteger("AnimPar", 1); //moving
-		controller.transform.position += Vector3.right * Time.deltaTime * speed;
-		//generatedX1key = true;
-		//smoke.transform.Rotate (0,90,0);
-	}
-
-	void moveLeft() {
-		anim.SetInteger("AnimPar", 1); //moving
-		controller.transform.position += Vector3.left * Time.deltaTime * speed;
-		//generatedX2key = true;
-		//smoke.transform.Rotate (Vector3.left * Time.deltaTime);
+	void movePot(Vector3 movePosition) {
+		if(eBar.valueCurrent > 0) {
+			anim.SetInteger("AnimPar", 1); //moving
+			controller.transform.position += movePosition;
+			//smoke.transform.Rotate (0,0,0);
+		}
 	}
 
 	void jumpUp() {
