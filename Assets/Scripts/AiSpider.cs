@@ -41,11 +41,16 @@ public class AiSpider : MonoBehaviour {
 	private EnergyBar eBar;
 	public int damage;
 
+	//animator
+	private Animator anim;
+	private Animation ani;
+
 	void Start() {
 		accelerateBackup = accelerateBasic;
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
 		potInstant = GameObject.FindGameObjectWithTag ("Player").GetComponent<InstantSpider> ();
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
+		anim = gameObject.GetComponentInChildren<Animator>();
 		Physics.IgnoreLayerCollision (9,9); //ignore collision of enemies
 	}
 
@@ -74,6 +79,7 @@ public class AiSpider : MonoBehaviour {
 					ranTime ();
 				}
 				if (time < (backupTime + randomTime)) {
+					//anim.SetInteger("AnimPar", 1); //stay for a while
 					if (stopRanCheck == false) {
 						randomCheck = ranCheck ();
 						stopRanCheck = true;

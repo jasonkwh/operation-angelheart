@@ -1,4 +1,4 @@
-Potv2 animations
+Potv2 animations (done)
 Idle: 0 - 50 
 Walk cycle: 94 - 354
 Dead: 374 - 462
@@ -21,7 +21,7 @@ Run: 124 - 145
 Attack: 183 - 224
 Pounch: 247 - 306
 
-Spider animations
+Spider animations (done)
 Idle: 0 - 72
 Attack1: 112 - 155
 Attack2: 195 - 222
