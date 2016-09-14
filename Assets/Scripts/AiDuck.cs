@@ -3,7 +3,6 @@ using System.Collections;
 
 public class AiDuck : MonoBehaviour {
 
-	public bool isSamurai;
 	private float time;
 	private float backupTime;
 	private bool stopRanTime = false;
@@ -29,36 +28,64 @@ public class AiDuck : MonoBehaviour {
 	private EnergyBar eBar;
 	public int damage;
 
+	//animation control
+	private Animator anim;
+	public float standStillTime;
+	public float standRoarTime;
+	private float backupTimeStand;
+	private bool finishStandBackup = false;
+	public bool finishStand = false;
+	private bool foundPot = false;
+
 	void Start() {
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
 		bounceTime = potTransform.GetComponent<Player> ().stayTime;
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
+		anim = gameObject.GetComponent<Animator>();
 	}
 
 	void FixedUpdate () {
 		time += Time.deltaTime;
 		dist = Vector3.Distance (potTransform.position, transform.position);
 
-		if (dist < maxDist) {
-			duckRotate ();
+		if ((dist < maxDist) && (foundPot == false)) {
+			foundPot = true;
+		}
+		if(foundPot == true) {
+			if(finishStandBackup == false) {
+				backupTimeStand = time;
+				finishStandBackup = true;
+			}
 
-			if (potTransform.GetComponent<Player> ().pushing == false) {
-				if (stopRanTime == false) {
-					backupTime = time;
-					randomTime = ranTime (minRandomTime, maxRandomTime);
-					if (isSamurai == true) {
-						stayTime = 0;
-					} else {
-						stayTime = ranTime (minStayTime, maxStayTime);
-					}
-					stopRanTime = true;
+			if(finishStand == false) {
+				if(time < (backupTimeStand + standStillTime)) {
+					anim.SetInteger("DuckState", 2); //stand
+				} else if ((time > (backupTimeStand + standStillTime)) && (time < (backupTimeStand + standStillTime + standRoarTime))) {
+					duckRotate ();
+					anim.SetInteger("DuckState", 4); //roar
+				} else if (time > (backupTimeStand + standStillTime + standRoarTime)) {
+					finishStand = true;
 				}
+			} else {
+				duckRotate ();
 
-				if (time < (backupTime + randomTime)) {
-					speedAcceleration ();
-				} else if (time > (backupTime + randomTime + stayTime)) {
-					moveSpeed = 1.0f;
-					stopRanTime = false;
+				if (potTransform.GetComponent<Player> ().pushing == false) {
+					if (stopRanTime == false) {
+						backupTime = time;
+						randomTime = ranTime (minRandomTime, maxRandomTime);
+						stayTime = ranTime (minStayTime, maxStayTime);
+						stopRanTime = true;
+					}
+
+					if (time < (backupTime + randomTime)) {
+						anim.SetInteger("DuckState", 3); //run
+						speedAcceleration ();
+					} else if ((time > (backupTime + randomTime)) && (time < (backupTime + randomTime + stayTime))) {
+						anim.SetInteger("DuckState", 4); //roar
+					} else if (time > (backupTime + randomTime + stayTime)) {
+						moveSpeed = 1.0f;
+						stopRanTime = false;
+					}
 				}
 			}
 		}
