@@ -53,6 +53,9 @@ public class Player : MonoBehaviour {
 	public bool energyGain = false;
 	public float energyGainSpeed;
 
+	//to set the speed of accelerametor
+	public float accelSpeedModifier;
+
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
@@ -86,9 +89,8 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		//Frame rate Per Second
-		//Debug.Log("FPS: " + 1/Time.deltaTime);
-		fps = "FPS: " + (1 / Time.deltaTime);
+		fps = "FPS: " + (1 / Time.deltaTime); //to test fps on phone
+		//fps = "Acceleration: " + Input.acceleration; //to test accelerator on phone
 		GUI.contentColor = Color.black;
 		GUI.Label(new Rect(10, 10, 400, 20), fps);
 	}
@@ -201,7 +203,12 @@ public class Player : MonoBehaviour {
 			//keyboard control
 			else if (Input.touchCount == 0) {
 				//StopCoroutine (GenerateTrails (trailsWaitTime));
-				if(eBar.valueCurrent > 0) {
+
+				//use phone's accelerometer
+				movePot(new Vector3(Input.acceleration.x * accelSpeedModifier * Time.deltaTime * speed, 0, Input.acceleration.y * accelSpeedModifier * Time.deltaTime * speed));
+
+				//if(eBar.valueCurrent > 0) {
+				if((eBar.valueCurrent > 0) && (Input.acceleration.x == 0.0f) && (Input.acceleration.y == 0.0f)) {
 					anim.SetInteger("AnimPar", 0); //stable
 				}
 
