@@ -3,48 +3,48 @@ using System.Collections;
 
 public class AiDuck : MonoBehaviour {
 
-	private float time;
-	private float backupTime;
-	private bool stopRanTime = false;
+	protected float time;
+	protected float backupTime;
+	protected bool stopRanTime = false;
 	public float minStayTime;
 	public float maxStayTime;
-	private float stayTime;
+	protected float stayTime;
 	public float maxSpeed;
 	public float accelerate;
-	private float moveSpeed = 1.0f;
+	protected float moveSpeed = 1.0f;
 	public float rotateSpeed;
 	public float maxRandomTime;
 	public float minRandomTime;
-	private float randomTime = 0;
-	private Transform potTransform;
-	private float dist;
+	protected float randomTime = 0;
+	protected Transform potTransform;
+	protected float dist;
 	public float maxDist;
 
 	//for bouncing...
 	public float bounceRange;
-	private float bounceTime;
+	protected float bounceTime;
 
 	//for energy system 
-	private EnergyBar eBar;
+	protected EnergyBar eBar;
 	public int damage;
 
 	//animation control
-	private Animator anim;
+	protected Animator anim;
 	public float standStillTime;
 	public float standRoarTime;
-	private float backupTimeStand;
-	private bool finishStandBackup = false;
+	protected float backupTimeStand;
+	protected bool finishStandBackup = false;
 	public bool finishStand = false;
-	private bool foundPot = false;
+	protected bool foundPot = false;
 
-	void Start() {
+	protected void Start() {
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
 		bounceTime = potTransform.GetComponent<Player> ().stayTime;
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
 		anim = gameObject.GetComponent<Animator>();
 	}
 
-	void FixedUpdate () {
+	protected virtual void FixedUpdate () {
 		time += Time.deltaTime;
 		dist = Vector3.Distance (potTransform.position, transform.position);
 
@@ -101,7 +101,7 @@ public class AiDuck : MonoBehaviour {
 		}
 	}
 
-	void speedAcceleration() {
+	protected void speedAcceleration() {
 		//Come babe,
 		if (moveSpeed < maxSpeed) {
 			moveSpeed = moveSpeed + accelerate;
@@ -109,7 +109,7 @@ public class AiDuck : MonoBehaviour {
 		transform.position += transform.forward * moveSpeed * Time.deltaTime;
 	}
 
-	void duckRotate() {
+	protected void duckRotate() {
 		//Look at me please!
 		Quaternion rotation = Quaternion.LookRotation (potTransform.position - transform.position);
 		rotation.x = 0.0f; //freeze x axis
@@ -117,7 +117,7 @@ public class AiDuck : MonoBehaviour {
 		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, (rotateSpeed * Time.deltaTime));
 	}
 
-	float ranTime(float min, float max) {
+	protected float ranTime(float min, float max) {
 		return Random.Range (min, max);
 	}
 }

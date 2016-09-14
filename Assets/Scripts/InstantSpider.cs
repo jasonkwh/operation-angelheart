@@ -8,23 +8,22 @@ public class InstantSpider : MonoBehaviour {
 	//variables for time
 	public float minTime;
 	public float maxTime;
-	private float randomTime;
-	private float time;
-	private float backupTime;
-	private bool backup = false;
+	protected float randomTime;
+	protected float time;
+	protected float backupTime;
+	protected bool backup = false;
 
 	//variables for position
-	public GameObject pot;
 	public float fixedPositionY;
 	public float maxRangePositionZ;
 	public float minRangePositionZ;
-	private float minPositionZ;
-	private float maxPositionZ;
-	private float randomPositionZ;
+	protected float minPositionZ;
+	protected float maxPositionZ;
+	protected float randomPositionZ;
 	public float rangePositionX;
-	private float minPositionX;
-	private float maxPositionX;
-	private float randomPositionX;
+	protected float minPositionX;
+	protected float maxPositionX;
+	protected float randomPositionX;
 
 	//Limits
 	public int limits;
@@ -36,32 +35,32 @@ public class InstantSpider : MonoBehaviour {
 	public float destroyRangeMinZ;
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		setRandomTime ();
 		//time = minTime;
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	protected virtual void FixedUpdate () {
 		time += Time.deltaTime;
 
-		if ((pot.GetComponent<Player> ().ate == true) && (backup == false)) {
+		if ((this.gameObject.GetComponent<Player> ().ate == true) && (backup == false)) {
 			backupTime = time;
 			backup = true;
 		}
 
-		if ((time >= (randomTime + backupTime)) && (currentSpiderNum < limits) && (pot.GetComponent<Player>().ate == true)) {
+		if ((time >= (randomTime + backupTime)) && (currentSpiderNum < limits) && (this.gameObject.GetComponent<Player>().ate == true)) {
 			spawnSpiders ();
 			setRandomTime ();
 		}
 	}
 
-	void spawnSpiders() {
+	protected virtual void spawnSpiders() {
 		time = 0;
-		minPositionX = pot.transform.position.x - rangePositionX;
-		maxPositionX = pot.transform.position.x + rangePositionX;
-		minPositionZ = pot.transform.position.z - minRangePositionZ;
-		maxPositionZ = pot.transform.position.z + maxRangePositionZ;
+		minPositionX = this.gameObject.transform.position.x - rangePositionX;
+		maxPositionX = this.gameObject.transform.position.x + rangePositionX;
+		minPositionZ = this.gameObject.transform.position.z - minRangePositionZ;
+		maxPositionZ = this.gameObject.transform.position.z + maxRangePositionZ;
 		randomPositionX = setRandomPosition (minPositionX, maxPositionX);
 		randomPositionZ = setRandomPosition (minPositionZ, maxPositionZ);
 		Instantiate (spiderPrefab, new Vector3(randomPositionX,fixedPositionY,randomPositionZ), spiderPrefab.transform.rotation);
@@ -69,11 +68,11 @@ public class InstantSpider : MonoBehaviour {
 		backup = false;
 	}
 
-	void setRandomTime() {
+	protected void setRandomTime() {
 		randomTime = Random.Range (minTime, maxTime);
 	}
 
-	float setRandomPosition(float min, float max) {
+	protected float setRandomPosition(float min, float max) {
 		float randomNum = 0f;
 		randomNum = Random.Range (min, max);
 		return randomNum;

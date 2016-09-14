@@ -100,6 +100,30 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011874601498, guid: 3b5981c1ef578420d8429425a2fdf3a5,
     type: 2}
   m_PrefabInternal: {fileID: 482958119}
+--- !u!114 &76022540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 76022538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0e1a1e9deb4410ca209a6ead715f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spiderPrefab: {fileID: 1000011048041780, guid: d740e1dcd6098486ca94ce666ca57571,
+    type: 2}
+  minTime: 3
+  maxTime: 6
+  fixedPositionY: 0
+  maxRangePositionZ: 58
+  minRangePositionZ: 35
+  rangePositionX: 33
+  limits: 3
+  currentSpiderNum: 0
+  destroyRangeX: 0
+  destroyRangeMaxZ: 0
+  destroyRangeMinZ: 0
 --- !u!1 &102698798
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +637,10 @@ Prefab:
       propertyPath: pot
       value: 
       objectReference: {fileID: 76022538}
+    - target: {fileID: 1000011730285646, guid: 1f07b2c0cf5e74a80aff55777220523b, type: 2}
+      propertyPath: m_TagString
+      value: duck
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f07b2c0cf5e74a80aff55777220523b, type: 2}
   m_IsPrefabParent: 0
