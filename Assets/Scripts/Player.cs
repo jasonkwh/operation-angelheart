@@ -118,6 +118,12 @@ public class Player : MonoBehaviour {
 		//generatedX1key = false;
 		//generatedX2key = false;
 
+		//force garbage collection while frameCount is not 30+
+		if (Time.frameCount % 30 == 0)
+		{
+			System.GC.Collect();
+		}
+
 		//things of player health...
 		gainHealth();
 		dead();
