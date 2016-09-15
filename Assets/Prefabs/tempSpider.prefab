@@ -922,12 +922,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerateBasic: 1
   accelerateRate: 2.8
-  maxSpeed: 18
-  gap: 0.6
-  stay: 1.2
-  end: 2.55
+  maxSpeed: 16
+  gap: 0.4
+  stay: 0.8
+  end: 2.15
   stay2: 0
-  moveSpeed: 18
+  moveSpeed: 20
   speedUpDown: 1.5
   maxRandomTime: 0.5
   bounceRange: 6
