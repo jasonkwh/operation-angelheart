@@ -55,6 +55,9 @@ public class Player : MonoBehaviour {
 
 	//to set the speed of accelerametor
 	public float accelSpeedModifier;
+	public float accelMidY;
+	//private float backupTimeAccel;
+	//private float timeAccelNegativeRate = 0;
 
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
@@ -89,8 +92,8 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		fps = "FPS: " + (1 / Time.deltaTime); //to test fps on phone
-		//fps = "Acceleration: " + Input.acceleration; //to test accelerator on phone
+		//fps = "FPS: " + (1 / Time.deltaTime); //to test fps on phone
+		fps = "Acceleration: " + Input.acceleration; //to test accelerator on phone
 		GUI.contentColor = Color.black;
 		GUI.Label(new Rect(10, 10, 400, 20), fps);
 	}
@@ -211,10 +214,15 @@ public class Player : MonoBehaviour {
 				//StopCoroutine (GenerateTrails (trailsWaitTime));
 
 				//use phone's accelerometer
-				movePot(new Vector3(Input.acceleration.x * accelSpeedModifier * Time.deltaTime * speed, 0, Input.acceleration.y * accelSpeedModifier * Time.deltaTime * speed));
+				if(Input.acceleration.y >= accelMidY) {
+					movePot(new Vector3(Input.acceleration.x * accelSpeedModifier * Time.deltaTime * speed, 0, 1 * accelSpeedModifier * Time.deltaTime * speed));
+				} else {
+					movePot(new Vector3(Input.acceleration.x * accelSpeedModifier * Time.deltaTime * speed, 0, (Input.acceleration.y + accelMidY) * accelSpeedModifier * Time.deltaTime * speed));
+				}
 
+				//stable animation
+				if((eBar.valueCurrent > 0) && (Input.acceleration.x == 0.0f) && (Input.acceleration.y == -0.5f)) {
 				//if(eBar.valueCurrent > 0) {
-				if((eBar.valueCurrent > 0) && (Input.acceleration.x == 0.0f) && (Input.acceleration.y == 0.0f)) {
 					anim.SetInteger("AnimPar", 0); //stable
 				}
 
