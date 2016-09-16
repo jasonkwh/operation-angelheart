@@ -59,6 +59,10 @@ public class Player : MonoBehaviour {
 	//private float backupTimeAccel;
 	//private float timeAccelNegativeRate = 0;
 
+	//control selection
+	public bool touchControl = false;
+	public bool motionControl = false;
+
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
@@ -140,71 +144,73 @@ public class Player : MonoBehaviour {
 			//touch control
 			if (Input.touchCount > 0) {
 				//StartCoroutine (GenerateTrails (trailsWaitTime));
-				foreach (Touch touch in Input.touches) {
-					switch (touch.phase) {
-					case TouchPhase.Began:
-						directionUp = false;
-						directionDown = false;
-						directionRight = false;
-						directionLeft = false;
-						fingerStartPos = touch.position;
-						break;
+				if(touchControl == true) {
+					foreach (Touch touch in Input.touches) {
+						switch (touch.phase) {
+						case TouchPhase.Began:
+							directionUp = false;
+							directionDown = false;
+							directionRight = false;
+							directionLeft = false;
+							fingerStartPos = touch.position;
+							break;
 
-					case TouchPhase.Moved:
-						gestureDist = (touch.position - fingerStartPos).magnitude;
+						case TouchPhase.Moved:
+							gestureDist = (touch.position - fingerStartPos).magnitude;
 
-						//if (isSwipe && gestureTime < maxSwipeTime && gestureDist > minSwipeDist) {
-						Vector2 direction = touch.position - fingerStartPos;
-						Vector2 swipeType = Vector2.zero;
+							//if (isSwipe && gestureTime < maxSwipeTime && gestureDist > minSwipeDist) {
+							Vector2 direction = touch.position - fingerStartPos;
+							Vector2 swipeType = Vector2.zero;
 
-						if (Mathf.Abs (direction.x) > Mathf.Abs (direction.y)) {
-							// the swipe is horizontal:
-							swipeType = Vector2.right * Mathf.Sign (direction.x);
-						} else {
-							// the swipe is vertical:
-							swipeType = Vector2.up * Mathf.Sign (direction.y);
-						}
-
-						if (swipeType.x != 0.0f) {
-							if (swipeType.x > 0.0f) {
-								movePot(Vector3.right * Time.deltaTime * speed);
-								directionRight = true;
+							if (Mathf.Abs (direction.x) > Mathf.Abs (direction.y)) {
+								// the swipe is horizontal:
+								swipeType = Vector2.right * Mathf.Sign (direction.x);
 							} else {
-								movePot(Vector3.left * Time.deltaTime * speed);
-								directionLeft = true;
+								// the swipe is vertical:
+								swipeType = Vector2.up * Mathf.Sign (direction.y);
 							}
-						}
 
-						if (swipeType.y != 0.0f) {
-							if (swipeType.y > 0.0f) {
+							if (swipeType.x != 0.0f) {
+								if (swipeType.x > 0.0f) {
+									movePot(Vector3.right * Time.deltaTime * speed);
+									directionRight = true;
+								} else {
+									movePot(Vector3.left * Time.deltaTime * speed);
+									directionLeft = true;
+								}
+							}
+
+							if (swipeType.y != 0.0f) {
+								if (swipeType.y > 0.0f) {
+									movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
+									directionUp = true;
+								} else {
+									movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
+									directionDown = true;
+								}
+							}
+							//}
+							break;
+
+						case TouchPhase.Stationary:
+							if (gestureDist > minSwipeDist)
+							if (directionUp == true)
 								movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
-								directionUp = true;
-							} else {
+							if (directionRight == true)
+								movePot(Vector3.right * Time.deltaTime * speed);
+							if (directionLeft == true)
+								movePot(Vector3.left * Time.deltaTime * speed);
+							if (directionDown == true)
 								movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
-								directionDown = true;
-							}
+							break;
+
+						case TouchPhase.Canceled:
+							directionUp = false;
+							directionDown = false;
+							directionLeft = false;
+							directionRight = false;
+							break;
 						}
-						//}
-						break;
-
-					case TouchPhase.Stationary:
-						if (gestureDist > minSwipeDist)
-						if (directionUp == true)
-							movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
-						if (directionRight == true)
-							movePot(Vector3.right * Time.deltaTime * speed);
-						if (directionLeft == true)
-							movePot(Vector3.left * Time.deltaTime * speed);
-						if (directionDown == true)
-							movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
-						break;
-
-					case TouchPhase.Canceled:
-						directionUp = false;
-						directionDown = false;
-						directionLeft = false;
-						directionRight = false;
-						break;
 					}
 				}
 			}
@@ -213,16 +219,7 @@ public class Player : MonoBehaviour {
 			else if (Input.touchCount == 0) {
 				//StopCoroutine (GenerateTrails (trailsWaitTime));
 
-				//use phone's accelerometer
-				if(Input.acceleration.y >= accelMidY) {
-					movePot(new Vector3(Input.acceleration.x * accelSpeedModifier * Time.deltaTime * speed, 0, 1 * accelSpeedModifier * Time.deltaTime * speed));
-				} else {
-					movePot(new Vector3(Input.acceleration.x * accelSpeedModifier * Time.deltaTime * speed, 0, (Input.acceleration.y + accelMidY) * accelSpeedModifier * Time.deltaTime * speed));
-				}
-
-				//stable animation
-				if((eBar.valueCurrent > 0) && (Input.acceleration.x == 0.0f) && (Input.acceleration.y == -0.5f)) {
-				//if(eBar.valueCurrent > 0) {
+				if(eBar.valueCurrent > 0) {
 					anim.SetInteger("AnimPar", 0); //stable
 				}
 
@@ -238,6 +235,20 @@ public class Player : MonoBehaviour {
 				if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow))
 				{
 					movePot(Vector3.right * Time.deltaTime * speed);
+				}
+			}
+
+			//use phone's accelerometer
+			if(motionControl == true) {
+				if(Input.acceleration.y >= accelMidY) {
+					movePot(new Vector3(Input.acceleration.x * accelSpeedModifier * Time.deltaTime * speed, 0, 1 * accelSpeedModifier * Time.deltaTime * speed));
+				} else {
+					movePot(new Vector3(Input.acceleration.x * accelSpeedModifier * Time.deltaTime * speed, 0, (Input.acceleration.y + accelMidY) * accelSpeedModifier * Time.deltaTime * speed));
+				}
+
+				//stable animation
+				if((eBar.valueCurrent > 0) && (Input.acceleration.x == 0.0f) && (Input.acceleration.y == -0.5f)) {
+					anim.SetInteger("AnimPar", 0); //stable
 				}
 			}
 

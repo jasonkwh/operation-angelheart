@@ -3,19 +3,19 @@ using System.Collections;
 
 public class AiDuck : MonoBehaviour {
 
-	protected float time;
-	protected float backupTime;
+	public float time;
+	public float backupTime;
 	protected bool stopRanTime = false;
 	public float minStayTime;
 	public float maxStayTime;
-	protected float stayTime;
+	public float stayTime;
 	public float maxSpeed;
 	public float accelerate;
 	protected float moveSpeed = 1.0f;
 	public float rotateSpeed;
 	public float maxRandomTime;
 	public float minRandomTime;
-	protected float randomTime = 0;
+	public float randomTime = 0;
 	protected Transform potTransform;
 	protected float dist;
 	public float maxDist;
@@ -37,7 +37,7 @@ public class AiDuck : MonoBehaviour {
 	public bool finishStand = false;
 	protected bool foundPot = false;
 
-	protected void Start() {
+	protected virtual void Start() {
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
 		bounceTime = potTransform.GetComponent<Player> ().stayTime;
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
@@ -109,7 +109,7 @@ public class AiDuck : MonoBehaviour {
 		transform.position += transform.forward * moveSpeed * Time.deltaTime;
 	}
 
-	protected void duckRotate() {
+	protected virtual void duckRotate() {
 		//Look at me please!
 		Quaternion rotation = Quaternion.LookRotation (potTransform.position - transform.position);
 		rotation.x = 0.0f; //freeze x axis

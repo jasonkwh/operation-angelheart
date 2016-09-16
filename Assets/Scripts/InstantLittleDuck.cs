@@ -52,6 +52,6 @@ public class InstantLittleDuck : InstantSpider {
 	private void instantDuck(Vector3 duckPosition) {
 		GameObject smallDuck;
 		smallDuck = (GameObject)Instantiate (spiderPrefab, duckPosition, spiderPrefab.transform.rotation);
-		smallDuck.name = "smallDuck" + currentSpiderNum.ToString();
+		smallDuck.name = "smallDuck_" + currentSpiderNum.ToString();
 	}
 }
