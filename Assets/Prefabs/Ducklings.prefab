@@ -721,7 +721,7 @@ MonoBehaviour:
   randomTime: 0
   maxDist: 30
   bounceRange: 4
-  damage: 3
+  damage: 2
   standStillTime: 0.7
   standRoarTime: 2
   finishStand: 0

@@ -3,37 +3,32 @@ using System.Collections;
 
 public class AiCatNew : AiDuck {
 
-	public float catDist;
+	private bool stopStayTime = false;
 
 	protected override void FixedUpdate() {
 		time += Time.deltaTime;
 		dist = Vector3.Distance (potTransform.position, transform.position);
 
-		if ((dist < maxDist) && (foundPot == false)) {
-			foundPot = true;
-		}
-		if(foundPot == true) {
+		if(dist < maxDist) {
 			duckRotate();
 
-			if (dist < catDist) {
-				if (potTransform.GetComponent<Player> ().pushing == false) {
-					if (stopRanTime == false) {
-							backupTime = time;
-							randomTime = ranTime (minRandomTime, maxRandomTime);
-							stopRanTime = true;
-					}
-
-					if (time < (backupTime + randomTime)) {
-						anim.SetInteger("CatState", 1); //run
-						speedAcceleration ();
-					} else if (time > (backupTime + randomTime)) {
-						moveSpeed = 1.0f;
-						stopRanTime = false;
-					}
+			if (potTransform.GetComponent<Player> ().pushing == false) {
+				if (stopRanTime == false) {
+						backupTime = time;
+						randomTime = ranTime (minRandomTime, maxRandomTime);
+						stopRanTime = true;
 				}
-			} else {
 
+				if (time < (backupTime + randomTime)) {
+					anim.SetInteger("CatState", 1); //run
+					speedAcceleration ();
+				} else if (time > (backupTime + randomTime)) {
+					moveSpeed = 1.0f;
+					stopRanTime = false;
+				}
 			}
+		} else {
+			anim.SetInteger("CatState", 0); //stay
 		}
 
 		if (dist < bounceRange) {
