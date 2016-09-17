@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013349114740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - 4: {fileID: 4000011701713856}
   - 95: {fileID: 95000010410175676}
   - 114: {fileID: 114000014211854328}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ducklings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010242164536}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012583247482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011469409856}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011083736510}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NeckStem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013271397786}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011176286804}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012406564952}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013030673144}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ankle_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013434418586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingTip_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011769669120}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WingTip_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012639877636}
   - 137: {fileID: 137000013421349246}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Duckv1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013053467294}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012226081336}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wing_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011560215760}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014229581484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Frill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010306022464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowerLip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013807871962}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NeckMid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012863169512}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thigh_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011135847064}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wing_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014239994752}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperLip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010946249272}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ankle_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
