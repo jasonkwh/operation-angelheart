@@ -50,8 +50,10 @@ ModelImporter:
     400040: Thigh_L
     400042: Thigh_R
     4300000: Cat
-    7400000: Default Take
-    7400002: ArmatureAction
+    7400000: Idle
+    7400002: Run
+    7400004: Attack
+    7400006: Pounch
     9500000: //RootNode
     13700000: Cat
   materials:
@@ -74,7 +76,295 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Foot_L
+        weight: 1
+      - path: Armature/Foot_R
+        weight: 1
+      - path: Armature/Spine
+        weight: 1
+      - path: Armature/Spine/Neck
+        weight: 1
+      - path: Armature/Spine/Neck/Head
+        weight: 1
+      - path: Armature/Spine/Shoulder_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_L/Arm_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_L/Arm_L/Hand_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_R
+        weight: 1
+      - path: Armature/Spine/Shoulder_R/Arm_R
+        weight: 1
+      - path: Armature/Spine/Shoulder_R/Arm_R/Hand_R
+        weight: 1
+      - path: Armature/Spine/TailBase
+        weight: 1
+      - path: Armature/Spine/TailBase/TailTip
+        weight: 1
+      - path: Armature/Spine/Thigh_L
+        weight: 1
+      - path: Armature/Spine/Thigh_L/Leg_L
+        weight: 1
+      - path: Armature/Spine/Thigh_L/Leg_L/Ankle_L
+        weight: 1
+      - path: Armature/Spine/Thigh_R
+        weight: 1
+      - path: Armature/Spine/Thigh_R/Leg_R
+        weight: 1
+      - path: Armature/Spine/Thigh_R/Leg_R/Ankle_R
+        weight: 1
+      - path: Cat
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run
+      takeName: ArmatureAction
+      firstFrame: 124
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Foot_L
+        weight: 1
+      - path: Armature/Foot_R
+        weight: 1
+      - path: Armature/Spine
+        weight: 1
+      - path: Armature/Spine/Neck
+        weight: 1
+      - path: Armature/Spine/Neck/Head
+        weight: 1
+      - path: Armature/Spine/Shoulder_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_L/Arm_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_L/Arm_L/Hand_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_R
+        weight: 1
+      - path: Armature/Spine/Shoulder_R/Arm_R
+        weight: 1
+      - path: Armature/Spine/Shoulder_R/Arm_R/Hand_R
+        weight: 1
+      - path: Armature/Spine/TailBase
+        weight: 1
+      - path: Armature/Spine/TailBase/TailTip
+        weight: 1
+      - path: Armature/Spine/Thigh_L
+        weight: 1
+      - path: Armature/Spine/Thigh_L/Leg_L
+        weight: 1
+      - path: Armature/Spine/Thigh_L/Leg_L/Ankle_L
+        weight: 1
+      - path: Armature/Spine/Thigh_R
+        weight: 1
+      - path: Armature/Spine/Thigh_R/Leg_R
+        weight: 1
+      - path: Armature/Spine/Thigh_R/Leg_R/Ankle_R
+        weight: 1
+      - path: Cat
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack
+      takeName: ArmatureAction
+      firstFrame: 183
+      lastFrame: 224
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Foot_L
+        weight: 1
+      - path: Armature/Foot_R
+        weight: 1
+      - path: Armature/Spine
+        weight: 1
+      - path: Armature/Spine/Neck
+        weight: 1
+      - path: Armature/Spine/Neck/Head
+        weight: 1
+      - path: Armature/Spine/Shoulder_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_L/Arm_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_L/Arm_L/Hand_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_R
+        weight: 1
+      - path: Armature/Spine/Shoulder_R/Arm_R
+        weight: 1
+      - path: Armature/Spine/Shoulder_R/Arm_R/Hand_R
+        weight: 1
+      - path: Armature/Spine/TailBase
+        weight: 1
+      - path: Armature/Spine/TailBase/TailTip
+        weight: 1
+      - path: Armature/Spine/Thigh_L
+        weight: 1
+      - path: Armature/Spine/Thigh_L/Leg_L
+        weight: 1
+      - path: Armature/Spine/Thigh_L/Leg_L/Ankle_L
+        weight: 1
+      - path: Armature/Spine/Thigh_R
+        weight: 1
+      - path: Armature/Spine/Thigh_R/Leg_R
+        weight: 1
+      - path: Armature/Spine/Thigh_R/Leg_R/Ankle_R
+        weight: 1
+      - path: Cat
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Pounch
+      takeName: ArmatureAction
+      firstFrame: 247
+      lastFrame: 305
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Foot_L
+        weight: 1
+      - path: Armature/Foot_R
+        weight: 1
+      - path: Armature/Spine
+        weight: 1
+      - path: Armature/Spine/Neck
+        weight: 1
+      - path: Armature/Spine/Neck/Head
+        weight: 1
+      - path: Armature/Spine/Shoulder_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_L/Arm_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_L/Arm_L/Hand_L
+        weight: 1
+      - path: Armature/Spine/Shoulder_R
+        weight: 1
+      - path: Armature/Spine/Shoulder_R/Arm_R
+        weight: 1
+      - path: Armature/Spine/Shoulder_R/Arm_R/Hand_R
+        weight: 1
+      - path: Armature/Spine/TailBase
+        weight: 1
+      - path: Armature/Spine/TailBase/TailTip
+        weight: 1
+      - path: Armature/Spine/Thigh_L
+        weight: 1
+      - path: Armature/Spine/Thigh_L/Leg_L
+        weight: 1
+      - path: Armature/Spine/Thigh_L/Leg_L/Ankle_L
+        weight: 1
+      - path: Armature/Spine/Thigh_R
+        weight: 1
+      - path: Armature/Spine/Thigh_R/Leg_R
+        weight: 1
+      - path: Armature/Spine/Thigh_R/Leg_R/Ankle_R
+        weight: 1
+      - path: Cat
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
