@@ -86,8 +86,9 @@ ModelImporter:
     400076: Mouth_L
     400078: Mouth_R
     4300000: Ant
-    7400000: Default Take
-    7400002: ArmatureAction
+    7400000: Idle
+    7400002: Attack
+    7400004: Walk
     9500000: //RootNode
     13700000: Ant
   materials:
@@ -110,7 +111,331 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 68
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ant
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/AntenIK_L
+        weight: 1
+      - path: Armature/AntenIK_R
+        weight: 1
+      - path: Armature/Core
+        weight: 1
+      - path: Armature/Core/Back
+        weight: 1
+      - path: Armature/Core/Head
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_L
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_L/AntenMid_L
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_L/AntenMid_L/AntenTip_L
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_R
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_R/AntenMid_R
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_R/AntenMid_R/AntenTip_R
+        weight: 1
+      - path: Armature/Core/Head/Mouth_L
+        weight: 1
+      - path: Armature/Core/Head/Mouth_R
+        weight: 1
+      - path: Armature/Core/Leg1Core_L
+        weight: 1
+      - path: Armature/Core/Leg1Core_L/Leg1Mid_L
+        weight: 1
+      - path: Armature/Core/Leg1Core_L/Leg1Mid_L/Leg1Tip_L
+        weight: 1
+      - path: Armature/Core/Leg1Core_R
+        weight: 1
+      - path: Armature/Core/Leg1Core_R/Leg1Mid_R
+        weight: 1
+      - path: Armature/Core/Leg1Core_R/Leg1Mid_R/Leg1Tip_R
+        weight: 1
+      - path: Armature/Core/Leg2Core_L
+        weight: 1
+      - path: Armature/Core/Leg2Core_L/Leg2Mid_L
+        weight: 1
+      - path: Armature/Core/Leg2Core_L/Leg2Mid_L/Leg2Tip_L
+        weight: 1
+      - path: Armature/Core/Leg2Core_R
+        weight: 1
+      - path: Armature/Core/Leg2Core_R/Leg2Mid_R
+        weight: 1
+      - path: Armature/Core/Leg2Core_R/Leg2Mid_R/Leg2Tip_R
+        weight: 1
+      - path: Armature/Core/Leg3Core_L
+        weight: 1
+      - path: Armature/Core/Leg3Core_L/Leg3Mid_L
+        weight: 1
+      - path: Armature/Core/Leg3Core_L/Leg3Mid_L/Leg3Tip_L
+        weight: 1
+      - path: Armature/Core/Leg3Core_R
+        weight: 1
+      - path: Armature/Core/Leg3Core_R/Leg3Mid_R
+        weight: 1
+      - path: Armature/Core/Leg3Core_R/Leg3Mid_R/Leg3Tip_R
+        weight: 1
+      - path: Armature/Leg1IK_L
+        weight: 1
+      - path: Armature/Leg1IK_R
+        weight: 1
+      - path: Armature/Leg2IK_L
+        weight: 1
+      - path: Armature/Leg2IK_R
+        weight: 1
+      - path: Armature/Leg3IK_L
+        weight: 1
+      - path: Armature/Leg3IK_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack
+      takeName: ArmatureAction
+      firstFrame: 131
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ant
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/AntenIK_L
+        weight: 1
+      - path: Armature/AntenIK_R
+        weight: 1
+      - path: Armature/Core
+        weight: 1
+      - path: Armature/Core/Back
+        weight: 1
+      - path: Armature/Core/Head
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_L
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_L/AntenMid_L
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_L/AntenMid_L/AntenTip_L
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_R
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_R/AntenMid_R
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_R/AntenMid_R/AntenTip_R
+        weight: 1
+      - path: Armature/Core/Head/Mouth_L
+        weight: 1
+      - path: Armature/Core/Head/Mouth_R
+        weight: 1
+      - path: Armature/Core/Leg1Core_L
+        weight: 1
+      - path: Armature/Core/Leg1Core_L/Leg1Mid_L
+        weight: 1
+      - path: Armature/Core/Leg1Core_L/Leg1Mid_L/Leg1Tip_L
+        weight: 1
+      - path: Armature/Core/Leg1Core_R
+        weight: 1
+      - path: Armature/Core/Leg1Core_R/Leg1Mid_R
+        weight: 1
+      - path: Armature/Core/Leg1Core_R/Leg1Mid_R/Leg1Tip_R
+        weight: 1
+      - path: Armature/Core/Leg2Core_L
+        weight: 1
+      - path: Armature/Core/Leg2Core_L/Leg2Mid_L
+        weight: 1
+      - path: Armature/Core/Leg2Core_L/Leg2Mid_L/Leg2Tip_L
+        weight: 1
+      - path: Armature/Core/Leg2Core_R
+        weight: 1
+      - path: Armature/Core/Leg2Core_R/Leg2Mid_R
+        weight: 1
+      - path: Armature/Core/Leg2Core_R/Leg2Mid_R/Leg2Tip_R
+        weight: 1
+      - path: Armature/Core/Leg3Core_L
+        weight: 1
+      - path: Armature/Core/Leg3Core_L/Leg3Mid_L
+        weight: 1
+      - path: Armature/Core/Leg3Core_L/Leg3Mid_L/Leg3Tip_L
+        weight: 1
+      - path: Armature/Core/Leg3Core_R
+        weight: 1
+      - path: Armature/Core/Leg3Core_R/Leg3Mid_R
+        weight: 1
+      - path: Armature/Core/Leg3Core_R/Leg3Mid_R/Leg3Tip_R
+        weight: 1
+      - path: Armature/Leg1IK_L
+        weight: 1
+      - path: Armature/Leg1IK_R
+        weight: 1
+      - path: Armature/Leg2IK_L
+        weight: 1
+      - path: Armature/Leg2IK_R
+        weight: 1
+      - path: Armature/Leg3IK_L
+        weight: 1
+      - path: Armature/Leg3IK_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: ArmatureAction
+      firstFrame: 249
+      lastFrame: 269
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Ant
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/AntenIK_L
+        weight: 1
+      - path: Armature/AntenIK_R
+        weight: 1
+      - path: Armature/Core
+        weight: 1
+      - path: Armature/Core/Back
+        weight: 1
+      - path: Armature/Core/Head
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_L
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_L/AntenMid_L
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_L/AntenMid_L/AntenTip_L
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_R
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_R/AntenMid_R
+        weight: 1
+      - path: Armature/Core/Head/AntenCore_R/AntenMid_R/AntenTip_R
+        weight: 1
+      - path: Armature/Core/Head/Mouth_L
+        weight: 1
+      - path: Armature/Core/Head/Mouth_R
+        weight: 1
+      - path: Armature/Core/Leg1Core_L
+        weight: 1
+      - path: Armature/Core/Leg1Core_L/Leg1Mid_L
+        weight: 1
+      - path: Armature/Core/Leg1Core_L/Leg1Mid_L/Leg1Tip_L
+        weight: 1
+      - path: Armature/Core/Leg1Core_R
+        weight: 1
+      - path: Armature/Core/Leg1Core_R/Leg1Mid_R
+        weight: 1
+      - path: Armature/Core/Leg1Core_R/Leg1Mid_R/Leg1Tip_R
+        weight: 1
+      - path: Armature/Core/Leg2Core_L
+        weight: 1
+      - path: Armature/Core/Leg2Core_L/Leg2Mid_L
+        weight: 1
+      - path: Armature/Core/Leg2Core_L/Leg2Mid_L/Leg2Tip_L
+        weight: 1
+      - path: Armature/Core/Leg2Core_R
+        weight: 1
+      - path: Armature/Core/Leg2Core_R/Leg2Mid_R
+        weight: 1
+      - path: Armature/Core/Leg2Core_R/Leg2Mid_R/Leg2Tip_R
+        weight: 1
+      - path: Armature/Core/Leg3Core_L
+        weight: 1
+      - path: Armature/Core/Leg3Core_L/Leg3Mid_L
+        weight: 1
+      - path: Armature/Core/Leg3Core_L/Leg3Mid_L/Leg3Tip_L
+        weight: 1
+      - path: Armature/Core/Leg3Core_R
+        weight: 1
+      - path: Armature/Core/Leg3Core_R/Leg3Mid_R
+        weight: 1
+      - path: Armature/Core/Leg3Core_R/Leg3Mid_R/Leg3Tip_R
+        weight: 1
+      - path: Armature/Leg1IK_L
+        weight: 1
+      - path: Armature/Leg1IK_R
+        weight: 1
+      - path: Armature/Leg2IK_L
+        weight: 1
+      - path: Armature/Leg2IK_R
+        weight: 1
+      - path: Armature/Leg3IK_L
+        weight: 1
+      - path: Armature/Leg3IK_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
