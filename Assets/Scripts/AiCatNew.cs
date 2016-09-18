@@ -3,7 +3,11 @@ using System.Collections;
 
 public class AiCatNew : AiDuck {
 
-	private bool stopStayTime = false;
+	//private float backupDist;
+	public float jumpDist;
+	private float jumpSpeed = 1.0f;
+	public float maxJumpSpeed;
+	public float jumpAccelerate;
 
 	protected override void FixedUpdate() {
 		time += Time.deltaTime;
@@ -16,14 +20,20 @@ public class AiCatNew : AiDuck {
 				if (stopRanTime == false) {
 						backupTime = time;
 						randomTime = ranTime (minRandomTime, maxRandomTime);
+						//backupDist = dist;
 						stopRanTime = true;
 				}
-
 				if (time < (backupTime + randomTime)) {
-					anim.SetInteger("CatState", 1); //run
-					speedAcceleration ();
+					if((dist >= jumpDist) && (dist <= maxDist)) {
+						anim.SetInteger("CatState", 3); //jump
+						catJump();
+					} else {
+						anim.SetInteger("CatState", 1); //run
+						speedAcceleration ();
+					}
 				} else if (time > (backupTime + randomTime)) {
 					moveSpeed = 1.0f;
+					jumpSpeed = 1.0f;
 					stopRanTime = false;
 				}
 			}
@@ -41,5 +51,12 @@ public class AiCatNew : AiDuck {
 			eBar.valueCurrent = eBar.valueCurrent - damage; //set energy bar value
 			backupTime = time;
 		}
+	}
+
+	private void catJump() {
+		if (jumpSpeed < maxJumpSpeed) {
+			jumpSpeed = jumpSpeed + jumpAccelerate;
+		}
+		transform.position += transform.forward * jumpSpeed * Time.deltaTime;
 	}
 }
