@@ -96,8 +96,8 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		//fps = "FPS: " + (1 / Time.deltaTime); //to test fps on phone
-		fps = "Acceleration: " + Input.acceleration; //to test accelerator on phone
+		fps = "FPS: " + (1 / Time.deltaTime); //to test fps on phone
+		//fps = "Acceleration: " + Input.acceleration; //to test accelerator on phone
 		GUI.contentColor = Color.black;
 		GUI.Label(new Rect(10, 10, 400, 20), fps);
 	}
