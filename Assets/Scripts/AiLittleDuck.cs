@@ -42,7 +42,6 @@ public class AiLittleDuck : AiDuck {
 		}
 
 		if (dist < bounceRange) {
-			//potTransform.position += transform.forward * moveSpeed * Time.deltaTime;
 			potTransform.GetComponent<Player> ().pX = potTransform.position.x - transform.position.x;
 			potTransform.GetComponent<Player> ().pZ = potTransform.position.z - transform.position.z;
 			potTransform.GetComponent<Player> ().pushing = true;

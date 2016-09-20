@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013207742066}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thighR_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013750603300}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: legR_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010351678156}
   - 137: {fileID: 137000011806235960}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - 4: {fileID: 4000011531981336}
   - 95: {fileID: 95000011886494290}
   - 114: {fileID: 114000010048388106}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013630512798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011215374368}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012853218474}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thighF_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013604619026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013436075346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013639472182}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: legF_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011270671636}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: legR_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013291236064}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thighR_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010350544636}
   - 137: {fileID: 137000014128275968}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012322694606}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FootF_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013131466544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FootR_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010305314596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FootR_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012837133798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FootF_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010833252740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: thighF_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010352552882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: legF_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010228490624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cortex
   m_TagString: Untagged
   m_Icon: {fileID: 0}

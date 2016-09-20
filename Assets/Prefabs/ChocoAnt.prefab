@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012717541540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntenTip_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013407609016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg2IK_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013426030064}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3Core_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011019270544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg1IK_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012637398482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntenMid_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013743310860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntenCore_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011371224858}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntenTip_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012356207294}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3Core_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012669047946}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntenIK_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013869901868}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg2IK_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011325977886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg2Mid_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013818159400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3IK_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011690866648}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011533184716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg1IK_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010777639396}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg1Mid_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010170324410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg1Mid_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010930925426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg2Tip_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010179471118}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntenCore_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010272462136}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012003562086}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg2Tip_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013253633396}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntenMid_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011418518234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3IK_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014044106708}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg1Tip_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012023598422}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg2Mid_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013167374248}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg2Core_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012785915228}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg1Tip_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012536855554}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3Mid_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013935397366}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mouth_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013006535892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012763578584}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg1Core_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013948882996}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3Tip_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011120519198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3Mid_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012076675504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mouth_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010587888922}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   - 4: {fileID: 4000011186582356}
   - 95: {fileID: 95000014289845996}
   - 114: {fileID: 114000013276350734}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ChocoAnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000014087385966}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AntenIK_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011735837262}
   - 137: {fileID: 137000011704729626}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011229484248}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg1Core_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011683752628}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg2Core_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +607,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010988733600}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3Tip_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
