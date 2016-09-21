@@ -49,7 +49,6 @@ public class AiBear : MonoBehaviour {
 		//determine if front
 		Vector3 directionToTarget = transform.position - potTransform.position;
 		float angle = Vector3.Angle(transform.forward, directionToTarget);
-		float distance = directionToTarget.magnitude;
 
 		//animation control
 		if ((Mathf.Abs(angle) > frontAngle) && (dist < maxDist)) {
@@ -60,13 +59,16 @@ public class AiBear : MonoBehaviour {
 		}
 
 		//damages
-		if ((Mathf.Abs(angle) > frontAngle) && (dist < bounceRange)) {
+		if (dist < bounceRange) {
 			potTransform.GetComponent<Player> ().pX = potTransform.position.x - transform.position.x;
 			potTransform.GetComponent<Player> ().pZ = potTransform.position.z - transform.position.z;
 			potTransform.GetComponent<Player> ().pushing = true;
 			potTransform.GetComponent<Player> ().stopBackup = false;
-			eBar.valueCurrent = eBar.valueCurrent - damage; //set energy bar value
-			//backupTime = time;
+			if (Mathf.Abs(angle) > frontAngle) {
+				eBar.valueCurrent = eBar.valueCurrent - damage; //set energy bar value
+			} else {
+				potTransform.GetComponent<Player> ().bearCollider = true;
+			}
 		}
 	}
 

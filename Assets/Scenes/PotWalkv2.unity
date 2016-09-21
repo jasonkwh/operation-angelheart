@@ -340,35 +340,35 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4000011088037648, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
+    - target: {fileID: 4000010049700730, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 38.95
+      value: 36.55014
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011088037648, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
+    - target: {fileID: 4000010049700730, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011088037648, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
+    - target: {fileID: 4000010049700730, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 96.29
+      value: 95.493996
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011088037648, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
+    - target: {fileID: 4000010049700730, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011088037648, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
+    - target: {fileID: 4000010049700730, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.9307565
+      value: -0.99876606
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011088037648, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
+    - target: {fileID: 4000010049700730, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011088037648, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
+    - target: {fileID: 4000010049700730, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.36563975
+      value: 0.049662698
       objectReference: {fileID: 0}
-    - target: {fileID: 4000011088037648, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
+    - target: {fileID: 4000010049700730, guid: 7cc2f61ab408b4ac99e126e509714ab4, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}

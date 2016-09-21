@@ -62,6 +62,7 @@ public class Player : MonoBehaviour {
 	//control selection
 	public bool touchControl = false;
 	public bool motionControl = false;
+	public bool bearCollider = false;
 
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
@@ -82,10 +83,13 @@ public class Player : MonoBehaviour {
 				
 			if (time < (backupTime + (stayTime / 2))) {
 				//anim.SetInteger("AnimPar", 3); //knock
-				jumpUp ();
+				if(bearCollider == false) {
+					jumpUp ();
+				}
 				potJumpTranslate (pX, pZ);
 			} else {
 				transform.position = new Vector3 (transform.position.x, 0, transform.position.z); //back to original position
+				bearCollider = false;
 				pushing = false;
 			}
 		}
