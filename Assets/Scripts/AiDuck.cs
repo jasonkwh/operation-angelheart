@@ -36,12 +36,14 @@ public class AiDuck : MonoBehaviour {
 	protected bool finishStandBackup = false;
 	public bool finishStand = false;
 	protected bool foundPot = false;
+	AudioSource audio;
 
 	protected virtual void Start() {
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
 		bounceTime = potTransform.GetComponent<Player> ().stayTime;
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
 		anim = gameObject.GetComponent<Animator>();
+		audio = gameObject.GetComponent<AudioSource>();
 	}
 
 	protected virtual void FixedUpdate () {
@@ -63,7 +65,9 @@ public class AiDuck : MonoBehaviour {
 				} else if ((time > (backupTimeStand + standStillTime)) && (time < (backupTimeStand + standStillTime + standRoarTime))) {
 					duckRotate ();
 					anim.SetInteger("DuckState", 4); //roar
-					gameObject.GetComponent<AudioSource>().Play();
+					if(audio.isPlaying == false) {
+						audio.PlayDelayed(0.25f);
+					}
 				} else if (time > (backupTimeStand + standStillTime + standRoarTime)) {
 					finishStand = true;
 				}
@@ -83,7 +87,9 @@ public class AiDuck : MonoBehaviour {
 						speedAcceleration ();
 					} else if ((time > (backupTime + randomTime)) && (time < (backupTime + randomTime + stayTime))) {
 						anim.SetInteger("DuckState", 4); //roar
-						gameObject.GetComponent<AudioSource>().Play();
+						if(audio.isPlaying == false) {
+							audio.PlayDelayed(0.25f);
+						}
 					} else if (time > (backupTime + randomTime + stayTime)) {
 						moveSpeed = 1.0f;
 						stopRanTime = false;

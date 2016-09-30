@@ -6,6 +6,7 @@ public class AiLittleDuck : AiDuck {
 	Quaternion rotation;
 	private int ducklingNum;
 	private string prevDucklingName;
+	AudioSource audio;
 
 	protected override void Start() {
 		//same initialization as AiDuck.cs
@@ -13,6 +14,7 @@ public class AiLittleDuck : AiDuck {
 		bounceTime = potTransform.GetComponent<Player> ().stayTime;
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
 		anim = gameObject.GetComponent<Animator>();
+		audio = gameObject.GetComponent<AudioSource>();
 
 		//grab transform name,
 		string[] ducklingName= transform.name.Split ('_');
@@ -36,7 +38,9 @@ public class AiLittleDuck : AiDuck {
 				speedAcceleration ();
 			} else if ((time > (backupTime + randomTime)) && (time < (backupTime + randomTime + stayTime))) {
 				anim.SetInteger("DucklingState", 2); //roar
-				gameObject.GetComponent<AudioSource>().Play();
+				if(audio.isPlaying == false) {
+					audio.PlayDelayed(0.35f);
+				}
 			} else if (time > (backupTime + randomTime + stayTime)) {
 				moveSpeed = 1.0f;
 			}

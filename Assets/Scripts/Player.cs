@@ -64,10 +64,15 @@ public class Player : MonoBehaviour {
 	public bool motionControl = false;
 	public bool bearCollider = false;
 
+	//sound effects
+	AudioSource audio;
+
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
+		audio = gameObject.GetComponent<AudioSource>();
+		audio.time = 0.9f;
         //ani["potWalk"].speed = 2.0f;
     }
 
@@ -83,7 +88,9 @@ public class Player : MonoBehaviour {
 				
 			if (time < (backupTime + (stayTime / 2))) {
 				//anim.SetInteger("AnimPar", 3); //knock
-				gameObject.GetComponent<AudioSource>().Play();
+				if(audio.isPlaying == false) {
+					audio.Play();
+				}
 				if(bearCollider == false) {
 					jumpUp ();
 				}

@@ -11,6 +11,7 @@ public class AiFlyDuck : AiDuck {
 	public float landForward = 12f;
 	public float landTransY = 8f;
 	private InstantFlyDuck potInstant;
+	AudioSource audio;
 
 	protected override void Start() {
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
@@ -18,6 +19,7 @@ public class AiFlyDuck : AiDuck {
 		bounceTime = potTransform.GetComponent<Player> ().stayTime;
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
 		anim = gameObject.GetComponent<Animator>();
+		audio = gameObject.GetComponent<AudioSource>();
 	}
 
 	protected override void FixedUpdate() {
@@ -55,7 +57,9 @@ public class AiFlyDuck : AiDuck {
 				} else if ((time > (backupTimeStand + standStillTime)) && (time < (backupTimeStand + standStillTime + standRoarTime))) {
 					transform.position = new Vector3(transform.position.x, 0, transform.position.z);
 					anim.SetInteger("DucklingState", 4); //roar
-					gameObject.GetComponent<AudioSource>().Play();
+					if(audio.isPlaying == false) {
+						audio.PlayDelayed(0.35f);
+					}
 				} else if (time > (backupTimeStand + standStillTime + standRoarTime)) {
 					finishStand = true;
 				}
@@ -75,7 +79,9 @@ public class AiFlyDuck : AiDuck {
 						speedAcceleration ();
 					} else if ((time > (backupTime + randomTime)) && (time < (backupTime + randomTime + stayTime))) {
 						anim.SetInteger("DucklingState", 4); //roar
-						gameObject.GetComponent<AudioSource>().Play();
+						if(audio.isPlaying == false) {
+							audio.PlayDelayed(0.35f);
+						}
 					} else if (time > (backupTime + randomTime + stayTime)) {
 						moveSpeed = 1.0f;
 						stopRanTime = false;
