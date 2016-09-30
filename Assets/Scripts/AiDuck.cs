@@ -63,6 +63,7 @@ public class AiDuck : MonoBehaviour {
 				} else if ((time > (backupTimeStand + standStillTime)) && (time < (backupTimeStand + standStillTime + standRoarTime))) {
 					duckRotate ();
 					anim.SetInteger("DuckState", 4); //roar
+					gameObject.GetComponent<AudioSource>().Play();
 				} else if (time > (backupTimeStand + standStillTime + standRoarTime)) {
 					finishStand = true;
 				}
@@ -82,6 +83,7 @@ public class AiDuck : MonoBehaviour {
 						speedAcceleration ();
 					} else if ((time > (backupTime + randomTime)) && (time < (backupTime + randomTime + stayTime))) {
 						anim.SetInteger("DuckState", 4); //roar
+						gameObject.GetComponent<AudioSource>().Play();
 					} else if (time > (backupTime + randomTime + stayTime)) {
 						moveSpeed = 1.0f;
 						stopRanTime = false;

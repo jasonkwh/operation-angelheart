@@ -55,6 +55,7 @@ public class AiFlyDuck : AiDuck {
 				} else if ((time > (backupTimeStand + standStillTime)) && (time < (backupTimeStand + standStillTime + standRoarTime))) {
 					transform.position = new Vector3(transform.position.x, 0, transform.position.z);
 					anim.SetInteger("DucklingState", 4); //roar
+					gameObject.GetComponent<AudioSource>().Play();
 				} else if (time > (backupTimeStand + standStillTime + standRoarTime)) {
 					finishStand = true;
 				}
@@ -74,6 +75,7 @@ public class AiFlyDuck : AiDuck {
 						speedAcceleration ();
 					} else if ((time > (backupTime + randomTime)) && (time < (backupTime + randomTime + stayTime))) {
 						anim.SetInteger("DucklingState", 4); //roar
+						gameObject.GetComponent<AudioSource>().Play();
 					} else if (time > (backupTime + randomTime + stayTime)) {
 						moveSpeed = 1.0f;
 						stopRanTime = false;

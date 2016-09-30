@@ -36,6 +36,7 @@ public class AiLittleDuck : AiDuck {
 				speedAcceleration ();
 			} else if ((time > (backupTime + randomTime)) && (time < (backupTime + randomTime + stayTime))) {
 				anim.SetInteger("DucklingState", 2); //roar
+				gameObject.GetComponent<AudioSource>().Play();
 			} else if (time > (backupTime + randomTime + stayTime)) {
 				moveSpeed = 1.0f;
 			}

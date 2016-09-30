@@ -83,6 +83,7 @@ public class Player : MonoBehaviour {
 				
 			if (time < (backupTime + (stayTime / 2))) {
 				//anim.SetInteger("AnimPar", 3); //knock
+				gameObject.GetComponent<AudioSource>().Play();
 				if(bearCollider == false) {
 					jumpUp ();
 				}
