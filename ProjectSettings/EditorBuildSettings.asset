@@ -21,3 +21,7 @@ EditorBuildSettings:
     path: Assets/HighlightingSystemDemo/Scenes/Compound.unity
   - enabled: 0
     path: Assets/HighlightingSystemDemo/Scenes/Mobile.unity
+  - enabled: 1
+    path: Assets/Scenes/PotWalkv2.unity
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
