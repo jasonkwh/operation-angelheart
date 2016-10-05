@@ -67,6 +67,12 @@ public class Player : MonoBehaviour {
 	//sound effects
 	AudioSource audio;
 
+	//control buttons
+	private bool buttonUp = false;
+	private bool buttonDown = false;
+	private bool buttonRight = false;
+	private bool buttonLeft = false;
+
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
@@ -153,6 +159,20 @@ public class Player : MonoBehaviour {
 				water.transform.position += Vector3.up * Time.deltaTime * waterLevelSpeed;
 			}
 
+			//button control
+			if(buttonUp == true) {
+				moveUp();
+			}
+			if(buttonDown == true) {
+				moveDown();
+			}
+			if(buttonRight == true) {
+				moveRight();
+			}
+			if(buttonLeft == true) {
+				moveLeft();
+			}
+
 			//touch control
 			if (Input.touchCount > 0) {
 				//StartCoroutine (GenerateTrails (trailsWaitTime));
@@ -184,20 +204,20 @@ public class Player : MonoBehaviour {
 
 							if (swipeType.x != 0.0f) {
 								if (swipeType.x > 0.0f) {
-									movePot(Vector3.right * Time.deltaTime * speed);
+									moveRight();
 									directionRight = true;
 								} else {
-									movePot(Vector3.left * Time.deltaTime * speed);
+									moveLeft();
 									directionLeft = true;
 								}
 							}
 
 							if (swipeType.y != 0.0f) {
 								if (swipeType.y > 0.0f) {
-									movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
+									moveUp();
 									directionUp = true;
 								} else {
-									movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
+									moveDown();
 									directionDown = true;
 								}
 							}
@@ -207,13 +227,13 @@ public class Player : MonoBehaviour {
 						case TouchPhase.Stationary:
 							if (gestureDist > minSwipeDist)
 							if (directionUp == true)
-								movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
+								moveUp();
 							if (directionRight == true)
-								movePot(Vector3.right * Time.deltaTime * speed);
+								moveRight();
 							if (directionLeft == true)
-								movePot(Vector3.left * Time.deltaTime * speed);
+								moveLeft();
 							if (directionDown == true)
-								movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
+								moveDown();
 							break;
 
 						case TouchPhase.Canceled:
@@ -236,17 +256,17 @@ public class Player : MonoBehaviour {
 				}
 
 				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
-					movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
+					moveUp();
 				}
 				if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
-					movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
+					moveDown();
 				}
 				if (Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.LeftArrow)) {
-					movePot(Vector3.left * Time.deltaTime * speed);
+					moveLeft();
 				}
 				if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow))
 				{
-					movePot(Vector3.right * Time.deltaTime * speed);
+					moveRight();
 				}
 			}
 
@@ -292,22 +312,55 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	void moveUp() {
+		movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
+	}
+
+	void moveDown() {
+		movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
+	}
+
+	void moveRight() {
+		movePot(Vector3.right * Time.deltaTime * speed);
+	}
+
+	void moveLeft() {
+		movePot(Vector3.left * Time.deltaTime * speed);
+	}
+
+	public void enterUp() {
+		buttonUp = true;
+	}
+
+	public void enterDown() {
+		buttonDown = true;
+	}
+
+	public void enterRight() {
+		buttonRight = true;
+	}
+
+	public void enterLeft() {
+		buttonLeft = true;
+	}
+
+	public void exitUp() {
+		buttonUp = false;
+	}
+
+	public void exitDown() {
+		buttonDown = false;
+	}
+
+	public void exitRight() {
+		buttonRight = false;
+	}
+
+	public void exitLeft() {
+		buttonLeft = false;
+	}
+
 	void jumpUp() {
-		//Come babe,
-		/*if ((time - backupTime) < (stayTime / 2)) {
-			//jumpSpeed = ((9.8f * (time - backupTime)) - (-maxJumpSpeed));
-			jumpSpeed = Mathf.Sqrt ((2 * 9.8f) + Mathf.Pow(maxJumpSpeed, 2));
-		}*/
-
-		/*jumpSpeed = maxJumpSpeed;
-		jumpTime = (stayTime / 2) / 5;
-		origJumpTime = jumpTime;
-
-		if (jumpTime < (stayTime / 2)) {
-			jumpSpeed = maxJumpSpeed * jumpTime;
-			jumpTime = jumpTime + origJumpTime;
-		}*/
-
 		jumpSpeed = maxJumpSpeed;
 		if (jumpSpeed > 0) {
 			jumpSpeed = maxJumpSpeed - (jumpSpeed * (time - backupTime) * jumpMultiplier);
@@ -316,11 +369,4 @@ public class Player : MonoBehaviour {
 		transform.Translate(Vector3.up * jumpSpeed * Time.deltaTime);
 	}
 
-	/*void jumpDown() {
-		jumpSpeed = maxJumpSpeed;
-		if (jumpSpeed > 0) {
-			jumpSpeed = (jumpSpeed * (time - (backupTime + (stayTime / 2))));
-		}
-		transform.Translate(Vector3.down * jumpSpeed * Time.deltaTime);
-	}*/
 }
