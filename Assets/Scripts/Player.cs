@@ -72,6 +72,8 @@ public class Player : MonoBehaviour {
 	private bool buttonDown = false;
 	private bool buttonRight = false;
 	private bool buttonLeft = false;
+	Camera cam;
+	private bool cameraZoom = false;
 
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
@@ -79,6 +81,8 @@ public class Player : MonoBehaviour {
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
 		audio = gameObject.GetComponent<AudioSource>();
 		audio.time = 0.9f;
+		cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+		cam.orthographicSize = 25f;
         //ani["potWalk"].speed = 2.0f;
     }
 
@@ -173,6 +177,11 @@ public class Player : MonoBehaviour {
 				moveLeft();
 			}
 
+			//fade out control
+			if(cameraZoom == true) {
+				fadeOutCamera();
+			}
+
 			//touch control
 			if (Input.touchCount > 0) {
 				//StartCoroutine (GenerateTrails (trailsWaitTime));
@@ -250,6 +259,7 @@ public class Player : MonoBehaviour {
 			//keyboard control
 			else if (Input.touchCount == 0) {
 				//StopCoroutine (GenerateTrails (trailsWaitTime));
+				fadeInCamera();
 
 				if(eBar.valueCurrent > 0) {
 					anim.SetInteger("AnimPar", 0); //stable
@@ -306,6 +316,7 @@ public class Player : MonoBehaviour {
 
 	void movePot(Vector3 movePosition) {
 		if(eBar.valueCurrent > 0) {
+			cam.orthographicSize = 30f;
 			anim.SetInteger("AnimPar", 1); //moving
 			controller.transform.position += movePosition;
 			//smoke.transform.Rotate (0,0,0);
@@ -330,34 +341,42 @@ public class Player : MonoBehaviour {
 
 	public void enterUp() {
 		buttonUp = true;
+		cameraZoom = true;
 	}
 
 	public void enterDown() {
 		buttonDown = true;
+		cameraZoom = true;
 	}
 
 	public void enterRight() {
 		buttonRight = true;
+		cameraZoom = true;
 	}
 
 	public void enterLeft() {
 		buttonLeft = true;
+		cameraZoom = true;
 	}
 
 	public void exitUp() {
 		buttonUp = false;
+		cameraZoom = false;
 	}
 
 	public void exitDown() {
 		buttonDown = false;
+		cameraZoom = false;
 	}
 
 	public void exitRight() {
 		buttonRight = false;
+		cameraZoom = false;
 	}
 
 	public void exitLeft() {
 		buttonLeft = false;
+		cameraZoom = false;
 	}
 
 	void jumpUp() {
@@ -369,4 +388,15 @@ public class Player : MonoBehaviour {
 		transform.Translate(Vector3.up * jumpSpeed * Time.deltaTime);
 	}
 
+	void fadeInCamera() {
+		if(cam.orthographicSize > 25f) {
+			cam.orthographicSize -= 1f;
+		}
+	}
+
+	void fadeOutCamera() {
+		if(cam.orthographicSize < 30f) {
+			cam.orthographicSize += 1f;
+		}
+	}
 }
