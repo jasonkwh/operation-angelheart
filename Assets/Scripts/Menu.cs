@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour {
 
 	public GameObject pause;
 	public GameObject menu;
+	public GameObject controls;
 
 	void Start() {
 		menu.active = false;
@@ -15,6 +16,7 @@ public class Menu : MonoBehaviour {
 	public void clickPause() {
 		Time.timeScale = 0f;
 		pause.active = false;
+		controls.active = false;
 		menu.active = true;
 	}
 
@@ -22,6 +24,7 @@ public class Menu : MonoBehaviour {
 		Time.timeScale = 1f;
 		menu.active = false;
 		pause.active = true;
+		controls.active = true;
 	}
 
 	public void clickRestart() {
