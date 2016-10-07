@@ -41,6 +41,7 @@ public class AiPatrolSpider : MonoBehaviour {
 			tempPositionBackup2 = false;
 			transform.position = Vector3.MoveTowards (transform.position, topRight, moveSpeed * Time.deltaTime * speedUpDown);
 			transform.rotation = Quaternion.LookRotation(topRight - tempPosition);
+			collidePot();
 		} else if ((transform.position.x == (table.transform.position.x + 10)) && (transform.position.z > (table.transform.position.z + 20))) {
 			transform.position = topRight;
 		}
@@ -52,6 +53,7 @@ public class AiPatrolSpider : MonoBehaviour {
 			tempPositionBackup = false;
 			transform.position = Vector3.MoveTowards (transform.position, topLeft, moveSpeed * Time.deltaTime);
 			transform.rotation = Quaternion.LookRotation(topLeft - tempPosition);
+			collidePot();
 		} else if ((transform.position.x < (table.transform.position.x - 10)) && (transform.position.z == (table.transform.position.z + 20))) {
 			transform.position = topLeft;
 		}
@@ -63,6 +65,7 @@ public class AiPatrolSpider : MonoBehaviour {
 			tempPositionBackup2 = false;
 			transform.position = Vector3.MoveTowards (transform.position, bottomLeft, moveSpeed * Time.deltaTime * speedUpDown);
 			transform.rotation = Quaternion.LookRotation(bottomLeft - tempPosition);
+			collidePot();
 		} else if ((transform.position.x == (table.transform.position.x - 10)) && (transform.position.z < (table.transform.position.z - 20))) {
 			transform.position = bottomLeft;
 		}
@@ -74,10 +77,13 @@ public class AiPatrolSpider : MonoBehaviour {
 			tempPositionBackup = false;
 			transform.position = Vector3.MoveTowards (transform.position, bottomRight, moveSpeed * Time.deltaTime);
 			transform.rotation = Quaternion.LookRotation(bottomRight - tempPosition);
+			collidePot();
 		} else if ((transform.position.x > (table.transform.position.x + 10)) && (transform.position.z == (table.transform.position.z - 20))) {
 			transform.position = bottomRight;
 		}
+	}
 
+	void collidePot() {
 		if (dist < bounceRange) {
 			//potTransform.position += transform.forward * moveSpeed * Time.deltaTime;
 			potTransform.GetComponent<Player> ().pX = potTransform.position.x - transform.position.x;

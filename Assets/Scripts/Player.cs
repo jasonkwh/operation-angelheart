@@ -74,6 +74,9 @@ public class Player : MonoBehaviour {
 	private bool buttonLeft = false;
 	Camera cam;
 	private bool cameraZoom = false;
+	public float cameraOrig = 25f;
+	public float cameraFinal = 30f;
+	public float cameraSteps = 1f;
 
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
@@ -82,7 +85,7 @@ public class Player : MonoBehaviour {
 		audio = gameObject.GetComponent<AudioSource>();
 		audio.time = 0.9f;
 		cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-		cam.orthographicSize = 25f;
+		cam.orthographicSize = cameraOrig;
         //ani["potWalk"].speed = 2.0f;
     }
 
@@ -157,6 +160,11 @@ public class Player : MonoBehaviour {
 		gainHealth();
 		dead();
 
+		//fade out control
+		if(cameraZoom == true) {
+			fadeOutCamera();
+		}
+
 		if (pushing == false) {
 			smoke.SetActive (ate);
 			if ((ate == true) && (water.transform.position.y <= 1.98)) {
@@ -175,11 +183,6 @@ public class Player : MonoBehaviour {
 			}
 			if(buttonLeft == true) {
 				moveLeft();
-			}
-
-			//fade out control
-			if(cameraZoom == true) {
-				fadeOutCamera();
 			}
 
 			//touch control
@@ -266,16 +269,19 @@ public class Player : MonoBehaviour {
 				}
 
 				if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
+					cameraZoom = true;
 					moveUp();
 				}
 				if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
+					cameraZoom = true;
 					moveDown();
 				}
 				if (Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.LeftArrow)) {
+					cameraZoom = true;
 					moveLeft();
 				}
-				if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow))
-				{
+				if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow)) {
+					cameraZoom = true;
 					moveRight();
 				}
 			}
@@ -316,7 +322,7 @@ public class Player : MonoBehaviour {
 
 	void movePot(Vector3 movePosition) {
 		if(eBar.valueCurrent > 0) {
-			cam.orthographicSize = 30f;
+			cam.orthographicSize = cameraFinal;
 			anim.SetInteger("AnimPar", 1); //moving
 			controller.transform.position += movePosition;
 			//smoke.transform.Rotate (0,0,0);
@@ -361,22 +367,18 @@ public class Player : MonoBehaviour {
 
 	public void exitUp() {
 		buttonUp = false;
-		cameraZoom = false;
 	}
 
 	public void exitDown() {
 		buttonDown = false;
-		cameraZoom = false;
 	}
 
 	public void exitRight() {
 		buttonRight = false;
-		cameraZoom = false;
 	}
 
 	public void exitLeft() {
 		buttonLeft = false;
-		cameraZoom = false;
 	}
 
 	void jumpUp() {
@@ -389,14 +391,15 @@ public class Player : MonoBehaviour {
 	}
 
 	void fadeInCamera() {
-		if(cam.orthographicSize > 25f) {
-			cam.orthographicSize -= 1f;
+		if(cam.orthographicSize > cameraOrig) {
+			cam.orthographicSize -= cameraSteps;
 		}
+		cameraZoom = false;
 	}
 
 	void fadeOutCamera() {
-		if(cam.orthographicSize < 30f) {
-			cam.orthographicSize += 1f;
+		if(cam.orthographicSize < cameraFinal) {
+			cam.orthographicSize += cameraSteps;
 		}
 	}
 }
