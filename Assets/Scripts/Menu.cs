@@ -8,8 +8,9 @@ public class Menu : MonoBehaviour {
 	public GameObject pause;
 	public GameObject menu;
 	public GameObject controls;
+ 
 
-	void Start() {
+    void Start() {
 		menu.active = false;
 	}
 
@@ -18,14 +19,15 @@ public class Menu : MonoBehaviour {
 		pause.active = false;
 		controls.active = false;
 		menu.active = true;
-	}
+
+    }
 
 	public void clickResume() {
 		Time.timeScale = 1f;
 		menu.active = false;
 		pause.active = true;
 		controls.active = true;
-	}
+    }
 
 	public void clickRestart() {
 		Time.timeScale = 1f;

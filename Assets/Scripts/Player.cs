@@ -89,6 +89,15 @@ public class Player : MonoBehaviour {
     public float timer = 180.0f;
     public Text timerText;
 
+    //end conditions
+    public GameObject Gameover;
+    public GameObject Win;
+    public GameObject star1;
+    public GameObject star2;
+    public GameObject star3;
+    public GameObject menu;
+
+
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
@@ -103,6 +112,12 @@ public class Player : MonoBehaviour {
         setPickupText();
         setScoreText();
         setTimerText();
+        Gameover.SetActive(false);
+        Win.SetActive(false);
+        star1.SetActive(false);
+        star2.SetActive(false);
+        star3.SetActive(false);
+        menu.SetActive(false);
     }
 
 	//bouncing
@@ -132,27 +147,56 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-    // colliding with pickups
-    void OnTriggerEnter(Collider other){
+    // colliding with other objects
+    void OnTriggerEnter(Collider other)
+    {
 
-        if (other.gameObject.CompareTag("Pickups"))
+        if (other.gameObject.CompareTag("Pickups")) //colliding with pickups
         {
             other.gameObject.SetActive(false);
-            numOfPickUps = numOfPickUps+1;
+            numOfPickUps = numOfPickUps + 1;
             setPickupText();
-        } 
+        }
 
-        if (other.gameObject.CompareTag("Table"))
+        if (other.gameObject.CompareTag("Table")) //collding with Table
         {
             if (numOfPickUps <= 3)
                 score += (numOfPickUps * 50) + (numOfPickUps * 10);
             else
             {
-                score += (numOfPickUps * 50) + (numOfPickUps*50/2);
+                score += (numOfPickUps * 50) + (numOfPickUps * 50 / 2);
             }
             numOfPickUps = 0;
             setPickupText();
             setScoreText();
+        }
+        if (other.gameObject.CompareTag("Exit")) //collding with exit area
+        {
+            if(score >= 100) {  //score more than 100
+                Win.SetActive(true);
+                star1.SetActive(true);
+                menu.SetActive(true);
+                Time.timeScale = 0f;
+            }
+
+            if (score >= 250) //score more than 100
+            {
+                Win.SetActive(true);
+                star1.SetActive(true);
+                star2.SetActive(true);
+                menu.SetActive(true);
+                Time.timeScale = 0f;
+            }
+
+            if (score >= 400) //score more than 100
+            {
+                Win.SetActive(true);
+                star1.SetActive(true);
+                star2.SetActive(true);
+                star3.SetActive(true);
+                menu.SetActive(true);
+                Time.timeScale = 0f;
+            }
         }
     }
 
@@ -206,7 +250,9 @@ public class Player : MonoBehaviour {
 		if(eBar.valueCurrent <= 0) {
 			Destroy(water);
 			anim.SetInteger("AnimPar", 4); //dead
-		}
+            Gameover.SetActive(true);
+            menu.SetActive(true);
+        }
 	}
 
 	void Update () {
@@ -219,6 +265,7 @@ public class Player : MonoBehaviour {
 			System.GC.Collect();
 		}
 
+        //count down
         countDownTime();
 
         //things of player health...

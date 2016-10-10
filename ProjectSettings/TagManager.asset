@@ -11,6 +11,7 @@ TagManager:
   - Pickups
   - Table
   - Enemy
+  - Exit
   layers:
   - Default
   - TransparentFX
