@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Player : MonoBehaviour {
@@ -78,6 +79,16 @@ public class Player : MonoBehaviour {
 	public float cameraFinal = 30f;
 	public float cameraSteps = 1f;
 
+    //scoreing mechanics
+    private int numOfPickUps;
+    private int score;
+    public Text pickupText;
+    public Text scoreText;
+
+    //timer mechanic 
+    public float timer = 180.0f;
+    public Text timerText;
+
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
@@ -87,6 +98,11 @@ public class Player : MonoBehaviour {
 		cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		cam.orthographicSize = cameraOrig;
         //ani["potWalk"].speed = 2.0f;
+        score = 0;
+        numOfPickUps = 0;
+        setPickupText();
+        setScoreText();
+        setTimerText();
     }
 
 	//bouncing
@@ -116,7 +132,54 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void potJumpTranslate(float positionX, float positionZ) {
+    // colliding with pickups
+    void OnTriggerEnter(Collider other){
+
+        if (other.gameObject.CompareTag("Pickups"))
+        {
+            other.gameObject.SetActive(false);
+            numOfPickUps = numOfPickUps+1;
+            setPickupText();
+        } 
+
+        if (other.gameObject.CompareTag("Table"))
+        {
+            if (numOfPickUps <= 3)
+                score += (numOfPickUps * 50) + (numOfPickUps * 10);
+            else
+            {
+                score += (numOfPickUps * 50) + (numOfPickUps*50/2);
+            }
+            numOfPickUps = 0;
+            setPickupText();
+            setScoreText();
+        }
+    }
+
+    void setPickupText() // update the text UI
+    {
+        pickupText.text = numOfPickUps.ToString(); 
+    }
+
+    void setScoreText() // update the text UI
+    {
+        scoreText.text = score.ToString();
+    }
+
+    void setTimerText()// update the text UI
+    {
+        timerText.text = Mathf.Round(timer).ToString();
+    }
+
+    //timer
+    void countDownTime()
+    {
+        timer -= Time.deltaTime;
+        setTimerText();
+    }
+
+
+    void potJumpTranslate(float positionX, float positionZ) {
 		transform.Translate (positionX * jumpSpaceMulti * Time.deltaTime, 0, positionZ * jumpSpaceMulti * Time.deltaTime);
 	}
 
@@ -156,8 +219,10 @@ public class Player : MonoBehaviour {
 			System.GC.Collect();
 		}
 
-		//things of player health...
-		gainHealth();
+        countDownTime();
+
+        //things of player health...
+        gainHealth();
 		dead();
 
 		//fade out control

@@ -8,6 +8,9 @@ TagManager:
   - Terrain
   - duck
   - duck2
+  - Pickups
+  - Table
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -19,9 +22,9 @@ TagManager:
   - 
   - Meats
   - Enemy
-  - 
-  - 
-  - 
+  - Hidden
+  - Pickups
+  - Table
   - 
   - 
   - 
