@@ -45,3 +45,7 @@ Butterfly: 0 - 198
 
 firefly animations
 flying: 0 - 153
+
+Rabbit animations
+Idle: 10 - 88
+Run: 106 - 128

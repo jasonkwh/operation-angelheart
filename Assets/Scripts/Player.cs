@@ -104,6 +104,8 @@ public class Player : MonoBehaviour {
     public GameObject star3;
     public GameObject menu;
 
+    //cat ai test
+    public static bool isInCatSpace = false; 
 
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
@@ -157,8 +159,7 @@ public class Player : MonoBehaviour {
     // colliding with other objects
     void OnTriggerEnter(Collider other)
     {
-       
-
+ 
         if (other.gameObject.CompareTag("Pickups")) //colliding with pickups
         {
             other.gameObject.SetActive(false);
@@ -211,6 +212,16 @@ public class Player : MonoBehaviour {
                 Time.timeScale = 0f;
             }
         }
+
+        if (other.gameObject.CompareTag("CatSpace1"))  //enters cat space
+            isInCatSpace = true;
+    }
+
+    void OnTriggerExit (Collider other)
+    {
+        if (other.gameObject.CompareTag("CatSpace1")) //exits cat space
+            isInCatSpace = false;
+        
     }
 
     void setPickupText() // update the text UI

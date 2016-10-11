@@ -11,7 +11,7 @@ public class AiBear : MonoBehaviour {
 	public int damage;
 	private EnergyBar eBar;
 	//public float maxDist;
-	//public float rotateSpeed;
+	public float rotateSpeed;
 	public float frontAngle;
 	private float time;
 	private float backupTime;
@@ -25,7 +25,8 @@ public class AiBear : MonoBehaviour {
 	}
 
 	void Update() {
-        transform.LookAt(potTransform);
+        //transform.LookAt(potTransform);
+        bearRotate();
 		time += Time.deltaTime;
 		dist = Vector3.Distance (potTransform.position, transform.position);
 
@@ -52,13 +53,13 @@ public class AiBear : MonoBehaviour {
 		}*/
 	}
 
-	/*void bearRotate() {
+	void bearRotate() {
 		//Look at me please!
 		Quaternion rotation = Quaternion.LookRotation (potTransform.position - transform.position);
 		rotation.x = 0.0f; //freeze x axis
 		rotation.z = 0.0f; //freeze z axis
 		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, (rotateSpeed * Time.deltaTime));
-	}*/
+	}
 
 	void bearAttack() {
 		//determine if front

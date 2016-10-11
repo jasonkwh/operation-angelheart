@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AiCatNew : AiDuck {
+public class AiCatNewArea : AiDuck {
 
 	//private float backupDist;
 	public float jumpDist;
@@ -16,8 +16,8 @@ public class AiCatNew : AiDuck {
 		time += Time.deltaTime;
 		dist = Vector3.Distance (potTransform.position, transform.position);
 
-		if(dist < maxDist) {
-			duckRotate(pot);
+		if(dist < maxDist && Player.isInCatSpace) {
+            duckRotate();
 
 			if (potTransform.GetComponent<Player> ().pushing == false) {
 				if (stopRanTime == false) {
@@ -44,15 +44,21 @@ public class AiCatNew : AiDuck {
 			anim.SetInteger("CatState", 0); //stay
 		}
 
-		if (dist < bounceRange) {
-			anim.SetInteger("CatState", 2); //attack
-			potTransform.GetComponent<Player> ().pX = potTransform.position.x - transform.position.x;
-			potTransform.GetComponent<Player> ().pZ = potTransform.position.z - transform.position.z;
-			potTransform.GetComponent<Player> ().pushing = true;
-			potTransform.GetComponent<Player> ().stopBackup = false;
-			eBar.valueCurrent = eBar.valueCurrent - damage; //set energy bar value
-			backupTime = time;
-		}
+        if (dist < bounceRange)
+        {
+            anim.SetInteger("CatState", 2); //attack
+            potTransform.GetComponent<Player>().pX = potTransform.position.x - transform.position.x;
+            potTransform.GetComponent<Player>().pZ = potTransform.position.z - transform.position.z;
+            potTransform.GetComponent<Player>().pushing = true;
+            potTransform.GetComponent<Player>().stopBackup = false;
+            eBar.valueCurrent = eBar.valueCurrent - damage; //set energy bar value
+            backupTime = time;
+        }
+
+        else
+        {
+            //LookAt(StayNear);
+        }
 	}
 
 	private void catJump() {
@@ -62,9 +68,7 @@ public class AiCatNew : AiDuck {
 		transform.position += transform.forward * jumpSpeed * Time.deltaTime;
 	}
 
-
-
-    private void duckRotate(GameObject other)
+    private void LookAt(GameObject other)
     {
         transform.LookAt(other.transform);
     }
