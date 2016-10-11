@@ -8,15 +8,13 @@ public class AiCatNewArea : AiDuck {
 	private float jumpSpeed = 1.0f;
 	public float maxJumpSpeed;
 	public float jumpAccelerate;
-    public GameObject pot;
-    public GameObject CatSpace;
-    public GameObject StayNear;
+    public bool inArea = false;
 
 	protected override void FixedUpdate() {
 		time += Time.deltaTime;
 		dist = Vector3.Distance (potTransform.position, transform.position);
 
-		if(dist < maxDist && Player.isInCatSpace) {
+		if(dist < maxDist && inArea) { //sight range
             duckRotate();
 
 			if (potTransform.GetComponent<Player> ().pushing == false) {
@@ -68,8 +66,13 @@ public class AiCatNewArea : AiDuck {
 		transform.position += transform.forward * jumpSpeed * Time.deltaTime;
 	}
 
-    private void LookAt(GameObject other)
+    public void setInArea( bool setter)
     {
-        transform.LookAt(other.transform);
+        inArea = setter;
     }
+
+    //private void LookAt(GameObject other)
+    //{
+    //    transform.LookAt(other.transform);
+    //}
 }
