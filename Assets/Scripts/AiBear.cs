@@ -25,6 +25,7 @@ public class AiBear : MonoBehaviour {
 	}
 
 	void Update() {
+        transform.LookAt(potTransform);
 		time += Time.deltaTime;
 		dist = Vector3.Distance (potTransform.position, transform.position);
 

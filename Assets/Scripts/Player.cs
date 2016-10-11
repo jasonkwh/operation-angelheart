@@ -8,13 +8,15 @@ public class Player : MonoBehaviour {
     private Animation ani;
     private CharacterController controller;
     public float speed;
-	public float speedUpDown;
+    public float Defspeed;
+    public float speedUpDown;
+    public float slowFactor;
     //public float turnSpeed = 60.0f;
     //private Vector3 moveDirection = Vector3.zero;
     //public float gravity = 20.0f;
 
-	//variables for player ate any food...
-	public bool ate = false;
+    //variables for player ate any food...
+    public bool ate = false;
 	public GameObject smoke;
 	public GameObject water;
 	public float waterLevelSpeed;
@@ -73,7 +75,12 @@ public class Player : MonoBehaviour {
 	private bool buttonDown = false;
 	private bool buttonRight = false;
 	private bool buttonLeft = false;
-	Camera cam;
+    private bool buttonUpleft = false;
+    private bool buttonUpright = false;
+    private bool buttonDownLeft = false;
+    private bool buttonDownRight = false;
+
+    Camera cam;
 	private bool cameraZoom = false;
 	public float cameraOrig = 25f;
 	public float cameraFinal = 30f;
@@ -150,12 +157,16 @@ public class Player : MonoBehaviour {
     // colliding with other objects
     void OnTriggerEnter(Collider other)
     {
+       
 
         if (other.gameObject.CompareTag("Pickups")) //colliding with pickups
         {
             other.gameObject.SetActive(false);
             numOfPickUps = numOfPickUps + 1;
             setPickupText();
+
+            if (numOfPickUps > 0)
+                speed -= slowFactor;
         }
 
         if (other.gameObject.CompareTag("Table")) //collding with Table
@@ -169,6 +180,8 @@ public class Player : MonoBehaviour {
             numOfPickUps = 0;
             setPickupText();
             setScoreText();
+            speed = Defspeed;
+
         }
         if (other.gameObject.CompareTag("Exit")) //collding with exit area
         {
@@ -255,12 +268,13 @@ public class Player : MonoBehaviour {
         }
 	}
 
-	void Update () {
-		//generatedX1key = false;
-		//generatedX2key = false;
+  
 
-		//force garbage collection while frameCount is not 30+
-		if (Time.frameCount % 30 == 0)
+	void Update () {
+        //generatedX1key = false;
+        //generatedX2key = false;
+        //force garbage collection while frameCount is not 30+
+        if (Time.frameCount % 30 == 0)
 		{
 			System.GC.Collect();
 		}
@@ -287,10 +301,36 @@ public class Player : MonoBehaviour {
 			if(buttonUp == true) {
 				moveUp();
 			}
-			if(buttonDown == true) {
+
+            if (buttonUpleft == true)
+            {
+                moveUp();
+                moveLeft();
+            }
+
+            if (buttonUpright == true)
+            {
+                moveUp();
+                moveRight();
+            }
+
+            if (buttonDown == true) {
 				moveDown();
 			}
-			if(buttonRight == true) {
+
+            if (buttonDownLeft == true)
+            {
+                moveDown();
+                moveLeft();
+            }
+
+            if (buttonDownRight == true)
+            {
+                moveDown();
+                moveRight();
+            }
+
+            if (buttonRight == true) {
 				moveRight();
 			}
 			if(buttonLeft == true) {
@@ -443,7 +483,7 @@ public class Player : MonoBehaviour {
 
 	void moveUp() {
 		movePot((Vector3.forward * Time.deltaTime * speed) * speedUpDown);
-	}
+    }
 
 	void moveDown() {
 		movePot((Vector3.back * Time.deltaTime * speed) * speedUpDown);
@@ -460,14 +500,40 @@ public class Player : MonoBehaviour {
 	public void enterUp() {
 		buttonUp = true;
 		cameraZoom = true;
-	}
+        anim.SetInteger("AnimPar", 1);
+    }
 
-	public void enterDown() {
+    public void enterUpLeft()
+    {
+        buttonUpleft = true;
+        cameraZoom = true;
+    }
+
+    public void enterUpRight()
+    {
+        buttonUpright = true;
+        cameraZoom = true;
+    }
+
+
+    public void enterDown() {
 		buttonDown = true;
 		cameraZoom = true;
 	}
 
-	public void enterRight() {
+    public void enterDownLeft()
+    {
+        buttonDownLeft = true;
+        cameraZoom = true;
+    }
+
+    public void enterDownRight()
+    {
+        buttonDownRight = true;
+        cameraZoom = true;
+    }
+
+    public void enterRight() {
 		buttonRight = true;
 		cameraZoom = true;
 	}
@@ -481,11 +547,31 @@ public class Player : MonoBehaviour {
 		buttonUp = false;
 	}
 
-	public void exitDown() {
+    public void exitUpleft()
+    {
+        buttonUpleft = false;
+    }
+
+    public void exitUpright()
+    {
+        buttonUpright = false;
+    }
+
+    public void exitDown() {
 		buttonDown = false;
 	}
 
-	public void exitRight() {
+    public void exitDownLeft()
+    {
+        buttonDownLeft = false;
+    }
+
+    public void exitDownRight()
+    {
+        buttonDownRight = false;
+    }
+
+    public void exitRight() {
 		buttonRight = false;
 	}
 
