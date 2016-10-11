@@ -167,7 +167,11 @@ public class Player : MonoBehaviour {
             setPickupText();
 
             if (numOfPickUps > 0)
+            {
                 speed -= slowFactor;
+                
+            }
+
         }
 
         if (other.gameObject.CompareTag("Table")) //collding with Table
@@ -182,6 +186,7 @@ public class Player : MonoBehaviour {
             setPickupText();
             setScoreText();
             speed = Defspeed;
+           
 
         }
         if (other.gameObject.CompareTag("Exit")) //collding with exit area

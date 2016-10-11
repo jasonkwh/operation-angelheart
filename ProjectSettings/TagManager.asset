@@ -12,8 +12,7 @@ TagManager:
   - Table
   - Enemy
   - Exit
-  - CatSpace1
-  - CarSpace2
+  - FleeTarget
   layers:
   - Default
   - TransparentFX
