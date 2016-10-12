@@ -8,10 +8,12 @@ public class Menu : MonoBehaviour {
 	public GameObject pause;
 	public GameObject menu;
 	public GameObject controls;
- 
+    public GameObject List;
+
 
     void Start() {
 		menu.active = false;
+        List.active = false;
 	}
 
 	public void clickPause() {
@@ -19,6 +21,7 @@ public class Menu : MonoBehaviour {
 		pause.active = false;
 		controls.active = false;
 		menu.active = true;
+        List.active = true;
 
     }
 
@@ -27,6 +30,7 @@ public class Menu : MonoBehaviour {
 		menu.active = false;
 		pause.active = true;
 		controls.active = true;
+        List.active = false;
     }
 
 	public void clickRestart() {
