@@ -8299,6 +8299,11 @@ Prefab:
       propertyPath: FindMoreNotice
       value: 
       objectReference: {fileID: 1294832390}
+    - target: {fileID: 114000014043420862, guid: 3b5981c1ef578420d8429425a2fdf3a5,
+        type: 2}
+      propertyPath: pickUpInLevel
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b5981c1ef578420d8429425a2fdf3a5, type: 2}
   m_IsPrefabParent: 0

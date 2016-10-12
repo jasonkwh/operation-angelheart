@@ -93,6 +93,7 @@ public class Player : MonoBehaviour {
     private int score;
     public Text pickupText;
     public Text scoreText;
+    public int pickUpInLevel;
 
     //timer mechanic 
     public float timer = 180.0f;
@@ -173,7 +174,7 @@ public class Player : MonoBehaviour {
             other.gameObject.SetActive(false);
             numOfPickUps = numOfPickUps + 1;
             setPickupText();
-            TotalPickups +=1;
+            
 
             if (numOfPickUps > 0)
             {
@@ -190,6 +191,7 @@ public class Player : MonoBehaviour {
             {
                 score += (numOfPickUps * 50) + (numOfPickUps * 50 / 2);
             }
+            TotalPickups += numOfPickUps;
             numOfPickUps = 0;
             setPickupText();
             setScoreText();
@@ -248,7 +250,7 @@ public class Player : MonoBehaviour {
 
     void setPickupText() // update the text UI
     {
-        pickupText.text = numOfPickUps.ToString(); 
+        pickupText.text = TotalPickups.ToString() +"/" + pickUpInLevel; 
     }
 
     void setScoreText() // update the text UI
