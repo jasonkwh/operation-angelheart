@@ -106,7 +106,9 @@ public class Player : MonoBehaviour {
     public GameObject star3;
     public GameObject menu;
     public GameObject FindMoreNotice;
-    private bool SpicePicked = false; 
+    private bool SpicePicked = false;
+    private int TotalPickups;
+
 
     //cat ai test
     //public static bool isInCatSpace = false; 
@@ -171,6 +173,7 @@ public class Player : MonoBehaviour {
             other.gameObject.SetActive(false);
             numOfPickUps = numOfPickUps + 1;
             setPickupText();
+            TotalPickups +=1;
 
             if (numOfPickUps > 0)
             {
@@ -196,7 +199,7 @@ public class Player : MonoBehaviour {
         }
         if (other.gameObject.CompareTag("Exit")) //collding with exit area
         {
-            if(numOfPickUps >= 4) {  //score more than 100
+            if(TotalPickups >= 4) {  //score more than 100
                 Win.SetActive(true);
                 star1.SetActive(true);
                 menu.SetActive(true);
@@ -207,7 +210,7 @@ public class Player : MonoBehaviour {
                 FindMoreNotice.SetActive(true);
             }
 
-            if (numOfPickUps >= 4 && eBar.valueCurrent == 200) //score more than 100
+            if (TotalPickups >= 4 && eBar.valueCurrent == 200) //score more than 100
             {
                 Win.SetActive(true);
                 star1.SetActive(true);
@@ -216,7 +219,7 @@ public class Player : MonoBehaviour {
                 Time.timeScale = 0f;
             }
 
-            if (numOfPickUps >= 4 && eBar.valueCurrent == 200 && SpicePicked) //score more than 100
+            if (TotalPickups >= 4 && eBar.valueCurrent == 200 && SpicePicked) //score more than 100
             {
                 Win.SetActive(true);
                 star1.SetActive(true);
