@@ -19,18 +19,19 @@ public class AiPatrolSpider : MonoBehaviour {
 	public float bounceRange;
 	public int damage;
 
-	void Start() {
+       void Start() {
 		potTransform = GameObject.FindGameObjectWithTag ("Player").transform;
 		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
 		transform.position = new Vector3(table.transform.position.x + 10, 0, table.transform.position.z);
-		topRight = new Vector3(table.transform.position.x + 10, 0, table.transform.position.z + 20);
-		topLeft = new Vector3(table.transform.position.x - 10, 0, table.transform.position.z + 20);
-		bottomLeft = new Vector3(table.transform.position.x - 10, 0, table.transform.position.z - 20);
-		bottomRight = new Vector3(table.transform.position.x + 10, 0, table.transform.position.z - 20);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        topRight = new Vector3(table.transform.position.x + 10, 0, table.transform.position.z + 20);
+        topLeft = new Vector3(table.transform.position.x - 10, 0, table.transform.position.z + 20);
+        bottomLeft = new Vector3(table.transform.position.x - 10, 0, table.transform.position.z - 20);
+        bottomRight = new Vector3(table.transform.position.x + 10, 0, table.transform.position.z - 20);
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 		dist = Vector3.Distance (potTransform.position, transform.position);
 
 		if ((transform.position.x == (table.transform.position.x + 10)) && (transform.position.z < (table.transform.position.z + 20))) {
@@ -92,5 +93,7 @@ public class AiPatrolSpider : MonoBehaviour {
 			potTransform.GetComponent<Player> ().stopBackup = false;
 			eBar.valueCurrent = eBar.valueCurrent - damage; //set energy bar value
 		}
+
 	}
+ 
 }

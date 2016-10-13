@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using GeekGame.Input;
 
 public class Player : MonoBehaviour {
 
@@ -56,6 +57,8 @@ public class Player : MonoBehaviour {
 	public bool energyGain = false;
 	public float energyGainSpeed;
 
+   
+
 	//to set the speed of accelerametor
 	public float accelSpeedModifier;
 	public float accelMidY;
@@ -91,6 +94,7 @@ public class Player : MonoBehaviour {
     private int score;
     public Text pickupText;
     public Text scoreText;
+    public int pickUpInLevel;
 
     //timer mechanic 
     public float timer = 180.0f;
@@ -103,6 +107,10 @@ public class Player : MonoBehaviour {
     public GameObject star2;
     public GameObject star3;
     public GameObject menu;
+    public GameObject FindMoreNotice;
+    private bool SpicePicked = false;
+    private int TotalPickups;
+
 
     //cat ai test
     //public static bool isInCatSpace = false; 
@@ -110,7 +118,7 @@ public class Player : MonoBehaviour {
     void Start () {
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
-		eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
+        eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
 		audio = gameObject.GetComponent<AudioSource>();
 		audio.time = 0.9f;
 		cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -127,6 +135,8 @@ public class Player : MonoBehaviour {
         star2.SetActive(false);
         star3.SetActive(false);
         menu.SetActive(false);
+        FindMoreNotice.SetActive(false);
+
     }
 
 	//bouncing
@@ -165,11 +175,11 @@ public class Player : MonoBehaviour {
             other.gameObject.SetActive(false);
             numOfPickUps = numOfPickUps + 1;
             setPickupText();
+            
 
             if (numOfPickUps > 0)
             {
                 speed -= slowFactor;
-                
             }
 
         }
@@ -182,6 +192,7 @@ public class Player : MonoBehaviour {
             {
                 score += (numOfPickUps * 50) + (numOfPickUps * 50 / 2);
             }
+            TotalPickups += numOfPickUps;
             numOfPickUps = 0;
             setPickupText();
             setScoreText();
@@ -191,14 +202,18 @@ public class Player : MonoBehaviour {
         }
         if (other.gameObject.CompareTag("Exit")) //collding with exit area
         {
-            if(score >= 100) {  //score more than 100
+            if(TotalPickups >= 4) {  //score more than 100
                 Win.SetActive(true);
                 star1.SetActive(true);
                 menu.SetActive(true);
                 Time.timeScale = 0f;
             }
+            else
+            {
+                FindMoreNotice.SetActive(true);
+            }
 
-            if (score >= 250) //score more than 100
+            if (TotalPickups >= 4 && eBar.valueCurrent == 200) //score more than 100
             {
                 Win.SetActive(true);
                 star1.SetActive(true);
@@ -207,7 +222,7 @@ public class Player : MonoBehaviour {
                 Time.timeScale = 0f;
             }
 
-            if (score >= 400) //score more than 100
+            if (TotalPickups >= 4 && eBar.valueCurrent == 200 && SpicePicked) //score more than 100
             {
                 Win.SetActive(true);
                 star1.SetActive(true);
@@ -218,20 +233,25 @@ public class Player : MonoBehaviour {
             }
         }
 
-        //if (other.gameObject.CompareTag("CatSpace1"))  //enters cat space
-        //    isInCatSpace = true;
+        if (other.gameObject.CompareTag("Spice"))
+        {
+            other.gameObject.SetActive(false);
+            SpicePicked = true;
+        }
+
     }
 
-    //void OnTriggerExit (Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("CatSpace1")) //exits cat space
-    //        isInCatSpace = false;
-        
-    //}
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Exit"))
+        {
+            FindMoreNotice.SetActive(false);
+        }
+    }
 
     void setPickupText() // update the text UI
     {
-        pickupText.text = numOfPickUps.ToString(); 
+        pickupText.text = TotalPickups.ToString() +"/" + pickUpInLevel; 
     }
 
     void setScoreText() // update the text UI
@@ -247,7 +267,7 @@ public class Player : MonoBehaviour {
     //timer
     void countDownTime()
     {
-        timer -= Time.deltaTime;
+        timer += Time.deltaTime;
         setTimerText();
     }
 
@@ -311,6 +331,18 @@ public class Player : MonoBehaviour {
 			smoke.SetActive (ate);
 			if ((ate == true) && (water.transform.position.y <= 1.98)) {
 				water.transform.position += Vector3.up * Time.deltaTime * waterLevelSpeed;
+			}
+
+			//new joystick
+			if((JoystickMove.instance.H != 0) || (JoystickMove.instance.V != 0)) {
+				anim.SetInteger("AnimPar", 1); //moving
+				//cameraZoom = true;
+				transform.Translate(new Vector3(JoystickMove.instance.H,0f,JoystickMove.instance.V) * speed * Time.deltaTime);
+			} else {
+				//cameraZoom = false;
+				if(eBar.valueCurrent > 0) {
+					anim.SetInteger("AnimPar", 0); //stable
+				}
 			}
 
 			//button control
