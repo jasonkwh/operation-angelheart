@@ -109,7 +109,7 @@ public class Player : MonoBehaviour {
     public GameObject menu;
     public GameObject FindMoreNotice;
     private bool SpicePicked = false;
-    private int TotalPickups;
+    public int TotalPickups;
 
 
     //cat ai test
@@ -172,10 +172,11 @@ public class Player : MonoBehaviour {
  
         if (other.gameObject.CompareTag("Pickups")) //colliding with pickups
         {
+            TotalPickups += 1;
             other.gameObject.SetActive(false);
-            numOfPickUps = numOfPickUps + 1;
             setPickupText();
             
+
 
             if (numOfPickUps > 0)
             {
@@ -184,22 +185,23 @@ public class Player : MonoBehaviour {
 
         }
 
-        if (other.gameObject.CompareTag("Table")) //collding with Table
-        {
-            if (numOfPickUps <= 3)
-                score += (numOfPickUps * 50) + (numOfPickUps * 10);
-            else
-            {
-                score += (numOfPickUps * 50) + (numOfPickUps * 50 / 2);
-            }
-            TotalPickups += numOfPickUps;
-            numOfPickUps = 0;
-            setPickupText();
-            setScoreText();
-            speed = Defspeed;
+        //if (other.gameObject.CompareTag("Table")) //collding with Table
+        //{
+        //    if (numOfPickUps <= 3)
+        //        score += (numOfPickUps * 50) + (numOfPickUps * 10);
+        //    else
+        //    {
+        //        score += (numOfPickUps * 50) + (numOfPickUps * 50 / 2);
+        //    }
+        //    TotalPickups += numOfPickUps;
+        //    numOfPickUps = 0;
+        //    setPickupText();
+        //    setScoreText();
+        //    speed = Defspeed;
            
 
-        }
+        //}
+
         if (other.gameObject.CompareTag("Exit")) //collding with exit area
         {
             if(TotalPickups >= 4) {  //score more than 100

@@ -3,11 +3,6 @@ using System.Collections;
 
 public class PatrollingAI : MonoBehaviour {
 
-    //for energy system 
-    protected EnergyBar eBar;
-    public int damage;
-    protected Animator anim;
-
     //waypoint System
     public Transform[] Waypoints;
     public float Speed;
@@ -21,19 +16,8 @@ public class PatrollingAI : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-            eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
     }
 	
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            eBar.valueCurrent = eBar.valueCurrent - damage;
-        }
-    }
-    
-        
 
 	// Update is called once per frame
 	void Update () {
