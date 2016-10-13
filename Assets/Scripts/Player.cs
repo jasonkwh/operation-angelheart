@@ -338,9 +338,18 @@ public class Player : MonoBehaviour {
 			//new joystick
 			if((JoystickMove.instance.H != 0) || (JoystickMove.instance.V != 0)) {
 				anim.SetInteger("AnimPar", 1); //moving
-				//cameraZoom = true;
-				transform.Translate(new Vector3(JoystickMove.instance.H,0f,JoystickMove.instance.V) * speed * Time.deltaTime);
-			} else {
+                //cameraZoom = true;
+                //transform.Translate(new Vector3(JoystickMove.instance.H,0f,JoystickMove.instance.V) * speed * Time.deltaTime);
+                Vector3 newPos = new Vector3(JoystickMove.instance.H, 0f, JoystickMove.instance.V);
+                if (newPos.magnitude > 1.0f){
+                    newPos = newPos.normalized;
+                }
+
+                transform.Translate(newPos*speed*Time.deltaTime);
+                //source: http://answers.unity3d.com/questions/20066/problem-with-moving-gameobject-especially-diagonal.html#answer-20069
+
+            }
+            else {
 				//cameraZoom = false;
 				if(eBar.valueCurrent > 0) {
 					anim.SetInteger("AnimPar", 0); //stable
@@ -520,7 +529,9 @@ public class Player : MonoBehaviour {
 	        controller.Move(moveDirection * Time.deltaTime);
 	        moveDirection.y -= gravity * Time.deltaTime;*/
 		}
-	}
+
+
+    }
 
 	void movePot(Vector3 movePosition) {
 		if(eBar.valueCurrent > 0) {
