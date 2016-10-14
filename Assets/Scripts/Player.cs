@@ -126,7 +126,6 @@ public class Player : MonoBehaviour {
         //ani["potWalk"].speed = 2.0f;
         score = 0;
         numOfPickUps = 0;
-        setPickupText();
         setScoreText();
         setTimerText();
         Gameover.SetActive(false);
@@ -174,7 +173,6 @@ public class Player : MonoBehaviour {
         {
             TotalPickups += 1;
             other.gameObject.SetActive(false);
-            setPickupText();
             
 
 
@@ -251,10 +249,6 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void setPickupText() // update the text UI
-    {
-        pickupText.text = TotalPickups.ToString() +"/" + pickUpInLevel; 
-    }
 
     void setScoreText() // update the text UI
     {
