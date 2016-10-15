@@ -15,6 +15,7 @@ TagManager:
   - FleeTarget
   - CatSpace1
   - Spice
+  - Book
   layers:
   - Default
   - TransparentFX

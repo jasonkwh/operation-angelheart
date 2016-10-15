@@ -135,7 +135,6 @@ public class Player : MonoBehaviour {
         star3.SetActive(false);
         menu.SetActive(false);
         FindMoreNotice.SetActive(false);
-
     }
 
 	//bouncing

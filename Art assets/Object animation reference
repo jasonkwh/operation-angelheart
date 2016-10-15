@@ -49,3 +49,9 @@ flying: 0 - 153
 Rabbit animations
 Idle: 10 - 88
 Run: 106 - 128
+
+book animations
+Open cover: 0 - 30
+turn page: 34 - 64 
+turn back page: 80 - 110
+idle: 116 - 120
