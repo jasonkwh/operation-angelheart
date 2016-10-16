@@ -31,6 +31,6 @@ public class Menu : MonoBehaviour {
 
 	public void clickRestart() {
 		Time.timeScale = 1f;
-		SceneManager.LoadScene("PotWalkv2", LoadSceneMode.Single);
+		SceneManager.LoadScene("1-1", LoadSceneMode.Single);
 	}
 }

@@ -111,6 +111,9 @@ public class Player : MonoBehaviour {
     private bool SpicePicked = false;
     public int TotalPickups;
 
+	//fix sticky wall
+	private float backupStayTime;
+
 
     //cat ai test
     //public static bool isInCatSpace = false; 
@@ -135,6 +138,7 @@ public class Player : MonoBehaviour {
         star3.SetActive(false);
         menu.SetActive(false);
         FindMoreNotice.SetActive(false);
+		backupStayTime = stayTime;
     }
 
 	//bouncing
@@ -160,6 +164,7 @@ public class Player : MonoBehaviour {
 				transform.position = new Vector3 (transform.position.x, 0, transform.position.z); //back to original position
 				bearCollider = false;
 				pushing = false;
+				stayTime = backupStayTime;
 			}
 		}
 	}

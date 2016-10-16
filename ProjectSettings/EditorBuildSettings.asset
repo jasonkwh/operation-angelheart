@@ -25,3 +25,5 @@ EditorBuildSettings:
     path: Assets/Scenes/PotWalkv2.unity
   - enabled: 1
     path: Assets/Scenes/Main.unity
+  - enabled: 1
+    path: Assets/Scenes/1-1.unity
