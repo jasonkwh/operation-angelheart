@@ -3698,7 +3698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &737443340
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4040,7 +4040,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 903575366}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4053,8 +4053,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -46.520004}
-  m_SizeDelta: {x: 0, y: 93.359985}
+  m_AnchoredPosition: {x: 0, y: -33.7}
+  m_SizeDelta: {x: 0, y: 143.45999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &903575368
 MonoBehaviour:
@@ -4198,8 +4198,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -30.7}
-  m_SizeDelta: {x: 94, y: 120}
+  m_AnchoredPosition: {x: 0, y: -33.6}
+  m_SizeDelta: {x: 94, y: 109.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975544084
 MonoBehaviour:
@@ -4649,7 +4649,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -7.695007}
+  m_AnchoredPosition: {x: 0, y: 3.1}
   m_SizeDelta: {x: 0, y: 15.709987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1101874332
@@ -6689,8 +6689,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5.2}
-  m_SizeDelta: {x: 94, y: 160}
+  m_AnchoredPosition: {x: 0, y: -23.7}
+  m_SizeDelta: {x: 94, y: 109.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542955663
 MonoBehaviour:
@@ -7693,7 +7693,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -8678,8 +8678,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5.2}
-  m_SizeDelta: {x: 94, y: 160}
+  m_AnchoredPosition: {x: 0, y: -23.7}
+  m_SizeDelta: {x: 94, y: 109.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049152899
 MonoBehaviour:
@@ -9418,7 +9418,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2499924, y: -20.4}
+  m_AnchoredPosition: {x: 1.2499924, y: -26.1}
   m_SizeDelta: {x: 500.7, y: 956.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106550728
