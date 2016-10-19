@@ -23,6 +23,7 @@ public class BookScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Time.timeScale = 1f;
         anim = book.GetComponentInChildren<Animator>();
         levelContentGroup = wholeContent.GetComponent<CanvasGroup>();
         wholeContent.active = false;
@@ -134,5 +135,9 @@ public class BookScript : MonoBehaviour {
         isAchieveButtoPressed = false;
     }
 
+    public void loadLevel(string lvlName)
+    {
+        SceneManager.LoadScene(lvlName);
+    }
 
 }

@@ -16,6 +16,9 @@ TagManager:
   - CatSpace1
   - Spice
   - Book
+  - SoundControl
+  - SoundToggle
+  - MucisToggle
   layers:
   - Default
   - TransparentFX

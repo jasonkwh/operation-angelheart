@@ -564,9 +564,10 @@ GameObject:
   - 54: {fileID: 54000012561606860}
   - 114: {fileID: 114000012680097540}
   - 65: {fileID: 65000010028028588}
+  - 114: {fileID: 114000011846139950}
   m_Layer: 0
   m_Name: PatrolAnt
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1219,6 +1220,34 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000011846139950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013867959390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9910837d99f064f159b52dc1b1292f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  backupTime: 0
+  minStayTime: 0
+  maxStayTime: 0
+  stayTime: 0
+  maxSpeed: 0
+  accelerate: 0
+  rotateSpeed: 0
+  maxRandomTime: 0
+  minRandomTime: 0
+  randomTime: 0
+  maxDist: 0
+  bounceRange: 2
+  damage: 5
+  standStillTime: 0
+  standRoarTime: 0
+  finishStand: 0
 --- !u!114 &114000012680097540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1230,7 +1259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b4b859a4961774483dacd2939b5a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
   Waypoints:
   - {fileID: 0}
   - {fileID: 0}

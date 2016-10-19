@@ -29,8 +29,13 @@ public class Menu : MonoBehaviour {
 		controls.active = true;
     }
 
-	public void clickRestart() {
-		Time.timeScale = 1f;
-		SceneManager.LoadScene("1-1", LoadSceneMode.Single);
+	public void clickRestart(string lvlName) {
+		SceneManager.LoadScene(lvlName,LoadSceneMode.Single);
 	}
+
+    public void loadMain(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
+
 }

@@ -107,18 +107,19 @@ public class Player : MonoBehaviour {
     public GameObject star2;
     public GameObject star3;
     public GameObject menu;
+    public GameObject controls;
+    public GameObject pauseButton;
     public GameObject FindMoreNotice;
+
     private bool SpicePicked = false;
     public int TotalPickups;
 
-	//fix sticky wall
-	private float backupStayTime;
+    //fix sticky wall
+    private float backStayTime;
 
-
-    //cat ai test
-    //public static bool isInCatSpace = false; 
 
     void Start () {
+        Time.timeScale = 1f;
         anim = gameObject.GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
         eBar = GameObject.FindGameObjectWithTag("energyBar").GetComponent<EnergyBar>();
@@ -138,7 +139,7 @@ public class Player : MonoBehaviour {
         star3.SetActive(false);
         menu.SetActive(false);
         FindMoreNotice.SetActive(false);
-		backupStayTime = stayTime;
+        backStayTime = stayTime;
     }
 
 	//bouncing
@@ -164,7 +165,7 @@ public class Player : MonoBehaviour {
 				transform.position = new Vector3 (transform.position.x, 0, transform.position.z); //back to original position
 				bearCollider = false;
 				pushing = false;
-				stayTime = backupStayTime;
+                stayTime = backStayTime;
 			}
 		}
 	}
@@ -177,14 +178,33 @@ public class Player : MonoBehaviour {
         {
             TotalPickups += 1;
             other.gameObject.SetActive(false);
-            
+            score += 100;
+            setScoreText();
+            gainHealth();
+            //apply slowness
+            //if (numOfPickUps > 0)
+            //{
+            //    speed -= slowFactor;
+            //}
+        }
 
+        if (other.gameObject.CompareTag("Enemy")) //colliding with pickups
+        {
 
-            if (numOfPickUps > 0)
+            score -= 40;
+            setScoreText();
+            if (score < 0)
+
             {
-                speed -= slowFactor;
+                score = 0;
+                setScoreText();
             }
-
+            setScoreText();
+            //apply slowness
+            //if (numOfPickUps > 0)
+            //{
+            //    speed -= slowFactor;
+            //}
         }
 
         //if (other.gameObject.CompareTag("Table")) //collding with Table
@@ -200,7 +220,7 @@ public class Player : MonoBehaviour {
         //    setPickupText();
         //    setScoreText();
         //    speed = Defspeed;
-           
+
 
         //}
 
@@ -208,6 +228,7 @@ public class Player : MonoBehaviour {
         {
             if(TotalPickups >= 4) {  //score more than 100
                 Win.SetActive(true);
+                controls.SetActive(false);
                 star1.SetActive(true);
                 menu.SetActive(true);
                 Time.timeScale = 0f;
@@ -217,9 +238,10 @@ public class Player : MonoBehaviour {
                 FindMoreNotice.SetActive(true);
             }
 
-            if (TotalPickups >= 4 && eBar.valueCurrent == 200) //score more than 100
+            if (TotalPickups >= 4 && score >= 300) //score more than 300
             {
                 Win.SetActive(true);
+                controls.SetActive(false);
                 star1.SetActive(true);
                 star2.SetActive(true);
                 menu.SetActive(true);
@@ -229,6 +251,7 @@ public class Player : MonoBehaviour {
             if (TotalPickups >= 4 && eBar.valueCurrent == 200 && SpicePicked) //score more than 100
             {
                 Win.SetActive(true);
+                controls.SetActive(false);
                 star1.SetActive(true);
                 star2.SetActive(true);
                 star3.SetActive(true);
@@ -267,7 +290,7 @@ public class Player : MonoBehaviour {
     //timer
     void countDownTime()
     {
-        timer += Time.deltaTime;
+        timer -= Time.deltaTime;
         setTimerText();
     }
 
@@ -284,23 +307,29 @@ public class Player : MonoBehaviour {
 	}
 
 	void gainHealth() {
-		//gain some health
-		if(energyGain == true) {
-			if(eBar.valueCurrent < 100) {
-				eBar.valueCurrent = eBar.valueCurrent + (int)(energyGainSpeed * Time.deltaTime);
-			} else {
-				eBar.valueCurrent = 100;
-				energyGain = false;
-			}
-		}
+        ////gain some health
+        //if(energyGain == true) {
+        //	if(eBar.valueCurrent < 100) {
+        //		eBar.valueCurrent = eBar.valueCurrent + (int)(energyGainSpeed * Time.deltaTime);
+        //	} else {
+        //		eBar.valueCurrent = 100;
+        //		energyGain = false;
+        //	}
+        //}
+        eBar.valueCurrent += 40;
 	}
 
+
+
 	void dead() {
-		if(eBar.valueCurrent <= 0) {
-			Destroy(water);
+		if(eBar.valueCurrent <= 0 || timer <= 0) {
+            water.active = false;
 			anim.SetInteger("AnimPar", 4); //dead
             Gameover.SetActive(true);
             menu.SetActive(true);
+            controls.SetActive(false);
+            pauseButton.SetActive(false);
+            Time.timeScale = 0f;
         }
 	}
 
@@ -319,7 +348,7 @@ public class Player : MonoBehaviour {
         countDownTime();
 
         //things of player health...
-        gainHealth();
+        
 		dead();
 
 		//fade out control

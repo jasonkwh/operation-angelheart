@@ -23,9 +23,10 @@ GameObject:
   - 23: {fileID: 23000012739004164}
   - 95: {fileID: 95000011598561828}
   - 114: {fileID: 114000013421528214}
+  - 65: {fileID: 65000014125173474}
   m_Layer: 0
   m_Name: SugarPile
-  m_TagString: Pickups
+  m_TagString: Spice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,9 +37,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013074853594}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -47.469284, y: 1.7, z: 26.873592}
-  m_LocalScale: {x: 2.2500014, y: 2.2500014, z: 1.1082766}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 29.55, y: 164.5381, z: -49.24}
+  m_LocalScale: {x: 2.2500014, y: 2.2500024, z: 1.1082771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,6 +80,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013074853594}
   m_Mesh: {fileID: 4300000, guid: 3b165553ace87fd42b34fd2e620a966e, type: 3}
+--- !u!65 &65000014125173474
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013074853594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.985086, y: 2.78283, z: 1.894186}
+  m_Center: {x: -0.49254298, y: 0.391415, z: -0.05290699}
 --- !u!95 &95000011598561828
 Animator:
   serializedVersion: 3

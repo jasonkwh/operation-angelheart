@@ -17,8 +17,8 @@ public class treeCollider : MonoBehaviour {
 		if (dist < bounceRange) {
 			potTransform.GetComponent<Player> ().pX = potTransform.position.x - transform.position.x;
 			potTransform.GetComponent<Player> ().pZ = potTransform.position.z - transform.position.z;
-			potTransform.GetComponent<Player>().stayTime = 0.1f;
-			potTransform.GetComponent<Player> ().pushing = true; //enable bounce animation
+            potTransform.GetComponent<Player>().stayTime = 0.1f;
+            potTransform.GetComponent<Player> ().pushing = true; //enable bounce animation
 			potTransform.GetComponent<Player> ().stopBackup = false;
 			potTransform.GetComponent<Player> ().bearCollider = true;
 		}

@@ -23,9 +23,10 @@ GameObject:
   - 23: {fileID: 23000013093270750}
   - 95: {fileID: 95000013539664596}
   - 114: {fileID: 114000013613111114}
+  - 65: {fileID: 65000014109074668}
   m_Layer: 0
   m_Name: wheat
-  m_TagString: Untagged
+  m_TagString: Pickups
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,9 +37,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011310923556}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -43.416, y: 2.34, z: 28.748}
-  m_LocalScale: {x: 2.2002077, y: 2.200207, z: 2.200207}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 28.3, y: 165.5781, z: -35.2}
+  m_LocalScale: {x: 3.4120374, y: 3.412038, z: 3.412038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,6 +80,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011310923556}
   m_Mesh: {fileID: 4300000, guid: 5f9988896626a4fc5b286d25b198accb, type: 3}
+--- !u!65 &65000014109074668
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011310923556}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.380537, y: 0.38223904, z: 0.94818306}
+  m_Center: {x: -0.0012934953, y: -0.0011864976, z: 0.032967497}
 --- !u!95 &95000013539664596
 Animator:
   serializedVersion: 3

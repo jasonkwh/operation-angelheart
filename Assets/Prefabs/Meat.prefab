@@ -23,12 +23,11 @@ GameObject:
   - 23: {fileID: 23000012862761814}
   - 95: {fileID: 95000011744805068}
   - 54: {fileID: 54000010808482988}
-  - 135: {fileID: 135000011409287908}
   - 114: {fileID: 114000014061140968}
-  - 114: {fileID: 114000012871275732}
+  - 65: {fileID: 65000013663527212}
   m_Layer: 8
   m_Name: Meat
-  m_TagString: Untagged
+  m_TagString: Pickups
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,9 +38,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010287925006}
-  m_LocalRotation: {x: -0.4999171, y: -0.4999171, z: -0.5000829, w: 0.5000829}
-  m_LocalPosition: {x: 62.6, y: 1.6, z: 75.39}
-  m_LocalScale: {x: 2.8359845, y: 2.8359845, z: 2.8359845}
+  m_LocalRotation: {x: 0.000117242336, y: -0.7071068, z: -0.7071068, w: 0.000117242336}
+  m_LocalPosition: {x: 37.89, y: 164.82, z: -40.359}
+  m_LocalScale: {x: 2.3068798, y: 2.306879, z: 2.3068795}
   m_LocalEulerAnglesHint: {x: -89.981, y: 0, z: -90}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,6 +96,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65000013663527212
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010287925006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17921199, y: 1.7412839, z: 1.4000779}
+  m_Center: {x: 0, y: 0.0013920068, z: 0.19357997}
 --- !u!95 &95000011744805068
 Animator:
   serializedVersion: 3
@@ -114,19 +125,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000012871275732
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010287925006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2b56ef4e96a43cdb7d9ee24983c22b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smoke: {fileID: 0}
-  pot: {fileID: 0}
 --- !u!114 &114000014061140968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,16 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de41e25f3f12e4b3c97ba9d86916da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 50
---- !u!135 &135000011409287908
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010287925006}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 0, y: 0, z: 0}
+  rotateSpeed: 100
