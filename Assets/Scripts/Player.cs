@@ -316,7 +316,7 @@ public class Player : MonoBehaviour {
         //		energyGain = false;
         //	}
         //}
-        eBar.valueCurrent += 40;
+        eBar.valueCurrent += 20;
 	}
 
 
