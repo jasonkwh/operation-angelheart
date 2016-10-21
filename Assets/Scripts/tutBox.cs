@@ -28,6 +28,7 @@ public class tutBox : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             textBox.active = false;
+            this.gameObject.SetActive(false);
         }
     }
 }
