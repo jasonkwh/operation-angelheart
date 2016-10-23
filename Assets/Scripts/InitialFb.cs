@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 using Facebook.Unity;
 
 public class InitialFb : MonoBehaviour {
@@ -36,6 +36,22 @@ public class InitialFb : MonoBehaviour {
 		} else {
 			// Resume the game - we're getting focus again
 			Time.timeScale = 1;
+		}
+	}
+
+	public void shareScore() {
+		FB.FeedShare(string.Empty, new Uri("https://developers.facebook.com/"),"linkname","linkcaption","linkdescription",new Uri ("http://a4.mzstatic.com/us/r30/Purple69/v4/73/b4/dd/73b4dda6-564a-c73e-d0bb-ed457333216d/icon175x175.png"),"mediasource",callback:ShareCallback);
+	}
+
+	private void ShareCallback (IShareResult result) {
+		if (result.Cancelled || !String.IsNullOrEmpty(result.Error)) {
+			Debug.Log("ShareLink Error: "+result.Error);
+		} else if (!String.IsNullOrEmpty(result.PostId)) {
+			// Print post identifier of the shared content
+			Debug.Log(result.PostId);
+		} else {
+			// Share succeeded without postID
+			Debug.Log("ShareLink success!");
 		}
 	}
 }
