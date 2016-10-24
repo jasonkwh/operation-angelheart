@@ -23,11 +23,11 @@ GameObject:
   - 23: {fileID: 23000012234137794}
   - 95: {fileID: 95000012384791378}
   - 54: {fileID: 54000013387132854}
-  - 135: {fileID: 135000012611685320}
-  - 114: {fileID: 114000010051089110}
+  - 114: {fileID: 114000011526030998}
+  - 65: {fileID: 65000013340162810}
   m_Layer: 8
   m_Name: Dstick
-  m_TagString: Untagged
+  m_TagString: Pickups
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010953143598}
   m_LocalRotation: {x: -0.63532203, y: -0.3587865, z: -0.4263069, w: 0.5346967}
-  m_LocalPosition: {x: 46.3, y: 1.3, z: 113}
+  m_LocalPosition: {x: 33.661846, y: 164.76, z: -35.071434}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -99.854996, y: -67.96698, z: 0}
   m_Children: []
@@ -96,6 +96,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65000013340162810
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010953143598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.05006, y: 5.370215, z: 2.0000002}
+  m_Center: {x: 0, y: 1.5848296, z: -0.0000000118079}
 --- !u!95 &95000012384791378
 Animator:
   serializedVersion: 3
@@ -113,7 +125,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000010051089110
+--- !u!114 &114000011526030998
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -121,20 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010953143598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd8af9f7376349968409f5e729ce0ce, type: 3}
+  m_Script: {fileID: 11500000, guid: de41e25f3f12e4b3c97ba9d86916da10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoke: {fileID: 0}
-  pot: {fileID: 0}
---- !u!135 &135000012611685320
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010953143598}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.4
-  m_Center: {x: 1, y: 1, z: 0}
+  rotateSpeed: 100
