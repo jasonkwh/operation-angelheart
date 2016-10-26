@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using GeekGame.Input;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -231,6 +232,7 @@ public class Player : MonoBehaviour {
                 controls.SetActive(false);
                 star1.SetActive(true);
                 menu.SetActive(true);
+				setPlayerPrefs();
                 Time.timeScale = 0f;
             }
             else
@@ -245,6 +247,7 @@ public class Player : MonoBehaviour {
                 star1.SetActive(true);
                 star2.SetActive(true);
                 menu.SetActive(true);
+				setPlayerPrefs();
                 Time.timeScale = 0f;
             }
 
@@ -256,6 +259,7 @@ public class Player : MonoBehaviour {
                 star2.SetActive(true);
                 star3.SetActive(true);
                 menu.SetActive(true);
+				setPlayerPrefs();
                 Time.timeScale = 0f;
             }
         }
@@ -265,8 +269,29 @@ public class Player : MonoBehaviour {
             other.gameObject.SetActive(false);
             SpicePicked = true;
         }
-
     }
+
+	void setPlayerPrefs() {
+		if(SceneManager.GetActiveScene().name == "Tut") {
+			PlayerPrefs.SetInt("level",11);
+		} else if(SceneManager.GetActiveScene().name == "1-1") {
+			PlayerPrefs.SetInt("level",12);
+		} else if(SceneManager.GetActiveScene().name == "1-2") {
+			PlayerPrefs.SetInt("level",13);
+		} else if(SceneManager.GetActiveScene().name == "1-3") {
+			PlayerPrefs.SetInt("level",21);
+		} else if(SceneManager.GetActiveScene().name == "2-1") {
+			PlayerPrefs.SetInt("level",22);
+		} else if(SceneManager.GetActiveScene().name == "2-2") {
+			PlayerPrefs.SetInt("level",23);
+		} else if(SceneManager.GetActiveScene().name == "2-3") {
+			PlayerPrefs.SetInt("level",31);
+		} else if(SceneManager.GetActiveScene().name == "3-1") {
+			PlayerPrefs.SetInt("level",32);
+		} else if(SceneManager.GetActiveScene().name == "3-2") {
+			PlayerPrefs.SetInt("level",33);
+		}
+	}
 
     void OnTriggerExit(Collider other)
     {

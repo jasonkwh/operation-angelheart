@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4368103, g: 0.48440862, b: 0.56459606, a: 1}
+  m_IndirectSpecularColor: {r: 0.43681014, g: 0.48440832, b: 0.56459594, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -556,7 +556,7 @@ GameObject:
   - 114: {fileID: 155628616}
   - 114: {fileID: 155628615}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Button (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1518,7 +1518,7 @@ GameObject:
   - 114: {fileID: 428733504}
   - 114: {fileID: 428733503}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Button (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3069,7 +3069,7 @@ GameObject:
   - 114: {fileID: 657921801}
   - 114: {fileID: 657921800}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Button (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3191,7 +3191,7 @@ GameObject:
   - 114: {fileID: 683692103}
   - 114: {fileID: 683692102}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4185,7 +4185,7 @@ GameObject:
   - 114: {fileID: 1075335699}
   - 114: {fileID: 1075335698}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5065,7 +5065,7 @@ GameObject:
   - 114: {fileID: 1275395718}
   - 114: {fileID: 1275395717}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Button (Tut)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5538,7 +5538,7 @@ GameObject:
   - 114: {fileID: 1342432411}
   - 114: {fileID: 1342432410}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Button (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6031,6 +6031,7 @@ GameObject:
   - 114: {fileID: 1459621512}
   - 114: {fileID: 1459621511}
   - 114: {fileID: 1459621515}
+  - 114: {fileID: 1459621516}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6127,6 +6128,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundToggle: {fileID: 171319914}
   musicToggle: {fileID: 507459229}
+--- !u!114 &1459621516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1459621510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1d06c37efbf40d4aa14cb7d8243010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level11: {fileID: 1965975147}
+  level12: {fileID: 1608997468}
+  level13: {fileID: 1342432408}
+  level21: {fileID: 1075335696}
+  level22: {fileID: 428733501}
+  level23: {fileID: 155628613}
+  level31: {fileID: 683692100}
+  level32: {fileID: 657921798}
+  level33: {fileID: 2061720654}
+  farmTitle: {fileID: 209610490}
+  caveTitle: {fileID: 1306418898}
 --- !u!1 &1510066956
 GameObject:
   m_ObjectHideFlags: 0
@@ -6837,7 +6860,7 @@ GameObject:
   - 114: {fileID: 1608997471}
   - 114: {fileID: 1608997470}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Button (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8185,7 +8208,7 @@ GameObject:
   - 114: {fileID: 1965975150}
   - 114: {fileID: 1965975149}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Button (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8718,7 +8741,7 @@ GameObject:
   - 114: {fileID: 2061720657}
   - 114: {fileID: 2061720656}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Button (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
