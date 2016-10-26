@@ -29,6 +29,12 @@ public class UnlockLevel : MonoBehaviour {
 		caveTitle.active = false;
 	}
 
+	public void reset (){
+		PlayerPrefs.DeleteAll ();
+		Start ();
+	}
+
+
 	void Update () {
 		if(PlayerPrefs.GetInt("level") == 11) {
 			level11.active = true;
