@@ -5979,7 +5979,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Forrest
+  m_Text: Forest
 --- !u!222 &1406031580
 CanvasRenderer:
   m_ObjectHideFlags: 0
