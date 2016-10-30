@@ -36,6 +36,18 @@ public class UnlockLevel : MonoBehaviour {
 
 
 	void Update () {
+		if(PlayerPrefs.GetInt("level") == 0) {
+			PlayerPrefs.SetInt("playerBfs00",0);
+			PlayerPrefs.SetInt("playerBfs11",0);
+			PlayerPrefs.SetInt("playerBfs12",0);
+			PlayerPrefs.SetInt("playerBfs13",0);
+			PlayerPrefs.SetInt("playerBfs21",0);
+			PlayerPrefs.SetInt("playerBfs22",0);
+			PlayerPrefs.SetInt("playerBfs23",0);
+			PlayerPrefs.SetInt("playerBfs31",0);
+			PlayerPrefs.SetInt("playerBfs32",0);
+			PlayerPrefs.SetInt("playerBfs33",0);
+		}
 		if(PlayerPrefs.GetInt("level") == 11) {
 			level11.active = true;
 		}
