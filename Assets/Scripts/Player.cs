@@ -251,7 +251,8 @@ public class Player : MonoBehaviour {
                 Time.timeScale = 0f;
             }
 
-            if (TotalPickups >= 4 && eBar.valueCurrent == 200 && SpicePicked) //score more than 100
+            if ((TotalPickups >= 4 && eBar.valueCurrent == 200 && SpicePicked) || (TotalPickups >= 4 && SceneManager.GetActiveScene().name == "Tut"))
+			//score more than 100 or tutorial level
             {
                 Win.SetActive(true);
                 controls.SetActive(false);
