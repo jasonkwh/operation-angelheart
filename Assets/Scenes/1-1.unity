@@ -3225,7 +3225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9a0e8ed7ececb44a05c651923381aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target1: {fileID: 727669188}
+  target1: {fileID: 89189091}
 --- !u!95 &638803181
 Animator:
   serializedVersion: 3
@@ -3846,6 +3846,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 70d1f816615c844d78c953144304e0ce, type: 2}
+    - target: {fileID: 1000013074853594, guid: 953ed8e08d779a44e9f5a51f863c9a06, type: 2}
+      propertyPath: m_Name
+      value: Sugar Pile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 953ed8e08d779a44e9f5a51f863c9a06, type: 2}
   m_IsPrefabParent: 0
@@ -7273,7 +7277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eab633c277e68642bfcb50236652f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _food1: {fileID: 89189091}
+  _food1: {fileID: 727669188}
   _foodName1: {fileID: 489169635}
 --- !u!114 &1289731111
 MonoBehaviour:
@@ -12515,7 +12519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9a0e8ed7ececb44a05c651923381aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target1: {fileID: 89189091}
+  target1: {fileID: 727669188}
 --- !u!95 &1989478129
 Animator:
   serializedVersion: 3
