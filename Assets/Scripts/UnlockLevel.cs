@@ -53,9 +53,9 @@ public class UnlockLevel : MonoBehaviour {
 		star21 = GameObject.FindGameObjectsWithTag("star21");
 		star22 = GameObject.FindGameObjectsWithTag("star22");
 		star23 = GameObject.FindGameObjectsWithTag("star23");
-		star21 = GameObject.FindGameObjectsWithTag("star31");
-		star22 = GameObject.FindGameObjectsWithTag("star32");
-		star23 = GameObject.FindGameObjectsWithTag("star33");
+		star31 = GameObject.FindGameObjectsWithTag("star31");
+		star32 = GameObject.FindGameObjectsWithTag("star32");
+		star33 = GameObject.FindGameObjectsWithTag("star33");
 
 		if(PlayerPrefs.GetInt("level") == 0) {
 			PlayerPrefs.SetInt("playerBfs00",0);
