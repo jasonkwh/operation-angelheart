@@ -274,34 +274,64 @@ public class Player : MonoBehaviour {
 
 	void setPlayerPrefs(int bfs) {
 		if(SceneManager.GetActiveScene().name == "Tut") {
-			PlayerPrefs.SetInt("level",11);
+			if(PlayerPrefs.GetInt("level0") == 0) {
+				PlayerPrefs.SetInt("level",11);
+				PlayerPrefs.SetInt("level0", 1);
+			}
 			PlayerPrefs.SetInt("playerBfs00",bfs);
 		} else if(SceneManager.GetActiveScene().name == "1-1") {
-			PlayerPrefs.SetInt("level",12);
+			if(PlayerPrefs.GetInt("level11") == 0) {
+				PlayerPrefs.SetInt("level",12);
+				PlayerPrefs.SetInt("level11", 1);
+			}
 			PlayerPrefs.SetInt("playerBfs11",bfs);
 		} else if(SceneManager.GetActiveScene().name == "1-2") {
-			PlayerPrefs.SetInt("level",13);
+			if(PlayerPrefs.GetInt("level12") == 0) {
+				PlayerPrefs.SetInt("level",13);
+				PlayerPrefs.SetInt("level12", 1);
+			}
 			PlayerPrefs.SetInt("playerBfs12",bfs);
 		} else if(SceneManager.GetActiveScene().name == "1-3") {
-			PlayerPrefs.SetInt("level",21);
+			if(PlayerPrefs.GetInt("level13") == 0) {
+				PlayerPrefs.SetInt("level",21);
+				PlayerPrefs.SetInt("level13", 1);
+			}
 			PlayerPrefs.SetInt("playerBfs13",bfs);
 		} else if(SceneManager.GetActiveScene().name == "2-1") {
-			PlayerPrefs.SetInt("level",22);
+			if(PlayerPrefs.GetInt("level21") == 0) {
+				PlayerPrefs.SetInt("level",22);
+				PlayerPrefs.SetInt("level21", 1);
+			}
 			PlayerPrefs.SetInt("playerBfs21",bfs);
 		} else if(SceneManager.GetActiveScene().name == "2-2") {
-			PlayerPrefs.SetInt("level",23);
+			if(PlayerPrefs.GetInt("level22") == 0) {
+				PlayerPrefs.SetInt("level",23);
+				PlayerPrefs.SetInt("level22", 1);
+			}
 			PlayerPrefs.SetInt("playerBfs22",bfs);
 		} else if(SceneManager.GetActiveScene().name == "2-3") {
-			PlayerPrefs.SetInt("level",31);
+			if(PlayerPrefs.GetInt("level23") == 0) {
+				PlayerPrefs.SetInt("level",31);
+				PlayerPrefs.SetInt("level23", 1);
+			}
 			PlayerPrefs.SetInt("playerBfs23",bfs);
 		} else if(SceneManager.GetActiveScene().name == "3-1") {
-			PlayerPrefs.SetInt("level",32);
+			if(PlayerPrefs.GetInt("level31") == 0) {
+				PlayerPrefs.SetInt("level",32);
+				PlayerPrefs.SetInt("level31", 1);
+			}
 			PlayerPrefs.SetInt("playerBfs31",bfs);
 		} else if(SceneManager.GetActiveScene().name == "3-2") {
-			PlayerPrefs.SetInt("level",33);
+			if(PlayerPrefs.GetInt("level32") == 0) {
+				PlayerPrefs.SetInt("level",33);
+				PlayerPrefs.SetInt("level32", 1);
+			}
 			PlayerPrefs.SetInt("playerBfs32",bfs);
 		} else if(SceneManager.GetActiveScene().name == "3-3") {
-			PlayerPrefs.SetInt("level",41);
+			if(PlayerPrefs.GetInt("level33") == 0) {
+				PlayerPrefs.SetInt("level",41);
+				PlayerPrefs.SetInt("level33", 1);
+			}
 			PlayerPrefs.SetInt("playerBfs33",bfs);
 		}
 	}
