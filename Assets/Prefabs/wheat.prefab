@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011310923556}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 21.709, y: 165.5781, z: -18.908}
+  m_LocalPosition: {x: -14, y: 165.5781, z: 14.5}
   m_LocalScale: {x: 10, y: 10, z: 3.412038}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

@@ -23,12 +23,4 @@ public class tutBox : MonoBehaviour {
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            textBox.active = false;
-            this.gameObject.SetActive(false);
-        }
-    }
 }
