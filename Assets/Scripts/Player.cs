@@ -301,6 +301,7 @@ public class Player : MonoBehaviour {
 			PlayerPrefs.SetInt("level",33);
 			PlayerPrefs.SetInt("playerBfs32",bfs);
 		} else if(SceneManager.GetActiveScene().name == "3-3") {
+			PlayerPrefs.SetInt("level",41);
 			PlayerPrefs.SetInt("playerBfs33",bfs);
 		}
 	}

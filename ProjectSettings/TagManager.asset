@@ -19,6 +19,16 @@ TagManager:
   - SoundControl
   - SoundToggle
   - MucisToggle
+  - star0
+  - star11
+  - star12
+  - star13
+  - star21
+  - star22
+  - star23
+  - star31
+  - star32
+  - star33
   layers:
   - Default
   - TransparentFX
