@@ -3646,8 +3646,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.94007874, y: -14.8}
-  m_SizeDelta: {x: 72.94, y: 29.1}
+  m_AnchoredPosition: {x: 0.94007874, y: -71.7}
+  m_SizeDelta: {x: 116.62, y: 32.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &697850022
 MonoBehaviour:
@@ -8887,7 +8887,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.4, y: 0}
+  m_AnchoredPosition: {x: 1.4, y: -6}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1878080397
@@ -8922,7 +8922,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESET
+  m_Text: 'Reset progress
+
+'
 --- !u!222 &1878080398
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10422,15 +10424,16 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Credits \n\nDesigner\nDylan Hopper\nLiam Peat \nChisanuphong T.\nMaria
-    Wizbicki\nJason Wong \n\nProject Director\nMaria Wizbicki\n \nProgrammer\t\nChisanuphong
-    T. \nJason Wong \n\nArtist\t\t\nChisanuphong T. \n\nAudio\nLiam Peat"
+  m_Text: "Credits \n\nDesigners\nDylan Hopper\nLiam Peat \nC. Thammanukitcharoen\nMaria
+    Wizbicki\nJason Wong \n\nProject Director\nMaria Wizbicki\n \nProgrammers\t\nC.
+    Thammanukitcharoen\nJason Wong \n\nArtist\t\t\nC. Thammanukitcharoen\n\nAudio\nLiam
+    Peat"
 --- !u!222 &2106550729
 CanvasRenderer:
   m_ObjectHideFlags: 0

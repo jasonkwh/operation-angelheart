@@ -240,7 +240,7 @@ public class Player : MonoBehaviour {
                 FindMoreNotice.SetActive(true);
             }
 
-            if (TotalPickups >= 4 && score >= 300) //score more than 300
+			if (TotalPickups >= 4 && eBar.valueCurrent >= 150) //more than 75% health
             {
                 Win.SetActive(true);
                 controls.SetActive(false);
@@ -251,7 +251,7 @@ public class Player : MonoBehaviour {
                 Time.timeScale = 0f;
             }
 
-            if ((TotalPickups >= 4 && eBar.valueCurrent == 200 && SpicePicked) || (TotalPickups >= 4 && SceneManager.GetActiveScene().name == "Tut"))
+            if ((TotalPickups >= 4 && eBar.valueCurrent == 150 && SpicePicked) || (TotalPickups >= 4 && SceneManager.GetActiveScene().name == "Tut"))
 			//score more than 100 or tutorial level
             {
                 Win.SetActive(true);
