@@ -269,6 +269,7 @@ public class Player : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             SpicePicked = true;
+            gainHealth();
         }
     }
 
@@ -402,7 +403,7 @@ public class Player : MonoBehaviour {
         //		energyGain = false;
         //	}
         //}
-        eBar.valueCurrent += 20;
+        eBar.valueCurrent += 25;
 	}
 
 

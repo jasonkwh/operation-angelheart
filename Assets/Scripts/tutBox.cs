@@ -7,7 +7,7 @@ public class tutBox : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        textBox.active = false;
+        textBox.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -19,7 +19,15 @@ public class tutBox : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            textBox.active = true;
+            textBox.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            textBox.SetActive(false);
         }
     }
 
