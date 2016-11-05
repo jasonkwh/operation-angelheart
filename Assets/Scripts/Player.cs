@@ -251,8 +251,8 @@ public class Player : MonoBehaviour {
                 Time.timeScale = 0f;
             }
 
-            if ((TotalPickups >= 4 && eBar.valueCurrent == 150 && SpicePicked) || (TotalPickups >= 4 && SceneManager.GetActiveScene().name == "Tut"))
-			//score more than 100 or tutorial level
+            if ((TotalPickups >= 4 && eBar.valueCurrent >= 150 && SpicePicked) || (TotalPickups >= 4 && SceneManager.GetActiveScene().name == "Tut"))
+				//more than 75% health and spice is picked or tutorial level
             {
                 Win.SetActive(true);
                 controls.SetActive(false);
@@ -394,15 +394,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void gainHealth() {
-        ////gain some health
-        //if(energyGain == true) {
-        //	if(eBar.valueCurrent < 100) {
-        //		eBar.valueCurrent = eBar.valueCurrent + (int)(energyGainSpeed * Time.deltaTime);
-        //	} else {
-        //		eBar.valueCurrent = 100;
-        //		energyGain = false;
-        //	}
-        //}
+        
         eBar.valueCurrent += 25;
 	}
 
