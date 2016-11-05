@@ -1717,7 +1717,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 433657544}
   - 114: {fileID: 433657545}
-  - 114: {fileID: 433657546}
   m_Layer: 0
   m_Name: MenuManger
   m_TagString: Untagged
@@ -1756,21 +1755,6 @@ MonoBehaviour:
   SettingsContent: {fileID: 737443339}
   AchievementContent: {fileID: 1559912219}
   moreContent: {fileID: 48650220}
---- !u!114 &433657546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 433657543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b454246a863fc44b89b7b019f5fb1489, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  achievement1: {fileID: 2031288454}
-  achievement2: {fileID: 1415337827}
-  achievement3: {fileID: 1540067118}
-  achievement4: {fileID: 300324716}
 --- !u!1 &450454161
 GameObject:
   m_ObjectHideFlags: 0
@@ -3697,6 +3681,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Tut
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1459621517}
+        m_MethodName: reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -6675,6 +6670,7 @@ GameObject:
   - 114: {fileID: 1459621511}
   - 114: {fileID: 1459621515}
   - 114: {fileID: 1459621516}
+  - 114: {fileID: 1459621517}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6793,6 +6789,21 @@ MonoBehaviour:
   level33: {fileID: 2061720654}
   farmTitle: {fileID: 209610490}
   caveTitle: {fileID: 1306418898}
+--- !u!114 &1459621517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1459621510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b454246a863fc44b89b7b019f5fb1489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievement1: {fileID: 2031288454}
+  achievement2: {fileID: 1415337827}
+  achievement3: {fileID: 1540067118}
+  achievement4: {fileID: 300324716}
 --- !u!1 &1499467750
 GameObject:
   m_ObjectHideFlags: 0

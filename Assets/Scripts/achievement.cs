@@ -13,6 +13,14 @@ public class achievement : MonoBehaviour {
 	void Start () {
 
 	}
+
+	public void reset(){
+		achievement1.GetComponent<Toggle>().isOn = false;
+		achievement2.GetComponent<Toggle>().isOn = false;
+		achievement3.GetComponent<Toggle>().isOn = false;
+		achievement4.GetComponent<Toggle>().isOn = false;
+	}
+		
 	
 	// Update is called once per frame
 	void Update () {
