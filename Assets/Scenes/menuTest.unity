@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &48650221
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2864,11 +2864,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 11b9f7f8509ab6140aa0816e6a9861a5, type: 3}
-    m_FontSize: 40
+    m_FontSize: 53
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 55
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3269,8 +3269,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 29.3}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 33.5}
+  m_SizeDelta: {x: 154.88, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &634377962
 MonoBehaviour:
@@ -4738,7 +4738,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -33.6}
+  m_AnchoredPosition: {x: 0, y: -28}
   m_SizeDelta: {x: 94, y: 109.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975544084
@@ -5555,7 +5555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1275141480
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5864,11 +5864,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 11b9f7f8509ab6140aa0816e6a9861a5, type: 3}
-    m_FontSize: 40
+    m_FontSize: 53
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 55
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -6639,11 +6639,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 11b9f7f8509ab6140aa0816e6a9861a5, type: 3}
-    m_FontSize: 40
+    m_FontSize: 53
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 55
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -7293,7 +7293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1559912220
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8374,11 +8374,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 11b9f7f8509ab6140aa0816e6a9861a5, type: 3}
-    m_FontSize: 40
+    m_FontSize: 53
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 55
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -10406,8 +10406,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2499924, y: -26.1}
-  m_SizeDelta: {x: 500.7, y: 956.6}
+  m_AnchoredPosition: {x: 2.2, y: -0.4}
+  m_SizeDelta: {x: 501.95, y: 1001.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106550728
 MonoBehaviour:
@@ -10441,10 +10441,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Credits \n\nDesigners\nDylan Hopper\nLiam Peat \nC. Thammanukitcharoen\nMaria
-    Wizbicki\nJason Wong \n\nProject Director\nMaria Wizbicki\n \nProgrammers\t\nC.
-    Thammanukitcharoen\nJason Wong \n\nArtist\t\t\nC. Thammanukitcharoen\n\nAudio\nLiam
-    Peat"
+  m_Text: " Credits \n\n Designers\n Dylan Hopper\n Liam Peat \n C. Thammanukitcharoen\n
+    Maria Wizbicki\n Jason Wong \n\n Project Director\n Maria Wizbicki\n \n Programmers\t\n
+    C. Thammanukitcharoen\n Jason Wong \n\n Artist\t\t\n C. Thammanukitcharoen\n\n
+    Audio\n Liam Peat\n\n Thank you for playing"
 --- !u!222 &2106550729
 CanvasRenderer:
   m_ObjectHideFlags: 0
