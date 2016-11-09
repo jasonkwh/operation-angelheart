@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4368103, g: 0.48440862, b: 0.56459606, a: 1}
+  m_IndirectSpecularColor: {r: 0.43681014, g: 0.48440832, b: 0.56459594, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -10442,8 +10442,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: " Credits \n\n Designers\n Dylan Hopper\n Liam Peat \n C. Thammanukitcharoen\n
-    Maria Wizbicki\n Jason Wong \n\n Project Director\n Maria Wizbicki\n \n Programmers\t\n
-    C. Thammanukitcharoen\n Jason Wong \n\n Artist\t\t\n C. Thammanukitcharoen\n\n
+    Maria Wizbicki\n Jason Huang\n\n Project Director\n Maria Wizbicki\n \n Programmers\t\n
+    C. Thammanukitcharoen\n Jason Huang\n\n Artist\t\t\n C. Thammanukitcharoen\n\n
     Audio\n Liam Peat\n\n Thank you for playing"
 --- !u!222 &2106550729
 CanvasRenderer:
