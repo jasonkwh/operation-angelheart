@@ -12,13 +12,6 @@ public class PatrollingAI : MonoBehaviour {
     public Vector3 MoveDirection;
     public Vector3 Velocity;
 
-
-
-    // Use this for initialization
-    void Start () {
-    }
-	
-
 	// Update is called once per frame
 	void Update () {
 	    if(curWayPoint < Waypoints.Length)

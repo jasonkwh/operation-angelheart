@@ -5,11 +5,6 @@ public class AreaCollider : MonoBehaviour {
 
     public AiCatNewArea cat;
     public bool potInArea;
-
-	// Use this for initialization
-	void Start () {
-
-	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {

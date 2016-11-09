@@ -9,11 +9,6 @@ public class tutBox : MonoBehaviour {
 	void Start () {
         textBox.SetActive(false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     void OnTriggerEnter (Collider other)
     {

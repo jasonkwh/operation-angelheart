@@ -9,11 +9,6 @@ public class achievement : MonoBehaviour {
 	public GameObject achievement3;
 	public GameObject achievement4;
 
-	// Use this for initialization
-	void Start () {
-
-	}
-
 	public void reset(){
 		achievement1.GetComponent<Toggle>().isOn = false;
 		achievement2.GetComponent<Toggle>().isOn = false;
